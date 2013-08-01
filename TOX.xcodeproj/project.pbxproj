@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		098CCCEA1DC94F44A2D6CFFA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19AEB1446C6744D3B3722C66 /* libPods.a */; };
 		65C1275317A75A2300F085EE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C1275217A75A2300F085EE /* Cocoa.framework */; };
 		65C1275D17A75A2300F085EE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65C1275B17A75A2300F085EE /* InfoPlist.strings */; };
 		65C1275F17A75A2300F085EE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C1275E17A75A2300F085EE /* main.m */; };
@@ -17,6 +18,37 @@
 		65C1277217A75A2300F085EE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C1275217A75A2300F085EE /* Cocoa.framework */; };
 		65C1277A17A75A2300F085EE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65C1277817A75A2300F085EE /* InfoPlist.strings */; };
 		65C1277D17A75A2300F085EE /* TOXTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C1277C17A75A2300F085EE /* TOXTests.m */; };
+		65E3E7DE17AA7D70000EB29B /* DHT.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7D017AA7D70000EB29B /* DHT.c */; };
+		65E3E7DF17AA7D70000EB29B /* friend_requests.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7D217AA7D70000EB29B /* friend_requests.c */; };
+		65E3E7E017AA7D70000EB29B /* LAN_discovery.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7D417AA7D70000EB29B /* LAN_discovery.c */; };
+		65E3E7E117AA7D70000EB29B /* Lossless_UDP.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7D617AA7D70000EB29B /* Lossless_UDP.c */; };
+		65E3E7E217AA7D70000EB29B /* Messenger.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7D817AA7D70000EB29B /* Messenger.c */; };
+		65E3E7E317AA7D70000EB29B /* net_crypto.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7DA17AA7D70000EB29B /* net_crypto.c */; };
+		65E3E7E417AA7D70000EB29B /* network.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7DC17AA7D70000EB29B /* network.c */; };
+		65E3E7F417AA8018000EB29B /* nTox.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7F217AA8018000EB29B /* nTox.c */; };
+		65E3E7F517AA802F000EB29B /* DHT.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7D017AA7D70000EB29B /* DHT.c */; };
+		65E3E7F617AA802F000EB29B /* friend_requests.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7D217AA7D70000EB29B /* friend_requests.c */; };
+		65E3E7F717AA802F000EB29B /* LAN_discovery.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7D417AA7D70000EB29B /* LAN_discovery.c */; };
+		65E3E7F817AA802F000EB29B /* Lossless_UDP.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7D617AA7D70000EB29B /* Lossless_UDP.c */; };
+		65E3E7F917AA802F000EB29B /* Messenger.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7D817AA7D70000EB29B /* Messenger.c */; };
+		65E3E7FA17AA802F000EB29B /* net_crypto.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7DA17AA7D70000EB29B /* net_crypto.c */; };
+		65E3E7FB17AA802F000EB29B /* network.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7DC17AA7D70000EB29B /* network.c */; };
+		65E3E7FC17AA8039000EB29B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19AEB1446C6744D3B3722C66 /* libPods.a */; };
+		65E3E80017AA80DE000EB29B /* misc_tools.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7FE17AA80DE000EB29B /* misc_tools.c */; };
+		65E3E80217AA8135000EB29B /* libncurses.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 65E3E80117AA8135000EB29B /* libncurses.dylib */; };
+		65E3E81517AA81CE000EB29B /* chat.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E81017AA81CE000EB29B /* chat.c */; };
+		65E3E81617AA81CE000EB29B /* friendlist.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E81117AA81CE000EB29B /* friendlist.c */; };
+		65E3E81717AA81CE000EB29B /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E81217AA81CE000EB29B /* main.c */; };
+		65E3E81817AA81CE000EB29B /* prompt.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E81317AA81CE000EB29B /* prompt.c */; };
+		65E3E81917AA81EA000EB29B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19AEB1446C6744D3B3722C66 /* libPods.a */; };
+		65E3E81A17AA81F1000EB29B /* libncurses.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 65E3E80117AA8135000EB29B /* libncurses.dylib */; };
+		65E3E81B17AA8202000EB29B /* DHT.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7D017AA7D70000EB29B /* DHT.c */; };
+		65E3E81C17AA8202000EB29B /* friend_requests.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7D217AA7D70000EB29B /* friend_requests.c */; };
+		65E3E81D17AA8202000EB29B /* LAN_discovery.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7D417AA7D70000EB29B /* LAN_discovery.c */; };
+		65E3E81E17AA8202000EB29B /* Lossless_UDP.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7D617AA7D70000EB29B /* Lossless_UDP.c */; };
+		65E3E81F17AA8202000EB29B /* Messenger.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7D817AA7D70000EB29B /* Messenger.c */; };
+		65E3E82017AA8202000EB29B /* net_crypto.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7DA17AA7D70000EB29B /* net_crypto.c */; };
+		65E3E82117AA8202000EB29B /* network.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7DC17AA7D70000EB29B /* network.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,7 +61,29 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		65E3E7E717AA7FEB000EB29B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		65E3E80517AA81AD000EB29B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		19AEB1446C6744D3B3722C66 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		65C1274F17A75A2300F085EE /* TOX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TOX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65C1275217A75A2300F085EE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		65C1275517A75A2300F085EE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -49,6 +103,33 @@
 		65C1277917A75A2300F085EE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		65C1277B17A75A2300F085EE /* TOXTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOXTests.h; sourceTree = "<group>"; };
 		65C1277C17A75A2300F085EE /* TOXTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOXTests.m; sourceTree = "<group>"; };
+		65E3E7D017AA7D70000EB29B /* DHT.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = DHT.c; path = "ProjectTox-Core/core/DHT.c"; sourceTree = "<group>"; };
+		65E3E7D117AA7D70000EB29B /* DHT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DHT.h; path = "ProjectTox-Core/core/DHT.h"; sourceTree = "<group>"; };
+		65E3E7D217AA7D70000EB29B /* friend_requests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = friend_requests.c; path = "ProjectTox-Core/core/friend_requests.c"; sourceTree = "<group>"; };
+		65E3E7D317AA7D70000EB29B /* friend_requests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = friend_requests.h; path = "ProjectTox-Core/core/friend_requests.h"; sourceTree = "<group>"; };
+		65E3E7D417AA7D70000EB29B /* LAN_discovery.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = LAN_discovery.c; path = "ProjectTox-Core/core/LAN_discovery.c"; sourceTree = "<group>"; };
+		65E3E7D517AA7D70000EB29B /* LAN_discovery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LAN_discovery.h; path = "ProjectTox-Core/core/LAN_discovery.h"; sourceTree = "<group>"; };
+		65E3E7D617AA7D70000EB29B /* Lossless_UDP.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Lossless_UDP.c; path = "ProjectTox-Core/core/Lossless_UDP.c"; sourceTree = "<group>"; };
+		65E3E7D717AA7D70000EB29B /* Lossless_UDP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Lossless_UDP.h; path = "ProjectTox-Core/core/Lossless_UDP.h"; sourceTree = "<group>"; };
+		65E3E7D817AA7D70000EB29B /* Messenger.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Messenger.c; path = "ProjectTox-Core/core/Messenger.c"; sourceTree = "<group>"; };
+		65E3E7D917AA7D70000EB29B /* Messenger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Messenger.h; path = "ProjectTox-Core/core/Messenger.h"; sourceTree = "<group>"; };
+		65E3E7DA17AA7D70000EB29B /* net_crypto.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = net_crypto.c; path = "ProjectTox-Core/core/net_crypto.c"; sourceTree = "<group>"; };
+		65E3E7DB17AA7D70000EB29B /* net_crypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = net_crypto.h; path = "ProjectTox-Core/core/net_crypto.h"; sourceTree = "<group>"; };
+		65E3E7DC17AA7D70000EB29B /* network.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = network.c; path = "ProjectTox-Core/core/network.c"; sourceTree = "<group>"; };
+		65E3E7DD17AA7D70000EB29B /* network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = network.h; path = "ProjectTox-Core/core/network.h"; sourceTree = "<group>"; };
+		65E3E7E917AA7FEB000EB29B /* nTox */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = nTox; sourceTree = BUILT_PRODUCTS_DIR; };
+		65E3E7F217AA8018000EB29B /* nTox.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = nTox.c; path = "ProjectTox-Core/testing/nTox.c"; sourceTree = SOURCE_ROOT; };
+		65E3E7F317AA8018000EB29B /* nTox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nTox.h; path = "ProjectTox-Core/testing/nTox.h"; sourceTree = SOURCE_ROOT; };
+		65E3E7FE17AA80DE000EB29B /* misc_tools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = misc_tools.c; path = "ProjectTox-Core/testing/misc_tools.c"; sourceTree = "<group>"; };
+		65E3E7FF17AA80DE000EB29B /* misc_tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = misc_tools.h; path = "ProjectTox-Core/testing/misc_tools.h"; sourceTree = "<group>"; };
+		65E3E80117AA8135000EB29B /* libncurses.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libncurses.dylib; path = usr/lib/libncurses.dylib; sourceTree = SDKROOT; };
+		65E3E80717AA81AD000EB29B /* toxic */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = toxic; sourceTree = BUILT_PRODUCTS_DIR; };
+		65E3E81017AA81CE000EB29B /* chat.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = chat.c; path = "ProjectTox-Core/testing/toxic/chat.c"; sourceTree = SOURCE_ROOT; };
+		65E3E81117AA81CE000EB29B /* friendlist.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = friendlist.c; path = "ProjectTox-Core/testing/toxic/friendlist.c"; sourceTree = SOURCE_ROOT; };
+		65E3E81217AA81CE000EB29B /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = main.c; path = "ProjectTox-Core/testing/toxic/main.c"; sourceTree = SOURCE_ROOT; };
+		65E3E81317AA81CE000EB29B /* prompt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = prompt.c; path = "ProjectTox-Core/testing/toxic/prompt.c"; sourceTree = SOURCE_ROOT; };
+		65E3E81417AA81CE000EB29B /* windows.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = windows.h; path = "ProjectTox-Core/testing/toxic/windows.h"; sourceTree = SOURCE_ROOT; };
+		82D318FE8A804A01AFB1A67B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65C1275317A75A2300F085EE /* Cocoa.framework in Frameworks */,
+				098CCCEA1DC94F44A2D6CFFA /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,16 +151,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		65E3E7E617AA7FEB000EB29B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65E3E80217AA8135000EB29B /* libncurses.dylib in Frameworks */,
+				65E3E7FC17AA8039000EB29B /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65E3E80417AA81AD000EB29B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65E3E81A17AA81F1000EB29B /* libncurses.dylib in Frameworks */,
+				65E3E81917AA81EA000EB29B /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		65C1274617A75A2300F085EE = {
 			isa = PBXGroup;
 			children = (
+				65E3E7CE17AA7D53000EB29B /* Project-TOX */,
 				65C1275817A75A2300F085EE /* TOX */,
 				65C1277517A75A2300F085EE /* TOXTests */,
 				65C1275117A75A2300F085EE /* Frameworks */,
 				65C1275017A75A2300F085EE /* Products */,
+				82D318FE8A804A01AFB1A67B /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,6 +189,8 @@
 			children = (
 				65C1274F17A75A2300F085EE /* TOX.app */,
 				65C1276F17A75A2300F085EE /* TOXTests.octest */,
+				65E3E7E917AA7FEB000EB29B /* nTox */,
+				65E3E80717AA81AD000EB29B /* toxic */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -97,6 +201,8 @@
 				65C1275217A75A2300F085EE /* Cocoa.framework */,
 				65C1277017A75A2300F085EE /* SenTestingKit.framework */,
 				65C1275417A75A2300F085EE /* Other Frameworks */,
+				19AEB1446C6744D3B3722C66 /* libPods.a */,
+				65E3E80117AA8135000EB29B /* libncurses.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -153,6 +259,68 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		65E3E7CE17AA7D53000EB29B /* Project-TOX */ = {
+			isa = PBXGroup;
+			children = (
+				65E3E80817AA81AD000EB29B /* toxic */,
+				65E3E7FD17AA80C9000EB29B /* Stuff */,
+				65E3E7EA17AA7FEB000EB29B /* nTox */,
+				65E3E7CF17AA7D5D000EB29B /* Core */,
+			);
+			name = "Project-TOX";
+			sourceTree = "<group>";
+		};
+		65E3E7CF17AA7D5D000EB29B /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				65E3E7D017AA7D70000EB29B /* DHT.c */,
+				65E3E7D117AA7D70000EB29B /* DHT.h */,
+				65E3E7D217AA7D70000EB29B /* friend_requests.c */,
+				65E3E7D317AA7D70000EB29B /* friend_requests.h */,
+				65E3E7D417AA7D70000EB29B /* LAN_discovery.c */,
+				65E3E7D517AA7D70000EB29B /* LAN_discovery.h */,
+				65E3E7D617AA7D70000EB29B /* Lossless_UDP.c */,
+				65E3E7D717AA7D70000EB29B /* Lossless_UDP.h */,
+				65E3E7D817AA7D70000EB29B /* Messenger.c */,
+				65E3E7D917AA7D70000EB29B /* Messenger.h */,
+				65E3E7DA17AA7D70000EB29B /* net_crypto.c */,
+				65E3E7DB17AA7D70000EB29B /* net_crypto.h */,
+				65E3E7DC17AA7D70000EB29B /* network.c */,
+				65E3E7DD17AA7D70000EB29B /* network.h */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		65E3E7EA17AA7FEB000EB29B /* nTox */ = {
+			isa = PBXGroup;
+			children = (
+				65E3E7F217AA8018000EB29B /* nTox.c */,
+				65E3E7F317AA8018000EB29B /* nTox.h */,
+			);
+			path = nTox;
+			sourceTree = "<group>";
+		};
+		65E3E7FD17AA80C9000EB29B /* Stuff */ = {
+			isa = PBXGroup;
+			children = (
+				65E3E7FE17AA80DE000EB29B /* misc_tools.c */,
+				65E3E7FF17AA80DE000EB29B /* misc_tools.h */,
+			);
+			name = Stuff;
+			sourceTree = "<group>";
+		};
+		65E3E80817AA81AD000EB29B /* toxic */ = {
+			isa = PBXGroup;
+			children = (
+				65E3E81017AA81CE000EB29B /* chat.c */,
+				65E3E81117AA81CE000EB29B /* friendlist.c */,
+				65E3E81217AA81CE000EB29B /* main.c */,
+				65E3E81317AA81CE000EB29B /* prompt.c */,
+				65E3E81417AA81CE000EB29B /* windows.h */,
+			);
+			path = toxic;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -160,9 +328,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65C1278017A75A2300F085EE /* Build configuration list for PBXNativeTarget "TOX" */;
 			buildPhases = (
+				0F05B66B17A2431BBB3DF101 /* Check Pods Manifest.lock */,
 				65C1274B17A75A2300F085EE /* Sources */,
 				65C1274C17A75A2300F085EE /* Frameworks */,
 				65C1274D17A75A2300F085EE /* Resources */,
+				8AED0E44AB064AEBA24F00E8 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -192,6 +362,40 @@
 			productReference = 65C1276F17A75A2300F085EE /* TOXTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
+		65E3E7E817AA7FEB000EB29B /* nTox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65E3E7F117AA7FEC000EB29B /* Build configuration list for PBXNativeTarget "nTox" */;
+			buildPhases = (
+				65E3E7E517AA7FEB000EB29B /* Sources */,
+				65E3E7E617AA7FEB000EB29B /* Frameworks */,
+				65E3E7E717AA7FEB000EB29B /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = nTox;
+			productName = nTox;
+			productReference = 65E3E7E917AA7FEB000EB29B /* nTox */;
+			productType = "com.apple.product-type.tool";
+		};
+		65E3E80617AA81AD000EB29B /* toxic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65E3E80D17AA81AD000EB29B /* Build configuration list for PBXNativeTarget "toxic" */;
+			buildPhases = (
+				65E3E80317AA81AD000EB29B /* Sources */,
+				65E3E80417AA81AD000EB29B /* Frameworks */,
+				65E3E80517AA81AD000EB29B /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = toxic;
+			productName = toxic;
+			productReference = 65E3E80717AA81AD000EB29B /* toxic */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -216,6 +420,8 @@
 			targets = (
 				65C1274E17A75A2300F085EE /* TOX */,
 				65C1276E17A75A2300F085EE /* TOXTests */,
+				65E3E7E817AA7FEB000EB29B /* nTox */,
+				65E3E80617AA81AD000EB29B /* toxic */,
 			);
 		};
 /* End PBXProject section */
@@ -242,6 +448,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0F05B66B17A2431BBB3DF101 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		65C1276D17A75A2300F085EE /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -255,6 +476,21 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
+		8AED0E44AB064AEBA24F00E8 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -264,6 +500,13 @@
 			files = (
 				65C1275F17A75A2300F085EE /* main.m in Sources */,
 				65C1276617A75A2300F085EE /* TAppDelegate.m in Sources */,
+				65E3E7DE17AA7D70000EB29B /* DHT.c in Sources */,
+				65E3E7DF17AA7D70000EB29B /* friend_requests.c in Sources */,
+				65E3E7E017AA7D70000EB29B /* LAN_discovery.c in Sources */,
+				65E3E7E117AA7D70000EB29B /* Lossless_UDP.c in Sources */,
+				65E3E7E217AA7D70000EB29B /* Messenger.c in Sources */,
+				65E3E7E317AA7D70000EB29B /* net_crypto.c in Sources */,
+				65E3E7E417AA7D70000EB29B /* network.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +515,40 @@
 			buildActionMask = 2147483647;
 			files = (
 				65C1277D17A75A2300F085EE /* TOXTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65E3E7E517AA7FEB000EB29B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65E3E7F517AA802F000EB29B /* DHT.c in Sources */,
+				65E3E7F617AA802F000EB29B /* friend_requests.c in Sources */,
+				65E3E7F717AA802F000EB29B /* LAN_discovery.c in Sources */,
+				65E3E7F817AA802F000EB29B /* Lossless_UDP.c in Sources */,
+				65E3E7F917AA802F000EB29B /* Messenger.c in Sources */,
+				65E3E7FA17AA802F000EB29B /* net_crypto.c in Sources */,
+				65E3E7FB17AA802F000EB29B /* network.c in Sources */,
+				65E3E7F417AA8018000EB29B /* nTox.c in Sources */,
+				65E3E80017AA80DE000EB29B /* misc_tools.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65E3E80317AA81AD000EB29B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65E3E81B17AA8202000EB29B /* DHT.c in Sources */,
+				65E3E81C17AA8202000EB29B /* friend_requests.c in Sources */,
+				65E3E81D17AA8202000EB29B /* LAN_discovery.c in Sources */,
+				65E3E81E17AA8202000EB29B /* Lossless_UDP.c in Sources */,
+				65E3E81F17AA8202000EB29B /* Messenger.c in Sources */,
+				65E3E82017AA8202000EB29B /* net_crypto.c in Sources */,
+				65E3E82117AA8202000EB29B /* network.c in Sources */,
+				65E3E81517AA81CE000EB29B /* chat.c in Sources */,
+				65E3E81617AA81CE000EB29B /* friendlist.c in Sources */,
+				65E3E81717AA81CE000EB29B /* main.c in Sources */,
+				65E3E81817AA81CE000EB29B /* prompt.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,15 +616,13 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "${SRCROOT}/Pods/**";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -375,6 +650,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "${SRCROOT}/Pods/**";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				SDKROOT = macosx;
 			};
@@ -382,6 +658,7 @@
 		};
 		65C1278117A75A2300F085EE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82D318FE8A804A01AFB1A67B /* Pods.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -394,6 +671,7 @@
 		};
 		65C1278217A75A2300F085EE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82D318FE8A804A01AFB1A67B /* Pods.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -434,6 +712,36 @@
 			};
 			name = Release;
 		};
+		65E3E7EF17AA7FEC000EB29B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		65E3E7F017AA7FEC000EB29B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		65E3E80E17AA81AD000EB29B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		65E3E80F17AA81AD000EB29B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -453,12 +761,30 @@
 				65C1278217A75A2300F085EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		65C1278317A75A2300F085EE /* Build configuration list for PBXNativeTarget "TOXTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				65C1278417A75A2300F085EE /* Debug */,
 				65C1278517A75A2300F085EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65E3E7F117AA7FEC000EB29B /* Build configuration list for PBXNativeTarget "nTox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65E3E7EF17AA7FEC000EB29B /* Debug */,
+				65E3E7F017AA7FEC000EB29B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		65E3E80D17AA81AD000EB29B /* Build configuration list for PBXNativeTarget "toxic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65E3E80E17AA81AD000EB29B /* Debug */,
+				65E3E80F17AA81AD000EB29B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
