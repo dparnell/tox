@@ -50,6 +50,8 @@
 		65E3E82017AA8202000EB29B /* net_crypto.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7DA17AA7D70000EB29B /* net_crypto.c */; };
 		65E3E82117AA8202000EB29B /* network.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7DC17AA7D70000EB29B /* network.c */; };
 		65E3E82817ABC99F000EB29B /* ToxCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E82717ABC99F000EB29B /* ToxCore.m */; };
+		65E3E82E17ABDC02000EB29B /* tox.png in Resources */ = {isa = PBXBuildFile; fileRef = 65E3E82D17ABDC02000EB29B /* tox.png */; };
+		65E3E83017ABDE70000EB29B /* tox.icns in Resources */ = {isa = PBXBuildFile; fileRef = 65E3E82F17ABDE70000EB29B /* tox.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +134,8 @@
 		65E3E81417AA81CE000EB29B /* windows.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = windows.h; path = "ProjectTox-Core/testing/toxic/windows.h"; sourceTree = SOURCE_ROOT; };
 		65E3E82617ABC99F000EB29B /* ToxCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToxCore.h; sourceTree = "<group>"; };
 		65E3E82717ABC99F000EB29B /* ToxCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToxCore.m; sourceTree = "<group>"; };
+		65E3E82D17ABDC02000EB29B /* tox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tox.png; sourceTree = "<group>"; };
+		65E3E82F17ABDE70000EB29B /* tox.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = tox.icns; sourceTree = "<group>"; };
 		82D318FE8A804A01AFB1A67B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -178,6 +182,7 @@
 		65C1274617A75A2300F085EE = {
 			isa = PBXGroup;
 			children = (
+				65E3E82D17ABDC02000EB29B /* tox.png */,
 				65E3E7CE17AA7D53000EB29B /* Project-TOX */,
 				65C1275817A75A2300F085EE /* TOX */,
 				65C1277517A75A2300F085EE /* TOXTests */,
@@ -223,6 +228,7 @@
 		65C1275817A75A2300F085EE /* TOX */ = {
 			isa = PBXGroup;
 			children = (
+				65E3E82F17ABDE70000EB29B /* tox.icns */,
 				65C1276417A75A2300F085EE /* TAppDelegate.h */,
 				65C1276517A75A2300F085EE /* TAppDelegate.m */,
 				65E3E82617ABC99F000EB29B /* ToxCore.h */,
@@ -439,6 +445,8 @@
 				65C1275D17A75A2300F085EE /* InfoPlist.strings in Resources */,
 				65C1276317A75A2300F085EE /* Credits.rtf in Resources */,
 				65C1276917A75A2300F085EE /* MainMenu.xib in Resources */,
+				65E3E82E17ABDC02000EB29B /* tox.png in Resources */,
+				65E3E83017ABDE70000EB29B /* tox.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
