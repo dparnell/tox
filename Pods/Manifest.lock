@@ -1,10 +1,13 @@
 PODS:
   - libsodium (0.4)
+  - SSKeychain (0.1.4)
 
 DEPENDENCIES:
   - libsodium (~> 0.4)
+  - SSKeychain (~> 0.1.4)
 
 SPEC CHECKSUMS:
   libsodium: 3c17f0b5c6a5a60172cf89806cc0683158e62abb
+  SSKeychain: bae692a4354f48691ca3463a121dc8060f781a7d
 
 COCOAPODS: 0.22.3

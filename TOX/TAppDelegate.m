@@ -7,12 +7,16 @@
 //
 
 #import "TAppDelegate.h"
+#import "ToxCore.h"
 
 @implementation TAppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
+    // Start up the Tox core
+    [[ToxCore instance] start];
+    
+    NSLog(@"public key: %@", [ToxCore instance].public_key);
 }
 
 @end

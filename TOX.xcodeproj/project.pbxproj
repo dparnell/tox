@@ -49,6 +49,7 @@
 		65E3E81F17AA8202000EB29B /* Messenger.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7D817AA7D70000EB29B /* Messenger.c */; };
 		65E3E82017AA8202000EB29B /* net_crypto.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7DA17AA7D70000EB29B /* net_crypto.c */; };
 		65E3E82117AA8202000EB29B /* network.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7DC17AA7D70000EB29B /* network.c */; };
+		65E3E82817ABC99F000EB29B /* ToxCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E82717ABC99F000EB29B /* ToxCore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +130,8 @@
 		65E3E81217AA81CE000EB29B /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = main.c; path = "ProjectTox-Core/testing/toxic/main.c"; sourceTree = SOURCE_ROOT; };
 		65E3E81317AA81CE000EB29B /* prompt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = prompt.c; path = "ProjectTox-Core/testing/toxic/prompt.c"; sourceTree = SOURCE_ROOT; };
 		65E3E81417AA81CE000EB29B /* windows.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = windows.h; path = "ProjectTox-Core/testing/toxic/windows.h"; sourceTree = SOURCE_ROOT; };
+		65E3E82617ABC99F000EB29B /* ToxCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToxCore.h; sourceTree = "<group>"; };
+		65E3E82717ABC99F000EB29B /* ToxCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToxCore.m; sourceTree = "<group>"; };
 		82D318FE8A804A01AFB1A67B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -222,6 +225,8 @@
 			children = (
 				65C1276417A75A2300F085EE /* TAppDelegate.h */,
 				65C1276517A75A2300F085EE /* TAppDelegate.m */,
+				65E3E82617ABC99F000EB29B /* ToxCore.h */,
+				65E3E82717ABC99F000EB29B /* ToxCore.m */,
 				65C1276717A75A2300F085EE /* MainMenu.xib */,
 				65C1275917A75A2300F085EE /* Supporting Files */,
 			);
@@ -507,6 +512,7 @@
 				65E3E7E217AA7D70000EB29B /* Messenger.c in Sources */,
 				65E3E7E317AA7D70000EB29B /* net_crypto.c in Sources */,
 				65E3E7E417AA7D70000EB29B /* network.c in Sources */,
+				65E3E82817ABC99F000EB29B /* ToxCore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,6 +617,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Developer ID Application: Automagic Software Pty Ltd";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -625,6 +632,7 @@
 				HEADER_SEARCH_PATHS = "${SRCROOT}/Pods/**";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -642,6 +650,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Developer ID Application: Automagic Software Pty Ltd";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -652,6 +661,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "${SRCROOT}/Pods/**";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
 			};
 			name = Release;
