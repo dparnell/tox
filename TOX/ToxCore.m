@@ -229,6 +229,26 @@ void on_statuschange(int friendnumber, uint8_t* string, uint16_t length) {
 }
 
 #pragma mark -
+#pragma mark Communication methods
+
+- (int) acceptFriendRequestFrom:(NSString*)client_id error:(NSError**)error {
+    NSString* errorString = nil;
+    
+    NSData* data = [ToxCore dataFromHexString: client_id];
+    if(data) {
+        return m_addfriend_norequest((uint8_t*)[data bytes]);
+    } else {
+        errorString = @"Invalid client_id";
+    }
+    
+    if(error) {
+        *error = [NSError errorWithDomain: kToxErrorDomain code: 0 userInfo: [NSDictionary dictionaryWithObject: errorString forKey: NSLocalizedDescriptionKey]];
+    }
+    return -1;
+}
+
+
+#pragma mark -
 #pragma mark properties
 
 - (NSString*) public_key {

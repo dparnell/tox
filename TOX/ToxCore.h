@@ -31,6 +31,8 @@ extern NSString* kToxNewFriendStatus;
 - (BOOL) start:(NSURL*)url error:(NSError**)error;
 - (void) saveState;
 
+- (int) acceptFriendRequestFrom:(NSString*)client_id error:(NSError**)error;
+
 + (NSData*) dataFromHexString:(NSString*)string;
 
 @property (readonly) NSString* public_key;
