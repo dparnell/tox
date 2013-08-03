@@ -167,6 +167,12 @@ void on_statuschange(int friendnumber, uint8_t* string, uint16_t length) {
 - (BOOL) start:(NSURL*)url error:(NSError**)error{
     NSString* errorString = nil;
     
+    if(timer) {
+        // stop the existing timer
+        [timer invalidate];
+        timer = nil;
+    }
+    
     if([[url scheme] isEqualToString: @"tox"]) {
         NSNumber* port = [url port];
         if(!port) {
