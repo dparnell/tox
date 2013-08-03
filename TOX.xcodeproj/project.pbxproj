@@ -270,8 +270,8 @@
 		65E3E7CE17AA7D53000EB29B /* Project-TOX */ = {
 			isa = PBXGroup;
 			children = (
+				65E3E7FD17AA80C9000EB29B /* tools */,
 				65E3E80817AA81AD000EB29B /* toxic */,
-				65E3E7FD17AA80C9000EB29B /* Stuff */,
 				65E3E7EA17AA7FEB000EB29B /* nTox */,
 				65E3E7CF17AA7D5D000EB29B /* Core */,
 			);
@@ -308,13 +308,13 @@
 			path = nTox;
 			sourceTree = "<group>";
 		};
-		65E3E7FD17AA80C9000EB29B /* Stuff */ = {
+		65E3E7FD17AA80C9000EB29B /* tools */ = {
 			isa = PBXGroup;
 			children = (
 				65E3E7FE17AA80DE000EB29B /* misc_tools.c */,
 				65E3E7FF17AA80DE000EB29B /* misc_tools.h */,
 			);
-			name = Stuff;
+			name = tools;
 			sourceTree = "<group>";
 		};
 		65E3E80817AA81AD000EB29B /* toxic */ = {

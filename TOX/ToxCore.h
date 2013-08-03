@@ -8,13 +8,32 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString* kToxErrorDomain;
+
+extern NSString* kToxConnected;
+extern NSString* kToxDisconnected;
+
+extern NSString* kToxFriendRequest;
+extern NSString* kToxMessage;
+extern NSString* kToxFriendNickChanged;
+extern NSString* kToxFriendStatusChanged;
+
+extern NSString* kToxPublicKey;
+extern NSString* kToxMessageString;
+extern NSString* kToxFriendNumber;
+extern NSString* kToxNewFriendNick;
+extern NSString* kToxNewFriendStatus;
+
 @interface ToxCore : NSObject
 
 + (ToxCore*) instance;
 
-- (void) start;
+- (BOOL) start:(NSURL*)url error:(NSError**)error;
+- (void) saveState;
 
-@property (readonly) NSData* key;
++ (NSData*) dataFromHexString:(NSString*)string;
+
 @property (readonly) NSString* public_key;
+@property (readonly) BOOL connected;
 
 @end
