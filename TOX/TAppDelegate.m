@@ -15,8 +15,12 @@
 #pragma mark Delegate methods
 
 - (void) awakeFromNib {
+    NSString *localizedPath = [[NSBundle mainBundle] pathForResource: @"Defaults" ofType:@"plist"];
+    NSData* plistData = [NSData dataWithContentsOfFile:localizedPath];
+
+    NSDictionary* dict = [NSPropertyListSerialization propertyListWithData: plistData options: NSPropertyListImmutable format: nil error: nil];
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    [defaults registerDefaults: [NSDictionary dictionaryWithObjectsAndKeys: [NSArray arrayWithObjects: @"Online", @"Busy", @"Away", nil], @"Status History", nil]];
+    [defaults registerDefaults: dict];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification

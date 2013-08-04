@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		098CCCEA1DC94F44A2D6CFFA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19AEB1446C6744D3B3722C66 /* libPods.a */; };
+		652551BF17AE047400C1FC5B /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 652551BE17AE047400C1FC5B /* Defaults.plist */; };
+		652551C117AE098F00C1FC5B /* online.png in Resources */ = {isa = PBXBuildFile; fileRef = 652551C017AE098F00C1FC5B /* online.png */; };
+		652551C317AE09D300C1FC5B /* busy.png in Resources */ = {isa = PBXBuildFile; fileRef = 652551C217AE09D300C1FC5B /* busy.png */; };
+		652551C517AE0A2100C1FC5B /* offline.png in Resources */ = {isa = PBXBuildFile; fileRef = 652551C417AE0A2100C1FC5B /* offline.png */; };
 		65C1275317A75A2300F085EE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C1275217A75A2300F085EE /* Cocoa.framework */; };
 		65C1275D17A75A2300F085EE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65C1275B17A75A2300F085EE /* InfoPlist.strings */; };
 		65C1275F17A75A2300F085EE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C1275E17A75A2300F085EE /* main.m */; };
@@ -90,6 +94,10 @@
 
 /* Begin PBXFileReference section */
 		19AEB1446C6744D3B3722C66 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		652551BE17AE047400C1FC5B /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
+		652551C017AE098F00C1FC5B /* online.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = online.png; sourceTree = "<group>"; };
+		652551C217AE09D300C1FC5B /* busy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = busy.png; sourceTree = "<group>"; };
+		652551C417AE0A2100C1FC5B /* offline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = offline.png; sourceTree = "<group>"; };
 		65C1274F17A75A2300F085EE /* TOX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TOX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65C1275217A75A2300F085EE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		65C1275517A75A2300F085EE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -349,8 +357,12 @@
 		65E3E83617AC9CF7000EB29B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				652551C417AE0A2100C1FC5B /* offline.png */,
+				652551C217AE09D300C1FC5B /* busy.png */,
+				652551C017AE098F00C1FC5B /* online.png */,
 				65E3E83317AC9CEB000EB29B /* ToxFriendRequest.xib */,
 				65C1276717A75A2300F085EE /* MainMenu.xib */,
+				652551BE17AE047400C1FC5B /* Defaults.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -470,6 +482,10 @@
 				65C1276917A75A2300F085EE /* MainMenu.xib in Resources */,
 				65E3E83017ABDE70000EB29B /* tox.icns in Resources */,
 				65E3E83517AC9CEB000EB29B /* ToxFriendRequest.xib in Resources */,
+				652551BF17AE047400C1FC5B /* Defaults.plist in Resources */,
+				652551C117AE098F00C1FC5B /* online.png in Resources */,
+				652551C317AE09D300C1FC5B /* busy.png in Resources */,
+				652551C517AE0A2100C1FC5B /* offline.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -823,6 +839,7 @@
 				65E3E7F017AA7FEC000EB29B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		65E3E80D17AA81AD000EB29B /* Build configuration list for PBXNativeTarget "toxic" */ = {
 			isa = XCConfigurationList;
@@ -831,6 +848,7 @@
 				65E3E80F17AA81AD000EB29B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
