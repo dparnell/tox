@@ -335,6 +335,24 @@ static void on_statuschange(int friendnumber, uint8_t* string, uint16_t length) 
     return [NSString stringWithUTF8String: tmp];
 }
 
+- (void) setUser_status:(NSString *)user_status {
+    const char* utf = [user_status UTF8String];
+    _user_status = user_status;
+    m_set_userstatus((uint8_t*)utf, strlen(utf));
+}
+
+- (NSString*) nick {
+    uint8_t buffer[MAX_NAME_LENGTH+1];
+    int length = getself_name(buffer);
+    NSData* data = [NSData dataWithBytes:buffer length: length];
+    return [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
+}
+
+- (void) setNick:(NSString *)nick {
+    const char* utf = [nick UTF8String];
+    setname((uint8_t*)utf, strlen(utf));
+}
+
 #pragma mark -
 #pragma mark Utility methods
 

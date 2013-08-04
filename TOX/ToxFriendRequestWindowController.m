@@ -72,9 +72,11 @@
 
 - (IBAction) acceptFriendRequest:(id)sender {
     NSError* error = nil;
-    int friend_id = [[ToxCore instance] acceptFriendRequestFrom: _client_id error: &error];
+    ToxCore* core = [ToxCore instance];
+    int friend_id = [core acceptFriendRequestFrom: _client_id error: &error];
     
     if(friend_id >= 0) {
+        [core saveState];
         accepted = YES;
         [self.window close];
     } else {

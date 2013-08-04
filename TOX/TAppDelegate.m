@@ -14,8 +14,18 @@
 #pragma mark -
 #pragma mark Delegate methods
 
+- (void) awakeFromNib {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults registerDefaults: [NSDictionary dictionaryWithObjectsAndKeys: [NSArray arrayWithObjects: @"Online", @"Busy", @"Away", nil], @"Status History", nil]];
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    ToxCore* core = [ToxCore instance];
+    NSString* nick = core.nick;
+    if(nick == nil || nick.length == 0) {
+        // we have no nick, so we need to set one!
+    }
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification {

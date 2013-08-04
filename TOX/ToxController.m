@@ -144,6 +144,14 @@
     [[alert window] orderOut: nil];
 }
 
+#pragma mark -
+#pragma mark properties
+
+- (void) setStatus:(NSString *)status {
+    _status = status;
+    ToxCore* core = [ToxCore instance];
+    core.user_status = status;
+}
 
 
 @end

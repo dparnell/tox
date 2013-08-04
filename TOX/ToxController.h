@@ -13,7 +13,7 @@
 @property (weak) IBOutlet NSWindow* window;
 
 @property (strong) NSString* nick;
-@property (strong) NSString* status;
+@property (strong, nonatomic) NSString* status;
 @property (assign) BOOL connected;
 @property (strong) NSMutableArray* friends;
 

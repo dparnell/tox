@@ -42,5 +42,7 @@ extern NSString* kToxNewFriendStatus;
 
 @property (readonly) NSString* public_key;
 @property (readonly) BOOL connected;
+@property (strong, nonatomic) NSString* user_status;
+@property (copy, nonatomic) NSString* nick;
 
 @end
