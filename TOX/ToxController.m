@@ -181,10 +181,6 @@ static NSDictionary* defaults_dict = nil;
     [conversation addMessage: dict];
 }
 
-
-#pragma mark -
-#pragma mark Alert finished
-
 - (ToxFriend*) friendWithFriendNumber:(int)friend_number {
     NSUInteger index = [_friends indexOfObjectPassingTest:^BOOL(ToxFriend* obj, NSUInteger idx, BOOL *stop) {
         if(obj.friend_number == friend_number) {
@@ -201,8 +197,19 @@ static NSDictionary* defaults_dict = nil;
     return [_friends objectAtIndex: index];
 }
 
+#pragma mark -
+#pragma mark Alert finished
+
 - (void)alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
     [[alert window] orderOut: nil];
+}
+
+#pragma mark -
+#pragma mark Add sheet methods
+
+
+- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
+    [sheet orderOut: self];
 }
 
 #pragma mark -
@@ -238,18 +245,39 @@ static NSDictionary* defaults_dict = nil;
 }
 
 - (IBAction) showConversation:(id)sender {
-    NSUInteger row = _friends_table.selectedRow;
-    ToxFriend* friend = [_friends objectAtIndex: row];
-    int friend_num = friend.friend_number;
-    NSNumber* friend_number = [NSNumber numberWithInt: friend_num];
-    
-    ToxConversationWindowController* conversation = [conversations objectForKey: friend_number];
-    if(conversation == nil) {
-        conversation = [ToxConversationWindowController newWithFriendNumber: friend_num];
-        [conversations setObject: conversation forKey: friend_number];
+    NSInteger row = _friends_table.selectedRow;
+    if(row >= 0) {
+        ToxFriend* friend = [_friends objectAtIndex: row];
+        int friend_num = friend.friend_number;
+        NSNumber* friend_number = [NSNumber numberWithInt: friend_num];
+        
+        ToxConversationWindowController* conversation = [conversations objectForKey: friend_number];
+        if(conversation == nil) {
+            conversation = [ToxConversationWindowController newWithFriendNumber: friend_num];
+            [conversations setObject: conversation forKey: friend_number];
+        }
+        
+        [conversation.window makeKeyAndOrderFront: self];
     }
+}
+
+- (IBAction) addFriend:(id)sender {
+    self.add_public_key = @"";
+    self.add_message = NSLocalizedString(@"I would like to be your friend", @"Friend message");
     
-    [conversation.window makeKeyAndOrderFront: self];
+    [NSApp beginSheet: self.add_panel modalForWindow: self.window modalDelegate: self didEndSelector: @selector(sheetDidEnd:returnCode:contextInfo:) contextInfo: nil];
+}
+
+- (IBAction) performAddFriend:(id)sender {
+    [NSApp endSheet: _add_panel];
+    
+    if([_add_public_key length] == 64) {
+        [[ToxCore instance] sendFriendRequestTo: _add_public_key message: _add_message error: nil];
+    }
+}
+
+- (IBAction) cancelAddFriend:(id)sender {
+    [NSApp endSheet: _add_panel];
 }
 
 @end

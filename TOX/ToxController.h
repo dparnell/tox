@@ -17,17 +17,24 @@
 - (IBAction) copyPublicKeyToClipboard:(id)sender;
 - (IBAction) showMainWindow:(id)sender;
 - (IBAction) showConversation:(id)sender;
+- (IBAction) addFriend:(id)sender;
+- (IBAction) performAddFriend:(id)sender;
+- (IBAction) cancelAddFriend:(id)sender;
 
 - (ToxFriend*) friendWithFriendNumber:(int)friend_number;
 - (void) removeConversionWithFriendNumber:(int)friend_number;
 
 @property (weak) IBOutlet NSWindow* window;
 @property (weak) IBOutlet NSTableView* friends_table;
+@property (strong) IBOutlet NSPanel* add_panel;
 
 @property (strong) NSString* nick;
 @property (strong, nonatomic) NSString* status;
 @property (assign) BOOL connected;
 @property (strong) NSMutableArray* friends;
 @property (strong) NSImage* status_icon;
+
+@property (strong) NSString* add_public_key;
+@property (strong) NSString* add_message;
 
 @end

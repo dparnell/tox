@@ -341,6 +341,32 @@ static void on_statuschange(int friendnumber, uint8_t* string, uint16_t length) 
     return NO;
 }
 
+- (BOOL) sendFriendRequestTo:(NSString*)client_id message:(NSString*)message error:(NSError**)error {
+    NSString* errorString;
+    
+    NSData* data = [ToxCore dataFromHexString: client_id];
+    if(data) {
+        const char* utf = [message UTF8String];
+        
+        int result = m_addfriend((uint8_t*)[data bytes], (uint8_t*)utf, strlen(utf)+1);
+        if(result >= 0) {
+            utf = [NSLocalizedString(@"Pending", @"Pending acceptance") UTF8String];
+            on_statuschange(result, (uint8_t*)utf, strlen(utf)+1);
+            
+            return YES;
+        }
+        
+        errorString = @"Could not add new friend";
+    } else {
+        errorString = @"Invalid client_id";
+    }
+    
+    if(error) {
+        *error = error_from_string(errorString);
+    }
+
+    return NO;
+}
 
 #pragma mark -
 #pragma mark properties

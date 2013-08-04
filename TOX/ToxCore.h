@@ -37,6 +37,7 @@ extern NSString* kToxNewFriendStatus;
 - (NSString*) friendStatus:(int)friend_number error:(NSError**)error;
 - (BOOL) sendMessage:(NSString*)text toFriend:(int)friend_number error:(NSError**)error;
 - (int) friendStatusCode:(int)friend_number;
+- (BOOL) sendFriendRequestTo:(NSString*)client_id message:(NSString*)message error:(NSError**)error;
 
 - (int) acceptFriendRequestFrom:(NSString*)client_id error:(NSError**)error;
 
