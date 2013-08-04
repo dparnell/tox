@@ -13,6 +13,18 @@
 
 @implementation ToxController
 
+static NSDictionary* defaults_dict = nil;
++ (NSDictionary*) defaultValues {
+    if(defaults_dict == nil) {
+        NSString *localizedPath = [[NSBundle mainBundle] pathForResource: @"Defaults" ofType:@"plist"];
+        NSData* plistData = [NSData dataWithContentsOfFile:localizedPath];
+    
+        defaults_dict = [NSPropertyListSerialization propertyListWithData: plistData options: NSPropertyListImmutable format: nil error: nil];
+    }
+    
+    return defaults_dict;
+}
+
 - (id)init
 {
     self = [super init];
@@ -46,12 +58,16 @@
     [center addObserver: self selector: @selector(friendStatusChanged:) name: kToxFriendStatusChanged object: core];
     [center addObserver: self selector: @selector(friendNickChanged:) name: kToxFriendNickChanged object: core];
 
-    if(![core start: [NSURL URLWithString: @"tox://198.46.136.167:33445/728925473812C7AAC482BE7250BCCAD0B8CB9F737BF3D42ABD34459C1768F854"] error: &error]) {
+    NSArray* dht_hosts = [[ToxController defaultValues] objectForKey: @"DHT Bootstrap Hosts"];
+    NSString* dht_host = [dht_hosts objectAtIndex: arc4random() % dht_hosts.count];
+    if(![core start: [NSURL URLWithString: dht_host] error: &error]) {
         [[NSAlert alertWithError: error] beginSheetModalForWindow: self.window
                                                     modalDelegate: self
                                                    didEndSelector: @selector(alertDidEnd:returnCode:contextInfo:)
                                                       contextInfo: nil];
     }
+    
+    [core enumerateFriends];
 }
 
 #pragma mark -
@@ -154,6 +170,15 @@
     _status = status;
     ToxCore* core = [ToxCore instance];
     core.user_status = status;
+}
+
+#pragma mark -
+#pragma mark Actions
+
+- (IBAction) copyPublicKeyToClipboard:(id)sender {
+    NSPasteboard* pb = [NSPasteboard generalPasteboard];
+    [pb clearContents];
+    [pb setString: [[ToxCore instance] public_key] forType: NSPasteboardTypeString];
 }
 
 

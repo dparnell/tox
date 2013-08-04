@@ -321,6 +321,10 @@ static void on_statuschange(int friendnumber, uint8_t* string, uint16_t length) 
     return -1;
 }
 
+- (void) enumerateFriends {
+    enumerate_friends();
+}
+
 
 #pragma mark -
 #pragma mark properties

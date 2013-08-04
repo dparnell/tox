@@ -4,6 +4,10 @@
 <dict>
 	<key>Current Status</key>
 	<string>Online</string>
+	<key>DHT Bootstrap Hosts</key>
+	<array>
+		<string>tox://198.46.136.167:33445/728925473812C7AAC482BE7250BCCAD0B8CB9F737BF3D42ABD34459C1768F854</string>
+	</array>
 	<key>Status History</key>
 	<array>
 		<string>Online</string>

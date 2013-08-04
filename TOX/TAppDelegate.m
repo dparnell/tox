@@ -8,6 +8,8 @@
 
 #import "TAppDelegate.h"
 #import "ToxCore.h"
+#import "ToxController.h"
+#import "ToxWelcomeWindowController.h"
 
 @implementation TAppDelegate
 
@@ -15,20 +17,18 @@
 #pragma mark Delegate methods
 
 - (void) awakeFromNib {
-    NSString *localizedPath = [[NSBundle mainBundle] pathForResource: @"Defaults" ofType:@"plist"];
-    NSData* plistData = [NSData dataWithContentsOfFile:localizedPath];
-
-    NSDictionary* dict = [NSPropertyListSerialization propertyListWithData: plistData options: NSPropertyListImmutable format: nil error: nil];
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    [defaults registerDefaults: dict];
+    [defaults registerDefaults: [ToxController defaultValues]];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    ToxCore* core = [ToxCore instance];
-    NSString* nick = core.nick;
+    NSString* nick = [[NSUserDefaults standardUserDefaults] objectForKey: @"Nickname"];
     if(nick == nil || nick.length == 0) {
         // we have no nick, so we need to set one!
+        [ToxWelcomeWindowController new];
+    } else {
+        [[ToxCore instance] setNick: nick];
     }
 }
 

@@ -34,7 +34,7 @@
         [self didChangeValueForKey: @"message"];
         
         accepted = NO;
-        self_reference = self;
+        self_reference = self;  // SMELL: YUCK!
         [self showWindow: self];
     }
     

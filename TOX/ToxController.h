@@ -10,6 +10,10 @@
 
 @interface ToxController : NSObject
 
++ (NSDictionary*) defaultValues;
+
+- (IBAction) copyPublicKeyToClipboard:(id)sender;
+
 @property (weak) IBOutlet NSWindow* window;
 
 @property (strong) NSString* nick;

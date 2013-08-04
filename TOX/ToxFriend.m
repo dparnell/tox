@@ -25,6 +25,9 @@
             _public_key = client_id;
             _name = [core friendName: friend_number error: nil];
             _status_message = [core friendStatus: friend_number error: nil];
+            if(_name == nil || _name.length == 0) {
+                _name = NSLocalizedString(@"Unknown", @"Unknown user name");
+            }
         }
     
         return self;
