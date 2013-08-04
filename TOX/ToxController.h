@@ -16,5 +16,6 @@
 @property (strong, nonatomic) NSString* status;
 @property (assign) BOOL connected;
 @property (strong) NSMutableArray* friends;
+@property (strong) NSImage* status_icon;
 
 @end

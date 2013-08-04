@@ -18,6 +18,7 @@
     self = [super init];
     if (self) {
         _friends = [NSMutableArray new];
+        _status_icon = [NSImage imageNamed: @"offline"];
     }
     return self;
 }
@@ -62,10 +63,12 @@
 
 - (void) connected:(NSNotification*) notification {
     self.connected = YES;
+    self.status_icon = [NSImage imageNamed: @"online"];
 }
 
 - (void) disconnected:(NSNotification*) notification {
     self.connected = NO;
+    self.status_icon = [NSImage imageNamed: @"offline"];
 }
 
 - (void) gotFriendRequest:(NSNotification*)notifcation {
