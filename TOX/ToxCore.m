@@ -285,6 +285,10 @@ static void on_statuschange(int friendnumber, uint8_t* string, uint16_t length) 
     return nil;
 }
 
+- (int) friendStatusCode:(int)friend_number {
+    return m_friendstatus(friend_number);
+}
+
 - (int) friendNumber:(NSString*)client_id error:(NSError**)error {
     NSString* errorString = nil;
     

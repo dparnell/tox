@@ -37,4 +37,23 @@
     return nil;
 }
 
+- (void) updateStatusImage {
+    [self willChangeValueForKey: @"status_image"];
+    
+    [self didChangeValueForKey: @"status_image"];
+}
+
+#pragma mark -
+#pragma mark Properties
+
+- (NSImage*) status_image {
+    int status = [[ToxCore instance] friendStatusCode: _friend_number];
+    
+    if(status == 4) {
+        return [NSImage imageNamed: @"online"];
+    }
+    
+    return [NSImage imageNamed: @"offline"];
+}
+
 @end

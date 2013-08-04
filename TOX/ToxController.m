@@ -130,6 +130,8 @@ static NSDictionary* defaults_dict = nil;
     } else {
         friend.status_message = status;
     }
+    
+    [friend updateStatusImage];
 }
 
 - (void) friendNickChanged:(NSNotification*)notification {

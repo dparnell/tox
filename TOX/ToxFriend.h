@@ -12,10 +12,13 @@
 
 + (ToxFriend*) newWithFriendNumber:(int)friend_number;
 
+- (void) updateStatusImage;
+
 @property (assign) int friend_number;
 @property (strong) NSString* name;
 @property (strong) NSString* status_message;
 @property (strong) NSString* public_key;
+@property (strong, nonatomic) NSImage* status_image;
 @property (strong) NSImage* picture;
 
 @end
