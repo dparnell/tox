@@ -15,7 +15,11 @@
 
 - (void) addMessage:(NSDictionary*)message;
 
+- (IBAction) sendMessage:(id)sender;
+
 @property (assign) int friend_number;
 @property (strong) ToxFriend* friend;
+@property (strong) NSMutableArray* messages;
+@property (strong) NSString* to_send;
 
 @end

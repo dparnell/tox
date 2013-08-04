@@ -325,6 +325,18 @@ static void on_statuschange(int friendnumber, uint8_t* string, uint16_t length) 
     enumerate_friends();
 }
 
+- (BOOL) sendMessage:(NSString*)text toFriend:(int)friend_number error:(NSError**)error {
+    const char* utf = [text UTF8String];
+    
+    if(m_sendmessage(friend_number, (uint8_t*)utf, (uint32_t)strlen(utf)+1)) {
+        return YES;
+    }
+    if(error) {
+        *error = error_from_string(@"message send failed");
+    }
+    return NO;
+}
+
 
 #pragma mark -
 #pragma mark properties
@@ -342,7 +354,7 @@ static void on_statuschange(int friendnumber, uint8_t* string, uint16_t length) 
 - (void) setUser_status:(NSString *)user_status {
     const char* utf = [user_status UTF8String];
     _user_status = user_status;
-    m_set_userstatus((uint8_t*)utf, strlen(utf));
+    m_set_userstatus((uint8_t*)utf, strlen(utf)+1);
 }
 
 - (NSString*) nick {
@@ -354,7 +366,7 @@ static void on_statuschange(int friendnumber, uint8_t* string, uint16_t length) 
 
 - (void) setNick:(NSString *)nick {
     const char* utf = [nick UTF8String];
-    setname((uint8_t*)utf, strlen(utf));
+    setname((uint8_t*)utf, strlen(utf)+1);
 }
 
 #pragma mark -

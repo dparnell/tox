@@ -16,11 +16,13 @@
 
 - (IBAction) copyPublicKeyToClipboard:(id)sender;
 - (IBAction) showMainWindow:(id)sender;
+- (IBAction) showConversation:(id)sender;
 
 - (ToxFriend*) friendWithFriendNumber:(int)friend_number;
 - (void) removeConversionWithFriendNumber:(int)friend_number;
 
 @property (weak) IBOutlet NSWindow* window;
+@property (weak) IBOutlet NSTableView* friends_table;
 
 @property (strong) NSString* nick;
 @property (strong, nonatomic) NSString* status;

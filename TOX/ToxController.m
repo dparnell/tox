@@ -48,6 +48,9 @@ static NSDictionary* defaults_dict = nil;
 }
 
 - (void) awakeFromNib {
+    _friends_table.target = self;
+    _friends_table.doubleAction = @selector(showConversation:);
+    
     [self start];
 }
 
@@ -173,7 +176,7 @@ static NSDictionary* defaults_dict = nil;
         [conversations setObject: conversation forKey: friend_number];
     }
     
-    
+    [conversation addMessage: dict];
 }
 
 
@@ -232,5 +235,19 @@ static NSDictionary* defaults_dict = nil;
     [self.window makeKeyAndOrderFront: sender];
 }
 
+- (IBAction) showConversation:(id)sender {
+    NSUInteger row = _friends_table.selectedRow;
+    ToxFriend* friend = [_friends objectAtIndex: row];
+    int friend_num = friend.friend_number;
+    NSNumber* friend_number = [NSNumber numberWithInt: friend_num];
+    
+    ToxConversationWindowController* conversation = [conversations objectForKey: friend_number];
+    if(conversation == nil) {
+        conversation = [ToxConversationWindowController newWithFriendNumber: friend_num];
+        [conversations setObject: conversation forKey: friend_number];
+    }
+    
+    [conversation.window makeKeyAndOrderFront: self];
+}
 
 @end

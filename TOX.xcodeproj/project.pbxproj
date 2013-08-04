@@ -63,6 +63,7 @@
 		65E3E84117AE1D41000EB29B /* ToxWelcomeWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65E3E83F17AE1D41000EB29B /* ToxWelcomeWindow.xib */; };
 		65E3E84517AE2D06000EB29B /* ToxConversationWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E84317AE2D05000EB29B /* ToxConversationWindowController.m */; };
 		65E3E84617AE2D06000EB29B /* ToxConversationWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65E3E84417AE2D05000EB29B /* ToxConversationWindow.xib */; };
+		65E3E84917AE3E71000EB29B /* ToxMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E84817AE3E70000EB29B /* ToxMessage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +164,8 @@
 		65E3E84217AE2D05000EB29B /* ToxConversationWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToxConversationWindowController.h; sourceTree = "<group>"; };
 		65E3E84317AE2D05000EB29B /* ToxConversationWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToxConversationWindowController.m; sourceTree = "<group>"; };
 		65E3E84417AE2D05000EB29B /* ToxConversationWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToxConversationWindow.xib; sourceTree = "<group>"; };
+		65E3E84717AE3E70000EB29B /* ToxMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToxMessage.h; sourceTree = "<group>"; };
+		65E3E84817AE3E70000EB29B /* ToxMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToxMessage.m; sourceTree = "<group>"; };
 		82D318FE8A804A01AFB1A67B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -270,6 +273,8 @@
 				65E3E83E17AE1D41000EB29B /* ToxWelcomeWindowController.m */,
 				65E3E84217AE2D05000EB29B /* ToxConversationWindowController.h */,
 				65E3E84317AE2D05000EB29B /* ToxConversationWindowController.m */,
+				65E3E84717AE3E70000EB29B /* ToxMessage.h */,
+				65E3E84817AE3E70000EB29B /* ToxMessage.m */,
 				65C1275917A75A2300F085EE /* Supporting Files */,
 			);
 			path = TOX;
@@ -583,6 +588,7 @@
 				65E3E83C17ADCD68000EB29B /* ToxFriend.m in Sources */,
 				65E3E84017AE1D41000EB29B /* ToxWelcomeWindowController.m in Sources */,
 				65E3E84517AE2D06000EB29B /* ToxConversationWindowController.m in Sources */,
+				65E3E84917AE3E71000EB29B /* ToxMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
