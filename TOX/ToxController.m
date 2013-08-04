@@ -10,8 +10,17 @@
 #import "ToxCore.h"
 #import "ToxFriendRequestWindowController.h"
 #import "ToxFriend.h"
+#import "ToxConversationWindowController.h"
 
-@implementation ToxController
+static ToxController* instance = nil;
+
+@implementation ToxController {
+    NSMutableDictionary* conversations;
+}
+
++ (ToxController*) instance {
+    return instance;
+}
 
 static NSDictionary* defaults_dict = nil;
 + (NSDictionary*) defaultValues {
@@ -29,6 +38,9 @@ static NSDictionary* defaults_dict = nil;
 {
     self = [super init];
     if (self) {
+        instance = self;
+        
+        conversations = [NSMutableDictionary new];
         _friends = [NSMutableArray new];
         _status_icon = [NSImage imageNamed: @"offline"];
     }
@@ -57,6 +69,7 @@ static NSDictionary* defaults_dict = nil;
     [center addObserver: self selector: @selector(gotFriendRequest:) name: kToxFriendRequest object: core];
     [center addObserver: self selector: @selector(friendStatusChanged:) name: kToxFriendStatusChanged object: core];
     [center addObserver: self selector: @selector(friendNickChanged:) name: kToxFriendNickChanged object: core];
+    [center addObserver: self selector: @selector(messageFromFriend:) name: kToxMessage object: core];
 
     NSArray* dht_hosts = [[ToxController defaultValues] objectForKey: @"DHT Bootstrap Hosts"];
     NSString* dht_host = [dht_hosts objectAtIndex: arc4random() % dht_hosts.count];
@@ -99,17 +112,9 @@ static NSDictionary* defaults_dict = nil;
     int friend_num = [[dict objectForKey: kToxFriendNumber] intValue];
     NSString* status = [dict objectForKey: kToxNewFriendStatus];
     
-    ToxFriend* friend;
-    
-    NSUInteger index = [_friends indexOfObjectPassingTest:^BOOL(ToxFriend* obj, NSUInteger idx, BOOL *stop) {
-        if(obj.friend_number == friend_num) {
-            return YES;
-        }
-        
-        return NO;
-    }];
+    ToxFriend* friend = [self friendWithFriendNumber: friend_num];
 
-    if(index == NSNotFound) {
+    if(friend == nil) {
         friend = [ToxFriend newWithFriendNumber: friend_num];
         if(friend) {
             friend.status_message = status;
@@ -120,7 +125,6 @@ static NSDictionary* defaults_dict = nil;
             [self didChange: NSKeyValueChangeInsertion valuesAtIndexes: index_set forKey: @"friends"];
         }
     } else {
-        friend = [_friends objectAtIndex: index];
         friend.status_message = status;
     }
 }
@@ -130,17 +134,9 @@ static NSDictionary* defaults_dict = nil;
     int friend_num = [[dict objectForKey: kToxFriendNumber] intValue];
     NSString* nick = [dict objectForKey: kToxNewFriendNick];
     
-    ToxFriend* friend;
+    ToxFriend* friend = [self friendWithFriendNumber: friend_num];
     
-    NSUInteger index = [_friends indexOfObjectPassingTest:^BOOL(ToxFriend* obj, NSUInteger idx, BOOL *stop) {
-        if(obj.friend_number == friend_num) {
-            return YES;
-        }
-        
-        return NO;
-    }];
-    
-    if(index == NSNotFound) {
+    if(friend == nil) {
         friend = [ToxFriend newWithFriendNumber: friend_num];
         if(friend) {
             friend.name = nick;
@@ -150,18 +146,69 @@ static NSDictionary* defaults_dict = nil;
             [self didChange: NSKeyValueChangeInsertion valuesAtIndexes: index_set forKey: @"friends"];
         }
     } else {
-        friend = [_friends objectAtIndex: index];
         friend.name = nick;
     }
+}
+
+
+- (void) messageFromFriend:(NSNotification*)notification {
+    NSDictionary* dict = [notification userInfo];
+    NSNumber* friend_number = [dict objectForKey: kToxFriendNumber];
+    int friend_num = [friend_number intValue];
+    ToxFriend* friend = [self friendWithFriendNumber: friend_num];
+    
+    if(friend == nil) {
+        friend = [ToxFriend newWithFriendNumber: friend_num];
+        if(friend) {
+            NSIndexSet* index_set = [NSIndexSet indexSetWithIndex: [_friends count]];
+            [self willChange: NSKeyValueChangeInsertion valuesAtIndexes: index_set forKey: @"friends"];
+            [_friends addObject: friend];
+            [self didChange: NSKeyValueChangeInsertion valuesAtIndexes: index_set forKey: @"friends"];
+        }
+    }
+    
+    ToxConversationWindowController* conversation = [conversations objectForKey: friend_number];
+    if(conversation == nil) {
+        conversation = [ToxConversationWindowController newWithFriendNumber: friend_num];
+        [conversations setObject: conversation forKey: friend_number];
+    }
+    
+    
 }
 
 
 #pragma mark -
 #pragma mark Alert finished
 
+- (ToxFriend*) friendWithFriendNumber:(int)friend_number {
+    NSUInteger index = [_friends indexOfObjectPassingTest:^BOOL(ToxFriend* obj, NSUInteger idx, BOOL *stop) {
+        if(obj.friend_number == friend_number) {
+            return YES;
+        }
+        
+        return NO;
+    }];
+    
+    if(index == NSNotFound) {
+        return nil;
+    }
+    
+    return [_friends objectAtIndex: index];
+}
+
 - (void)alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
     [[alert window] orderOut: nil];
 }
+
+#pragma mark -
+#pragma mark Methods
+
+- (void) removeConversionWithFriendNumber:(int)friend_number {
+    NSNumber* key = [NSNumber numberWithInt: friend_number];
+    
+    [conversations removeObjectForKey: key];
+}
+
 
 #pragma mark -
 #pragma mark properties
@@ -179,6 +226,10 @@ static NSDictionary* defaults_dict = nil;
     NSPasteboard* pb = [NSPasteboard generalPasteboard];
     [pb clearContents];
     [pb setString: [[ToxCore instance] public_key] forType: NSPasteboardTypeString];
+}
+
+- (IBAction) showMainWindow:(id)sender {
+    [self.window makeKeyAndOrderFront: sender];
 }
 
 

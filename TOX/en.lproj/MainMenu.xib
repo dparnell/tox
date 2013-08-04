@@ -406,7 +406,7 @@
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
 								</object>
-								<object class="NSMenuItem" id="136390608">
+								<object class="NSMenuItem" id="384061551">
 									<reference key="NSMenu" ref="789758025"/>
 									<bool key="NSIsDisabled">YES</bool>
 									<bool key="NSIsSeparator">YES</bool>
@@ -416,7 +416,7 @@
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
 								</object>
-								<object class="NSMenuItem" id="805175902">
+								<object class="NSMenuItem" id="349101635">
 									<reference key="NSMenu" ref="789758025"/>
 									<string key="NSTitle">Copy Public Key</string>
 									<string key="NSKeyEquiv">C</string>
@@ -762,6 +762,25 @@
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
 								</object>
+								<object class="NSMenuItem" id="977703587">
+									<reference key="NSMenu" ref="835318025"/>
+									<bool key="NSIsDisabled">YES</bool>
+									<bool key="NSIsSeparator">YES</bool>
+									<string key="NSTitle"/>
+									<string key="NSKeyEquiv"/>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="35465992"/>
+									<reference key="NSMixedImage" ref="502551668"/>
+								</object>
+								<object class="NSMenuItem" id="184781759">
+									<reference key="NSMenu" ref="835318025"/>
+									<string key="NSTitle">Main Window</string>
+									<string key="NSKeyEquiv">1</string>
+									<int key="NSKeyEquivModMask">1048576</int>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="35465992"/>
+									<reference key="NSMixedImage" ref="502551668"/>
+								</object>
 								<object class="NSMenuItem" id="299356726">
 									<reference key="NSMenu" ref="835318025"/>
 									<bool key="NSIsDisabled">YES</bool>
@@ -981,11 +1000,11 @@
 												<string key="NSFrameSize">{295, 17}</string>
 												<reference key="NSSuperview" ref="717156712"/>
 												<reference key="NSWindow"/>
-												<reference key="NSNextKeyView" ref="66798994"/>
+												<reference key="NSNextKeyView" ref="364407046"/>
 												<string key="NSReuseIdentifierKey">_NS:16</string>
 												<reference key="NSTableView" ref="1032620571"/>
 											</object>
-											<object class="_NSCornerView" key="NSCornerView" id="66798994">
+											<object class="_NSCornerView" key="NSCornerView" id="364407046">
 												<reference key="NSNextResponder" ref="854935900"/>
 												<int key="NSvFlags">-2147483392</int>
 												<string key="NSFrame">{{224, 0}, {16, 17}}</string>
@@ -1056,7 +1075,6 @@
 													</object>
 													<int key="NSResizingMask">3</int>
 													<bool key="NSIsResizeable">YES</bool>
-													<bool key="NSIsEditable">YES</bool>
 													<reference key="NSTableView" ref="1032620571"/>
 												</object>
 												<object class="NSTableColumn" id="582353762">
@@ -1157,7 +1175,7 @@
 									<reference key="NSBGColor" ref="179429574"/>
 									<int key="NScvFlags">4</int>
 								</object>
-								<reference ref="66798994"/>
+								<reference ref="364407046"/>
 							</array>
 							<string key="NSFrame">{{-1, 35}, {297, 531}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
@@ -1169,7 +1187,7 @@
 							<reference key="NSHScroller" ref="599989898"/>
 							<reference key="NSContentView" ref="1053565704"/>
 							<reference key="NSHeaderClipView" ref="717156712"/>
-							<reference key="NSCornerView" ref="66798994"/>
+							<reference key="NSCornerView" ref="364407046"/>
 							<bytes key="NSScrollAmts">QSAAAEEgAABBmAAAQZgAAA</bytes>
 							<double key="NSMinMagnification">0.25</double>
 							<double key="NSMaxMagnification">4</double>
@@ -1181,7 +1199,6 @@
 							<string key="NSFrame">{{4, 8}, {287, 22}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSSearchFieldCell" key="NSCell" id="465767142">
@@ -1790,9 +1807,17 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">copyPublicKeyToClipboard:</string>
 						<reference key="source" ref="401520872"/>
-						<reference key="destination" ref="805175902"/>
+						<reference key="destination" ref="349101635"/>
 					</object>
 					<int key="connectionID">765</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">showMainWindow:</string>
+						<reference key="source" ref="401520872"/>
+						<reference key="destination" ref="184781759"/>
+					</object>
+					<int key="connectionID">768</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -1999,8 +2024,8 @@
 							<reference ref="507821607"/>
 							<reference ref="288088188"/>
 							<reference ref="82994268"/>
-							<reference ref="805175902"/>
-							<reference ref="136390608"/>
+							<reference ref="349101635"/>
+							<reference ref="384061551"/>
 						</array>
 						<reference key="parent" ref="952259628"/>
 					</object>
@@ -2220,6 +2245,8 @@
 							<reference ref="625202149"/>
 							<reference ref="575023229"/>
 							<reference ref="1011231497"/>
+							<reference ref="977703587"/>
+							<reference ref="184781759"/>
 						</array>
 						<reference key="parent" ref="713487014"/>
 					</object>
@@ -2840,13 +2867,23 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">763</int>
-						<reference key="object" ref="805175902"/>
+						<reference key="object" ref="349101635"/>
 						<reference key="parent" ref="789758025"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">764</int>
-						<reference key="object" ref="136390608"/>
+						<reference key="object" ref="384061551"/>
 						<reference key="parent" ref="789758025"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">766</int>
+						<reference key="object" ref="977703587"/>
+						<reference key="parent" ref="835318025"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">767</int>
+						<reference key="object" ref="184781759"/>
+						<reference key="parent" ref="835318025"/>
 					</object>
 				</array>
 			</object>
@@ -2993,6 +3030,8 @@
 				<string key="759.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="763.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="764.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="766.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="767.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="77.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="78.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="79.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3005,7 +3044,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">765</int>
+			<int key="maxID">768</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3039,17 +3078,20 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">ToxController</string>
 					<string key="superclassName">NSObject</string>
-					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">copyPublicKeyToClipboard:</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">copyPublicKeyToClipboard:</string>
-						<object class="IBActionInfo" key="NS.object.0">
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="copyPublicKeyToClipboard:">id</string>
+						<string key="showMainWindow:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="copyPublicKeyToClipboard:">
 							<string key="name">copyPublicKeyToClipboard:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-					</object>
+						<object class="IBActionInfo" key="showMainWindow:">
+							<string key="name">showMainWindow:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
 					<object class="NSMutableDictionary" key="outlets">
 						<string key="NS.key.0">window</string>
 						<string key="NS.object.0">NSWindow</string>

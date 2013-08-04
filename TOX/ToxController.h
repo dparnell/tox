@@ -7,12 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ToxFriend.h"
 
 @interface ToxController : NSObject
 
 + (NSDictionary*) defaultValues;
++ (ToxController*) instance;
 
 - (IBAction) copyPublicKeyToClipboard:(id)sender;
+- (IBAction) showMainWindow:(id)sender;
+
+- (ToxFriend*) friendWithFriendNumber:(int)friend_number;
+- (void) removeConversionWithFriendNumber:(int)friend_number;
 
 @property (weak) IBOutlet NSWindow* window;
 

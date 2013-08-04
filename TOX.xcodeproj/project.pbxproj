@@ -61,6 +61,8 @@
 		65E3E83C17ADCD68000EB29B /* ToxFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E83B17ADCD68000EB29B /* ToxFriend.m */; };
 		65E3E84017AE1D41000EB29B /* ToxWelcomeWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E83E17AE1D41000EB29B /* ToxWelcomeWindowController.m */; };
 		65E3E84117AE1D41000EB29B /* ToxWelcomeWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65E3E83F17AE1D41000EB29B /* ToxWelcomeWindow.xib */; };
+		65E3E84517AE2D06000EB29B /* ToxConversationWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E84317AE2D05000EB29B /* ToxConversationWindowController.m */; };
+		65E3E84617AE2D06000EB29B /* ToxConversationWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65E3E84417AE2D05000EB29B /* ToxConversationWindow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +160,9 @@
 		65E3E83D17AE1D41000EB29B /* ToxWelcomeWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToxWelcomeWindowController.h; sourceTree = "<group>"; };
 		65E3E83E17AE1D41000EB29B /* ToxWelcomeWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToxWelcomeWindowController.m; sourceTree = "<group>"; };
 		65E3E83F17AE1D41000EB29B /* ToxWelcomeWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToxWelcomeWindow.xib; sourceTree = "<group>"; };
+		65E3E84217AE2D05000EB29B /* ToxConversationWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToxConversationWindowController.h; sourceTree = "<group>"; };
+		65E3E84317AE2D05000EB29B /* ToxConversationWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToxConversationWindowController.m; sourceTree = "<group>"; };
+		65E3E84417AE2D05000EB29B /* ToxConversationWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToxConversationWindow.xib; sourceTree = "<group>"; };
 		82D318FE8A804A01AFB1A67B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -263,6 +268,8 @@
 				65E3E83217AC9CEB000EB29B /* ToxFriendRequestWindowController.m */,
 				65E3E83D17AE1D41000EB29B /* ToxWelcomeWindowController.h */,
 				65E3E83E17AE1D41000EB29B /* ToxWelcomeWindowController.m */,
+				65E3E84217AE2D05000EB29B /* ToxConversationWindowController.h */,
+				65E3E84317AE2D05000EB29B /* ToxConversationWindowController.m */,
 				65C1275917A75A2300F085EE /* Supporting Files */,
 			);
 			path = TOX;
@@ -364,6 +371,7 @@
 		65E3E83617AC9CF7000EB29B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				65E3E84417AE2D05000EB29B /* ToxConversationWindow.xib */,
 				65E3E83F17AE1D41000EB29B /* ToxWelcomeWindow.xib */,
 				652551C417AE0A2100C1FC5B /* offline.png */,
 				652551C217AE09D300C1FC5B /* busy.png */,
@@ -495,6 +503,7 @@
 				652551C317AE09D300C1FC5B /* busy.png in Resources */,
 				652551C517AE0A2100C1FC5B /* offline.png in Resources */,
 				65E3E84117AE1D41000EB29B /* ToxWelcomeWindow.xib in Resources */,
+				65E3E84617AE2D06000EB29B /* ToxConversationWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,6 +582,7 @@
 				65E3E83917ADC29C000EB29B /* ToxController.m in Sources */,
 				65E3E83C17ADCD68000EB29B /* ToxFriend.m in Sources */,
 				65E3E84017AE1D41000EB29B /* ToxWelcomeWindowController.m in Sources */,
+				65E3E84517AE2D06000EB29B /* ToxConversationWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
