@@ -11,8 +11,5 @@
 @interface TAppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
-@property (assign) NSString* nick;
-@property (assign) NSString* status;
-@property (assign) BOOL connected;
 
 @end

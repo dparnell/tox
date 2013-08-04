@@ -53,10 +53,11 @@
 #pragma mark Delegate methods
 
 - (void)windowWillClose:(id)sender {
-    self_reference = nil;
     if(!accepted) {
-        
+        // TODO: add code to ignore the friend request
     }
+    
+    self_reference = nil;
 }
 
 #pragma mark -
