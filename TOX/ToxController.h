@@ -24,8 +24,8 @@
 - (ToxFriend*) friendWithFriendNumber:(int)friend_number;
 - (void) removeConversionWithFriendNumber:(int)friend_number;
 
-@property (weak) IBOutlet NSWindow* window;
-@property (weak) IBOutlet NSTableView* friends_table;
+@property (assign) IBOutlet NSWindow* window;
+@property (assign) IBOutlet NSTableView* friends_table;
 @property (strong) IBOutlet NSPanel* add_panel;
 
 @property (strong) NSString* nick;

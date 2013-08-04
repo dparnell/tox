@@ -181,22 +181,6 @@ static NSDictionary* defaults_dict = nil;
     [conversation addMessage: dict];
 }
 
-- (ToxFriend*) friendWithFriendNumber:(int)friend_number {
-    NSUInteger index = [_friends indexOfObjectPassingTest:^BOOL(ToxFriend* obj, NSUInteger idx, BOOL *stop) {
-        if(obj.friend_number == friend_number) {
-            return YES;
-        }
-        
-        return NO;
-    }];
-    
-    if(index == NSNotFound) {
-        return nil;
-    }
-    
-    return [_friends objectAtIndex: index];
-}
-
 #pragma mark -
 #pragma mark Alert finished
 
@@ -214,6 +198,22 @@ static NSDictionary* defaults_dict = nil;
 
 #pragma mark -
 #pragma mark Methods
+
+- (ToxFriend*) friendWithFriendNumber:(int)friend_number {
+    NSUInteger index = [_friends indexOfObjectPassingTest:^BOOL(ToxFriend* obj, NSUInteger idx, BOOL *stop) {
+        if(obj.friend_number == friend_number) {
+            return YES;
+        }
+        
+        return NO;
+    }];
+    
+    if(index == NSNotFound) {
+        return nil;
+    }
+    
+    return [_friends objectAtIndex: index];
+}
 
 - (void) removeConversionWithFriendNumber:(int)friend_number {
     NSNumber* key = [NSNumber numberWithInt: friend_number];
