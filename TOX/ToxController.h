@@ -28,7 +28,6 @@
 @property (assign) IBOutlet NSTableView* friends_table;
 @property (strong) IBOutlet NSPanel* add_panel;
 
-@property (strong) NSString* nick;
 @property (strong, nonatomic) NSString* status;
 @property (assign) BOOL connected;
 @property (strong) NSMutableArray* friends;

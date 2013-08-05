@@ -1,7 +1,28 @@
 var flag = false;
+var last_from = null;
+
+function leading_zeros(s) {
+    s = s.toString();
+    if(s.length == 1) {
+        s = '0' + s;
+    }
+    
+    return s;
+}
+
+function format_datetime(time) {
+    return leading_zeros(time.getHours()) + ':' + leading_zeros(time.getMinutes());
+}
+
 function add_message(from, message, when) {
     when = when || new Date();
 
+    if(last_from && from != last_from) {
+        var sep = document.createElement('div');
+        sep.className = 'sep';
+        document.body.appendChild(sep);
+    }
+    
     var div = document.createElement('div');
     if(from) {
         var from_span = document.createElement('span');
@@ -11,7 +32,7 @@ function add_message(from, message, when) {
     }
     var date_span = document.createElement('span');
     date_span.className = 'when';
-    date_span.appendChild(document.createTextNode(when.toString()));
+    date_span.appendChild(document.createTextNode(format_datetime(when)));
     div.appendChild(date_span);
     
     var msg = document.createElement('span');

@@ -58,14 +58,11 @@ static NSDictionary* defaults_dict = nil;
     NSError* error = nil;
     // Start up the Tox core
     ToxCore* core = [ToxCore instance];
-    NSNotificationCenter* center = [NSNotificationCenter defaultCenter];
+    NSNotificationCenter* center = [NSNotificationCenter defaultCenter];    
     
-    [self willChangeValueForKey: @"nick"];
-    _nick = core.public_key;
-    [self didChangeValueForKey: @"nick"];
-    NSLog(@"_nick = %@", _nick);
-    
+#ifdef DEBUG_NOTIFICATIONS
     [center addObserver: self selector: @selector(gotNotification:) name: nil object: core];
+#endif
     
     [center addObserver: self selector: @selector(connected:) name: kToxConnected object: core];
     [center addObserver: self selector: @selector(disconnected:) name: kToxDisconnected object: core];
@@ -89,9 +86,11 @@ static NSDictionary* defaults_dict = nil;
 #pragma mark -
 #pragma mark Notifications
 
+#ifdef DEBUG_NOTIFICATIONS
 - (void) gotNotification:(NSNotification*)notification {
     NSLog(@"got: %@", notification);
 }
+#endif
 
 - (void) connected:(NSNotification*) notification {
     self.connected = YES;

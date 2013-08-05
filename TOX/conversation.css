@@ -1,3 +1,8 @@
+.sep {
+    height: 0.1em;
+    border-top: dotted 1px #ccc;
+}
+
 .message {
 }
 
@@ -8,15 +13,22 @@
 .from {
     float: left;
     font-size: small;
-    color: #ccc;
+    font-weight: bold;
+    color: #000;
+    padding-right: 1em;
 }
 
 .when {
     float: right;
     font-size: small;
     color: #ccc;
+    padding-left: 1em;
 }
 
 .msg {
-    clear: both;
+
+}
+
+body {
+  font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
