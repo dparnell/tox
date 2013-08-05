@@ -8,7 +8,6 @@
 
 #import "ToxConversationWindowController.h"
 #import "ToxController.h"
-#import "ToxMessage.h"
 #import "ToxCore.h"
 
 @interface ToxConversationWindowController ()
@@ -29,7 +28,6 @@
     if (self) {
         self.friend_number = friend_number;
         self.friend = [[ToxController instance] friendWithFriendNumber: friend_number];
-        self.messages = [NSMutableArray new];
         
         me = [ToxFriend new];
         me.name = @"";
@@ -44,6 +42,11 @@
 {
     [super windowDidLoad];
     
+    [[_web_view mainFrame] loadRequest:
+     [NSURLRequest requestWithURL:
+      [NSURL fileURLWithPath:
+       [[NSBundle mainBundle] pathForResource:@"conversation" ofType:@"html"]]]];
+    
     [self.window makeKeyAndOrderFront: self];
 }
 
@@ -57,16 +60,13 @@
 #pragma mark -
 #pragma mark methods
 
-- (void) appendMessage:(ToxMessage*)msg {
-    NSIndexSet* index = [NSIndexSet indexSetWithIndex: _messages.count];
-    [self willChange: NSKeyValueChangeInsertion valuesAtIndexes: index forKey: @"messages"];
-    [_messages addObject: msg];
-    [self didChange: NSKeyValueChangeInsertion valuesAtIndexes: index forKey: @"messages"];
+- (void) appendMessage:(NSString*)message from:(NSString*)from {
+    NSArray* args = [NSArray arrayWithObjects: from, message, nil];
+    [[_web_view windowScriptObject] callWebScriptMethod:@"add_message" withArguments:args];
 }
-
 - (void) addMessage:(NSDictionary*)message {
     NSNumber* from_number = [message objectForKey: kToxFriendNumber];
-    id sender;
+    ToxFriend* sender;
     
     if(from_number) {
         int friend_num = [from_number intValue];
@@ -79,8 +79,7 @@
         sender = me;
     }
     
-    ToxMessage* msg = [ToxMessage newWithSender: sender message: [message objectForKey: kToxMessageString]];
-    [self appendMessage: msg];
+    [self appendMessage: [message objectForKey: kToxMessageString] from: sender.name];
 }
 
 #pragma mark -
@@ -96,8 +95,7 @@
     if(_to_send && _to_send.length > 0) {
         NSError* error = nil;
         if([[ToxCore instance] sendMessage: _to_send toFriend: _friend_number error: &error]) {
-            ToxMessage* msg = [ToxMessage newWithSender: me message: _to_send];
-            [self appendMessage: msg];
+            [self appendMessage: _to_send from: @""];
             
             self.to_send = nil;
         } else {
@@ -107,6 +105,16 @@
                                                           contextInfo: nil];
         }
     }
+}
+
+#pragma mark -
+#pragma mark WebKit delegate methods
+
+- (NSArray *)webView:(WebView *)sender contextMenuItemsForElement:(NSDictionary *)element
+    defaultMenuItems:(NSArray *)defaultMenuItems
+{
+    // disable right-click context menu
+    return nil;
 }
 
 

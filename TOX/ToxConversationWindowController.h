@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "ToxFriend.h"
+#import <WebKit/WebKit.h>
 
 @interface ToxConversationWindowController : NSWindowController
 
@@ -17,9 +18,10 @@
 
 - (IBAction) sendMessage:(id)sender;
 
+@property (assign) IBOutlet WebView* web_view;
+
 @property (assign) int friend_number;
 @property (strong) ToxFriend* friend;
-@property (strong) NSMutableArray* messages;
 @property (strong) NSString* to_send;
 
 @end

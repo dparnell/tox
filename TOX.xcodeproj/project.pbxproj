@@ -12,6 +12,11 @@
 		652551C117AE098F00C1FC5B /* online.png in Resources */ = {isa = PBXBuildFile; fileRef = 652551C017AE098F00C1FC5B /* online.png */; };
 		652551C317AE09D300C1FC5B /* busy.png in Resources */ = {isa = PBXBuildFile; fileRef = 652551C217AE09D300C1FC5B /* busy.png */; };
 		652551C517AE0A2100C1FC5B /* offline.png in Resources */ = {isa = PBXBuildFile; fileRef = 652551C417AE0A2100C1FC5B /* offline.png */; };
+		658D6DBE17AFCABF003F053F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 658D6DBD17AFCABF003F053F /* WebKit.framework */; };
+		658D6DC017AFCC14003F053F /* conversation.html in Resources */ = {isa = PBXBuildFile; fileRef = 658D6DBF17AFCC14003F053F /* conversation.html */; };
+		658D6DC417AFCC59003F053F /* conversation.css in Resources */ = {isa = PBXBuildFile; fileRef = 658D6DC317AFCC59003F053F /* conversation.css */; };
+		658D6DC517AFD0ED003F053F /* conversation.js in Resources */ = {isa = PBXBuildFile; fileRef = 658D6DC117AFCC48003F053F /* conversation.js */; };
+		658D6DC717AFD505003F053F /* reset.css in Resources */ = {isa = PBXBuildFile; fileRef = 658D6DC617AFD505003F053F /* reset.css */; };
 		65C1275317A75A2300F085EE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C1275217A75A2300F085EE /* Cocoa.framework */; };
 		65C1275D17A75A2300F085EE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65C1275B17A75A2300F085EE /* InfoPlist.strings */; };
 		65C1275F17A75A2300F085EE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C1275E17A75A2300F085EE /* main.m */; };
@@ -63,7 +68,6 @@
 		65E3E84117AE1D41000EB29B /* ToxWelcomeWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65E3E83F17AE1D41000EB29B /* ToxWelcomeWindow.xib */; };
 		65E3E84517AE2D06000EB29B /* ToxConversationWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E84317AE2D05000EB29B /* ToxConversationWindowController.m */; };
 		65E3E84617AE2D06000EB29B /* ToxConversationWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65E3E84417AE2D05000EB29B /* ToxConversationWindow.xib */; };
-		65E3E84917AE3E71000EB29B /* ToxMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E84817AE3E70000EB29B /* ToxMessage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +107,11 @@
 		652551C017AE098F00C1FC5B /* online.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = online.png; sourceTree = "<group>"; };
 		652551C217AE09D300C1FC5B /* busy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = busy.png; sourceTree = "<group>"; };
 		652551C417AE0A2100C1FC5B /* offline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = offline.png; sourceTree = "<group>"; };
+		658D6DBD17AFCABF003F053F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		658D6DBF17AFCC14003F053F /* conversation.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = conversation.html; sourceTree = "<group>"; };
+		658D6DC117AFCC48003F053F /* conversation.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = conversation.js; sourceTree = "<group>"; };
+		658D6DC317AFCC59003F053F /* conversation.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = conversation.css; sourceTree = "<group>"; };
+		658D6DC617AFD505003F053F /* reset.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = reset.css; sourceTree = "<group>"; };
 		65C1274F17A75A2300F085EE /* TOX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TOX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65C1275217A75A2300F085EE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		65C1275517A75A2300F085EE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -164,8 +173,6 @@
 		65E3E84217AE2D05000EB29B /* ToxConversationWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToxConversationWindowController.h; sourceTree = "<group>"; };
 		65E3E84317AE2D05000EB29B /* ToxConversationWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToxConversationWindowController.m; sourceTree = "<group>"; };
 		65E3E84417AE2D05000EB29B /* ToxConversationWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToxConversationWindow.xib; sourceTree = "<group>"; };
-		65E3E84717AE3E70000EB29B /* ToxMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToxMessage.h; sourceTree = "<group>"; };
-		65E3E84817AE3E70000EB29B /* ToxMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToxMessage.m; sourceTree = "<group>"; };
 		82D318FE8A804A01AFB1A67B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -174,6 +181,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				658D6DBE17AFCABF003F053F /* WebKit.framework in Frameworks */,
 				65C1275317A75A2300F085EE /* Cocoa.framework in Frameworks */,
 				098CCCEA1DC94F44A2D6CFFA /* libPods.a in Frameworks */,
 			);
@@ -209,6 +217,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		658D6DB917AFACA1003F053F /* Conversation Window */ = {
+			isa = PBXGroup;
+			children = (
+				65E3E84417AE2D05000EB29B /* ToxConversationWindow.xib */,
+				65E3E84217AE2D05000EB29B /* ToxConversationWindowController.h */,
+				65E3E84317AE2D05000EB29B /* ToxConversationWindowController.m */,
+				658D6DBF17AFCC14003F053F /* conversation.html */,
+				658D6DC117AFCC48003F053F /* conversation.js */,
+				658D6DC317AFCC59003F053F /* conversation.css */,
+				658D6DC617AFD505003F053F /* reset.css */,
+			);
+			name = "Conversation Window";
+			sourceTree = "<group>";
+		};
 		65C1274617A75A2300F085EE = {
 			isa = PBXGroup;
 			children = (
@@ -235,11 +257,12 @@
 		65C1275117A75A2300F085EE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				19AEB1446C6744D3B3722C66 /* libPods.a */,
+				65E3E80117AA8135000EB29B /* libncurses.dylib */,
+				658D6DBD17AFCABF003F053F /* WebKit.framework */,
 				65C1275217A75A2300F085EE /* Cocoa.framework */,
 				65C1277017A75A2300F085EE /* SenTestingKit.framework */,
 				65C1275417A75A2300F085EE /* Other Frameworks */,
-				19AEB1446C6744D3B3722C66 /* libPods.a */,
-				65E3E80117AA8135000EB29B /* libncurses.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -257,6 +280,7 @@
 		65C1275817A75A2300F085EE /* TOX */ = {
 			isa = PBXGroup;
 			children = (
+				658D6DB917AFACA1003F053F /* Conversation Window */,
 				65E3E83617AC9CF7000EB29B /* Resources */,
 				65E3E82F17ABDE70000EB29B /* tox.icns */,
 				65C1276417A75A2300F085EE /* TAppDelegate.h */,
@@ -271,10 +295,6 @@
 				65E3E83217AC9CEB000EB29B /* ToxFriendRequestWindowController.m */,
 				65E3E83D17AE1D41000EB29B /* ToxWelcomeWindowController.h */,
 				65E3E83E17AE1D41000EB29B /* ToxWelcomeWindowController.m */,
-				65E3E84217AE2D05000EB29B /* ToxConversationWindowController.h */,
-				65E3E84317AE2D05000EB29B /* ToxConversationWindowController.m */,
-				65E3E84717AE3E70000EB29B /* ToxMessage.h */,
-				65E3E84817AE3E70000EB29B /* ToxMessage.m */,
 				65C1275917A75A2300F085EE /* Supporting Files */,
 			);
 			path = TOX;
@@ -376,7 +396,6 @@
 		65E3E83617AC9CF7000EB29B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				65E3E84417AE2D05000EB29B /* ToxConversationWindow.xib */,
 				65E3E83F17AE1D41000EB29B /* ToxWelcomeWindow.xib */,
 				652551C417AE0A2100C1FC5B /* offline.png */,
 				652551C217AE09D300C1FC5B /* busy.png */,
@@ -509,6 +528,10 @@
 				652551C517AE0A2100C1FC5B /* offline.png in Resources */,
 				65E3E84117AE1D41000EB29B /* ToxWelcomeWindow.xib in Resources */,
 				65E3E84617AE2D06000EB29B /* ToxConversationWindow.xib in Resources */,
+				658D6DC017AFCC14003F053F /* conversation.html in Resources */,
+				658D6DC517AFD0ED003F053F /* conversation.js in Resources */,
+				658D6DC417AFCC59003F053F /* conversation.css in Resources */,
+				658D6DC717AFD505003F053F /* reset.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,7 +611,6 @@
 				65E3E83C17ADCD68000EB29B /* ToxFriend.m in Sources */,
 				65E3E84017AE1D41000EB29B /* ToxWelcomeWindowController.m in Sources */,
 				65E3E84517AE2D06000EB29B /* ToxConversationWindowController.m in Sources */,
-				65E3E84917AE3E71000EB29B /* ToxMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

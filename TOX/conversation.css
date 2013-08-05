@@ -1,0 +1,22 @@
+.message {
+}
+
+.alt {
+    background-color: #eef;
+}
+
+.from {
+    float: left;
+    font-size: small;
+    color: #ccc;
+}
+
+.when {
+    float: right;
+    font-size: small;
+    color: #ccc;
+}
+
+.msg {
+    clear: both;
+}
