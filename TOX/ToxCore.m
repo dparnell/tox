@@ -178,7 +178,7 @@ static void on_statuschange(int friendnumber, uint8_t* string, uint16_t length) 
         timer = nil;
     }
     
-    if([[url scheme] isEqualToString: @"tox"]) {
+    if([[url scheme] isEqualToString: @"dht"]) {
         NSNumber* port = [url port];
         if(!port) {
             port = [NSNumber numberWithInt: 33445];
