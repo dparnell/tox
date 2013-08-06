@@ -745,7 +745,7 @@
 			<object class="NSWindowTemplate" id="972006081">
 				<int key="NSWindowStyleMask">4367</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{335, 390}, {295, 594}}</string>
+				<string key="NSWindowRect">{{92, 214}, {295, 593}}</string>
 				<int key="NSWTFlags">1954021376</int>
 				<string key="NSWindowTitle">TOX</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -758,7 +758,7 @@
 						<object class="NSComboBox" id="269650166">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">266</int>
-							<string key="NSFrame">{{32, 567}, {262, 26}}</string>
+							<string key="NSFrame">{{32, 566}, {262, 26}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="854935900"/>
@@ -1084,7 +1084,7 @@
 									<int key="NScvFlags">4</int>
 								</object>
 							</array>
-							<string key="NSFrame">{{-1, 35}, {297, 531}}</string>
+							<string key="NSFrame">{{-1, 34}, {297, 531}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="717156712"/>
@@ -1102,10 +1102,10 @@
 						<object class="NSSearchField" id="800689443">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">290</int>
-							<string key="NSFrame">{{4, 8}, {254, 22}}</string>
+							<string key="NSFrame">{{6, 7}, {254, 22}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="231128807"/>
+							<reference key="NSNextKeyView" ref="829241089"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSSearchFieldCell" key="NSCell" id="465767142">
@@ -1167,7 +1167,7 @@
 								<string>NeXT Encapsulated PostScript v1.2 pasteboard type</string>
 								<string>NeXT TIFF v4.0 pasteboard type</string>
 							</set>
-							<string key="NSFrame">{{6, 573}, {16, 16}}</string>
+							<string key="NSFrame">{{6, 572}, {16, 16}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="269650166"/>
@@ -1189,22 +1189,22 @@
 							<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 							<bool key="NSEditable">YES</bool>
 						</object>
-						<object class="NSButton" id="231128807">
+						<object class="NSButton" id="829241089">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">289</int>
-							<string key="NSFrame">{{264, 7}, {24, 24}}</string>
+							<string key="NSFrame">{{264, 6}, {24, 24}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
-							<object class="NSButtonCell" key="NSCell" id="379747482">
+							<object class="NSButtonCell" key="NSCell" id="474812912">
 								<int key="NSCellFlags">67108864</int>
 								<int key="NSCellFlags2">134217728</int>
 								<string key="NSContents"/>
 								<reference key="NSSupport" ref="45982667"/>
 								<string key="NSCellIdentifier">_NS:9</string>
-								<reference key="NSControlView" ref="231128807"/>
+								<reference key="NSControlView" ref="829241089"/>
 								<int key="NSButtonFlags">-2033958912</int>
 								<int key="NSButtonFlags2">134</int>
 								<object class="NSCustomResource" key="NSNormalImage">
@@ -1219,7 +1219,7 @@
 							<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 						</object>
 					</array>
-					<string key="NSFrameSize">{295, 594}</string>
+					<string key="NSFrameSize">{295, 593}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="105517625"/>
@@ -1270,7 +1270,6 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{17, 134}, {149, 17}}</string>
 							<reference key="NSSuperview" ref="988152703"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="50370854"/>
 							<string key="NSReuseIdentifierKey">_NS:1535</string>
 							<bool key="NSEnabled">YES</bool>
@@ -1296,7 +1295,6 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{20, 104}, {461, 22}}</string>
 							<reference key="NSSuperview" ref="988152703"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="1043369557"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
@@ -1322,7 +1320,6 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{20, 79}, {63, 17}}</string>
 							<reference key="NSSuperview" ref="988152703"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="642354509"/>
 							<string key="NSReuseIdentifierKey">_NS:1535</string>
 							<bool key="NSEnabled">YES</bool>
@@ -1343,7 +1340,6 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{20, 49}, {461, 22}}</string>
 							<reference key="NSSuperview" ref="988152703"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="730108921"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
@@ -1366,7 +1362,6 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{416, 13}, {71, 32}}</string>
 							<reference key="NSSuperview" ref="988152703"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<int key="NSTag">1</int>
@@ -1392,7 +1387,6 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{334, 13}, {82, 32}}</string>
 							<reference key="NSSuperview" ref="988152703"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="102155131"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
@@ -1415,7 +1409,6 @@
 					</array>
 					<string key="NSFrameSize">{501, 171}</string>
 					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="545972088"/>
 					<string key="NSReuseIdentifierKey">_NS:21</string>
 				</object>
@@ -1931,7 +1924,7 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">addFriend:</string>
 						<reference key="source" ref="401520872"/>
-						<reference key="destination" ref="231128807"/>
+						<reference key="destination" ref="829241089"/>
 					</object>
 					<int key="connectionID">839</int>
 				</object>
@@ -2447,7 +2440,7 @@
 							<reference ref="269650166"/>
 							<reference ref="800689443"/>
 							<reference ref="105517625"/>
-							<reference ref="231128807"/>
+							<reference ref="829241089"/>
 						</array>
 						<reference key="parent" ref="972006081"/>
 					</object>
@@ -2806,16 +2799,16 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">837</int>
-						<reference key="object" ref="231128807"/>
+						<reference key="object" ref="829241089"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="379747482"/>
+							<reference ref="474812912"/>
 						</array>
 						<reference key="parent" ref="439893737"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">838</int>
-						<reference key="object" ref="379747482"/>
-						<reference key="parent" ref="231128807"/>
+						<reference key="object" ref="474812912"/>
+						<reference key="parent" ref="829241089"/>
 					</object>
 				</array>
 			</object>
@@ -2945,7 +2938,7 @@
 					<string key="NS.key.0">ToolTip</string>
 					<object class="IBToolTipAttribute" key="NS.object.0">
 						<string key="name">ToolTip</string>
-						<reference key="object" ref="231128807"/>
+						<reference key="object" ref="829241089"/>
 						<string key="toolTip">Add a new friend</string>
 					</object>
 				</object>
