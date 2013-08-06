@@ -9,6 +9,8 @@
 #import "ToxCore.h"
 #import "Messenger.h"
 #import "network.h"
+#import "net_crypto.h"
+
 #import "SSKeychain.h"
 
 #define PUB_KEY_BYTES 32
@@ -34,6 +36,14 @@ NSString* kToxMessageString = @"ToxMessageString";
 NSString* kToxFriendNumber = @"ToxFriendNumber";
 NSString* kToxNewFriendNick = @"ToxNewFriendNick";
 NSString* kToxNewFriendStatus = @"ToxNewFriendStatus";
+NSString* kToxNewFriendStatusKind = @"ToxNewFriendStatusKind";
+
+NSString* kToxUserOnline = @"Online";
+NSString* kToxUserAway = @"Away";
+NSString* kToxUserBusy = @"Busy";
+NSString* kToxUserOffline = @"Offline";
+NSString* kToxUserInvalid = @"Invalid";
+
 
 #pragma mark -
 #pragma mark Code starts here
@@ -134,16 +144,42 @@ static void on_nickchange(int friendnumber, uint8_t* string, uint16_t length) {
                                                                  nil]];
 }
 
-static void on_statuschange(int friendnumber, uint8_t* string, uint16_t length) {
+static NSString* status_kind_to_string(USERSTATUS_KIND kind) {
+    NSString* status_kind;
+    
+    switch (kind) {
+        case USERSTATUS_KIND_ONLINE:
+            status_kind = kToxUserOnline;
+            break;
+        case USERSTATUS_KIND_AWAY:
+            status_kind = kToxUserAway;
+            break;
+        case USERSTATUS_KIND_BUSY:
+            status_kind = kToxUserBusy;
+            break;
+        case USERSTATUS_KIND_OFFLINE:
+            status_kind = kToxUserOffline;
+            break;
+        default:
+            status_kind = kToxUserInvalid;
+            break;
+    }
+
+    return status_kind;
+}
+
+static void on_statuschange(int friendnumber, USERSTATUS_KIND kind, uint8_t* string, uint16_t length) {
     NSNumber* friend = [NSNumber numberWithInt: friendnumber];
     NSData* data = [NSData dataWithBytes: string length: length];
     NSString* message = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
+    NSString* status_kind = status_kind_to_string(kind);
     
     [[NSNotificationCenter defaultCenter] postNotificationName: kToxFriendStatusChanged
                                                         object: instance
                                                       userInfo: [NSDictionary dictionaryWithObjectsAndKeys:
                                                                  friend, kToxFriendNumber,
                                                                  message, kToxNewFriendStatus,
+                                                                 status_kind, kToxNewFriendStatusKind,
                                                                  nil]];
 }
 
@@ -289,6 +325,18 @@ static void on_statuschange(int friendnumber, uint8_t* string, uint16_t length) 
     return m_friendstatus(friend_number);
 }
 
+- (NSString*) friendStatusKind:(int)friend_number error:(NSError**)error {
+    USERSTATUS_KIND kind = m_get_userstatus_kind(friend_number);
+    
+    if(kind == USERSTATUS_KIND_INVALID) {
+        if(error) {
+            *error = error_from_string(@"Unknown friend");
+        }
+        return nil;
+    }
+    return status_kind_to_string(kind);
+}
+
 - (int) friendNumber:(NSString*)client_id error:(NSError**)error {
     NSString* errorString = nil;
     
@@ -351,7 +399,7 @@ static void on_statuschange(int friendnumber, uint8_t* string, uint16_t length) 
         int result = m_addfriend((uint8_t*)[data bytes], (uint8_t*)utf, strlen(utf)+1);
         if(result >= 0) {
             utf = [NSLocalizedString(@"Pending", @"Pending acceptance") UTF8String];
-            on_statuschange(result, (uint8_t*)utf, strlen(utf)+1);
+            on_statuschange(result, USERSTATUS_KIND_OFFLINE, (uint8_t*)utf, strlen(utf)+1);
             
             return YES;
         }
@@ -366,6 +414,28 @@ static void on_statuschange(int friendnumber, uint8_t* string, uint16_t length) 
     }
 
     return NO;
+}
+
+- (int) addFriendWithoutRequest:(NSString*)client_id error:(NSError**)error {
+    NSString* errorString;
+    
+    NSData* data = [ToxCore dataFromHexString: client_id];
+    if(data) {
+        int friend_num = m_addfriend_norequest((uint8_t*)[data bytes]);
+        if(friend_num >= 0) {
+            return friend_num;
+        }
+        
+        errorString = @"Could not add friend";
+    } else {
+        errorString = @"Invalid client_id";
+    }
+    
+    if(error) {
+        *error = error_from_string(errorString);
+    }
+    
+    return -1;
 }
 
 #pragma mark -
@@ -384,7 +454,7 @@ static void on_statuschange(int friendnumber, uint8_t* string, uint16_t length) 
 - (void) setUser_status:(NSString *)user_status {
     const char* utf = [user_status UTF8String];
     _user_status = user_status;
-    m_set_userstatus((uint8_t*)utf, strlen(utf)+1);
+    m_set_userstatus(USERSTATUS_KIND_RETAIN, (uint8_t*)utf, strlen(utf)+1);
 }
 
 - (NSString*) nick {
@@ -397,6 +467,18 @@ static void on_statuschange(int friendnumber, uint8_t* string, uint16_t length) 
 - (void) setNick:(NSString *)nick {
     const char* utf = [nick UTF8String];
     setname((uint8_t*)utf, strlen(utf)+1);
+}
+
+- (NSData*) state {
+    uint8_t buffer[crypto_box_PUBLICKEYBYTES + crypto_box_SECRETKEYBYTES];
+    
+    save_keys(buffer);
+    
+    return [NSData dataWithBytes: buffer length: sizeof(buffer)];
+}
+
+- (void) setState:(NSData *)state {
+    load_keys((uint8_t*)[state bytes]);
 }
 
 #pragma mark -

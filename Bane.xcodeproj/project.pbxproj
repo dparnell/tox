@@ -12,6 +12,8 @@
 		652551C117AE098F00C1FC5B /* online.png in Resources */ = {isa = PBXBuildFile; fileRef = 652551C017AE098F00C1FC5B /* online.png */; };
 		652551C317AE09D300C1FC5B /* busy.png in Resources */ = {isa = PBXBuildFile; fileRef = 652551C217AE09D300C1FC5B /* busy.png */; };
 		652551C517AE0A2100C1FC5B /* offline.png in Resources */ = {isa = PBXBuildFile; fileRef = 652551C417AE0A2100C1FC5B /* offline.png */; };
+		6589006617B0F9B7002E9CA9 /* ping.c in Sources */ = {isa = PBXBuildFile; fileRef = 6589006417B0F9B7002E9CA9 /* ping.c */; };
+		6589006917B0FA0D002E9CA9 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 6589006717B0FA0D002E9CA9 /* util.c */; };
 		658D6DBE17AFCABF003F053F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 658D6DBD17AFCABF003F053F /* WebKit.framework */; };
 		658D6DC017AFCC14003F053F /* conversation.html in Resources */ = {isa = PBXBuildFile; fileRef = 658D6DBF17AFCC14003F053F /* conversation.html */; };
 		658D6DC417AFCC59003F053F /* conversation.css in Resources */ = {isa = PBXBuildFile; fileRef = 658D6DC317AFCC59003F053F /* conversation.css */; };
@@ -106,26 +108,30 @@
 		652551C017AE098F00C1FC5B /* online.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = online.png; sourceTree = "<group>"; };
 		652551C217AE09D300C1FC5B /* busy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = busy.png; sourceTree = "<group>"; };
 		652551C417AE0A2100C1FC5B /* offline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = offline.png; sourceTree = "<group>"; };
+		6589006417B0F9B7002E9CA9 /* ping.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ping.c; path = "ProjectTox-Core/core/ping.c"; sourceTree = "<group>"; };
+		6589006517B0F9B7002E9CA9 /* ping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ping.h; path = "ProjectTox-Core/core/ping.h"; sourceTree = "<group>"; };
+		6589006717B0FA0D002E9CA9 /* util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = util.c; path = "ProjectTox-Core/core/util.c"; sourceTree = "<group>"; };
+		6589006817B0FA0D002E9CA9 /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = util.h; path = "ProjectTox-Core/core/util.h"; sourceTree = "<group>"; };
 		658D6DBD17AFCABF003F053F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		658D6DBF17AFCC14003F053F /* conversation.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = conversation.html; sourceTree = "<group>"; };
 		658D6DC117AFCC48003F053F /* conversation.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = conversation.js; sourceTree = "<group>"; };
 		658D6DC317AFCC59003F053F /* conversation.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = conversation.css; sourceTree = "<group>"; };
-		65C1274F17A75A2300F085EE /* TOX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TOX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		65C1274F17A75A2300F085EE /* Bane.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bane.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65C1275217A75A2300F085EE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		65C1275517A75A2300F085EE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		65C1275617A75A2300F085EE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		65C1275717A75A2300F085EE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		65C1275A17A75A2300F085EE /* TOX-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TOX-Info.plist"; sourceTree = "<group>"; };
+		65C1275A17A75A2300F085EE /* Bane-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Bane-Info.plist"; sourceTree = "<group>"; };
 		65C1275C17A75A2300F085EE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		65C1275E17A75A2300F085EE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		65C1276017A75A2300F085EE /* TOX-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TOX-Prefix.pch"; sourceTree = "<group>"; };
+		65C1276017A75A2300F085EE /* Bane-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bane-Prefix.pch"; sourceTree = "<group>"; };
 		65C1276217A75A2300F085EE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		65C1276417A75A2300F085EE /* TAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TAppDelegate.h; sourceTree = "<group>"; };
 		65C1276517A75A2300F085EE /* TAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TAppDelegate.m; sourceTree = "<group>"; };
 		65C1276817A75A2300F085EE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		65C1276F17A75A2300F085EE /* TOXTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TOXTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		65C1276F17A75A2300F085EE /* BaneTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BaneTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		65C1277017A75A2300F085EE /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		65C1277717A75A2300F085EE /* TOXTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TOXTests-Info.plist"; sourceTree = "<group>"; };
+		65C1277717A75A2300F085EE /* BaneTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BaneTests-Info.plist"; sourceTree = "<group>"; };
 		65C1277917A75A2300F085EE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		65C1277B17A75A2300F085EE /* TOXTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOXTests.h; sourceTree = "<group>"; };
 		65C1277C17A75A2300F085EE /* TOXTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOXTests.m; sourceTree = "<group>"; };
@@ -263,8 +269,8 @@
 		65C1275017A75A2300F085EE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				65C1274F17A75A2300F085EE /* TOX.app */,
-				65C1276F17A75A2300F085EE /* TOXTests.octest */,
+				65C1274F17A75A2300F085EE /* Bane.app */,
+				65C1276F17A75A2300F085EE /* BaneTests.octest */,
 				65E3E7E917AA7FEB000EB29B /* nTox */,
 				65E3E80717AA81AD000EB29B /* toxic */,
 			);
@@ -317,10 +323,10 @@
 		65C1275917A75A2300F085EE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				65C1275A17A75A2300F085EE /* TOX-Info.plist */,
+				65C1275A17A75A2300F085EE /* Bane-Info.plist */,
 				65C1275B17A75A2300F085EE /* InfoPlist.strings */,
 				65C1275E17A75A2300F085EE /* main.m */,
-				65C1276017A75A2300F085EE /* TOX-Prefix.pch */,
+				65C1276017A75A2300F085EE /* Bane-Prefix.pch */,
 				65C1276117A75A2300F085EE /* Credits.rtf */,
 			);
 			name = "Supporting Files";
@@ -339,7 +345,7 @@
 		65C1277617A75A2300F085EE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				65C1277717A75A2300F085EE /* TOXTests-Info.plist */,
+				65C1277717A75A2300F085EE /* BaneTests-Info.plist */,
 				65C1277817A75A2300F085EE /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -359,6 +365,10 @@
 		65E3E7CF17AA7D5D000EB29B /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				6589006717B0FA0D002E9CA9 /* util.c */,
+				6589006817B0FA0D002E9CA9 /* util.h */,
+				6589006417B0F9B7002E9CA9 /* ping.c */,
+				6589006517B0F9B7002E9CA9 /* ping.h */,
 				65E3E7D017AA7D70000EB29B /* DHT.c */,
 				65E3E7D117AA7D70000EB29B /* DHT.h */,
 				65E3E7D217AA7D70000EB29B /* friend_requests.c */,
@@ -423,9 +433,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		65C1274E17A75A2300F085EE /* TOX */ = {
+		65C1274E17A75A2300F085EE /* Bane */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 65C1278017A75A2300F085EE /* Build configuration list for PBXNativeTarget "TOX" */;
+			buildConfigurationList = 65C1278017A75A2300F085EE /* Build configuration list for PBXNativeTarget "Bane" */;
 			buildPhases = (
 				0F05B66B17A2431BBB3DF101 /* Check Pods Manifest.lock */,
 				65C1274B17A75A2300F085EE /* Sources */,
@@ -437,14 +447,14 @@
 			);
 			dependencies = (
 			);
-			name = TOX;
+			name = Bane;
 			productName = TOX;
-			productReference = 65C1274F17A75A2300F085EE /* TOX.app */;
+			productReference = 65C1274F17A75A2300F085EE /* Bane.app */;
 			productType = "com.apple.product-type.application";
 		};
-		65C1276E17A75A2300F085EE /* TOXTests */ = {
+		65C1276E17A75A2300F085EE /* BaneTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 65C1278317A75A2300F085EE /* Build configuration list for PBXNativeTarget "TOXTests" */;
+			buildConfigurationList = 65C1278317A75A2300F085EE /* Build configuration list for PBXNativeTarget "BaneTests" */;
 			buildPhases = (
 				65C1276A17A75A2300F085EE /* Sources */,
 				65C1276B17A75A2300F085EE /* Frameworks */,
@@ -456,9 +466,9 @@
 			dependencies = (
 				65C1277417A75A2300F085EE /* PBXTargetDependency */,
 			);
-			name = TOXTests;
+			name = BaneTests;
 			productName = TOXTests;
-			productReference = 65C1276F17A75A2300F085EE /* TOXTests.octest */;
+			productReference = 65C1276F17A75A2300F085EE /* BaneTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 		65E3E7E817AA7FEB000EB29B /* nTox */ = {
@@ -505,7 +515,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Daniel Parnell";
 			};
-			buildConfigurationList = 65C1274A17A75A2300F085EE /* Build configuration list for PBXProject "TOX" */;
+			buildConfigurationList = 65C1274A17A75A2300F085EE /* Build configuration list for PBXProject "Bane" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -517,8 +527,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				65C1274E17A75A2300F085EE /* TOX */,
-				65C1276E17A75A2300F085EE /* TOXTests */,
+				65C1274E17A75A2300F085EE /* Bane */,
+				65C1276E17A75A2300F085EE /* BaneTests */,
 				65E3E7E817AA7FEB000EB29B /* nTox */,
 				65E3E80617AA81AD000EB29B /* toxic */,
 			);
@@ -623,6 +633,8 @@
 				65E3E83C17ADCD68000EB29B /* ToxFriend.m in Sources */,
 				65E3E84017AE1D41000EB29B /* ToxWelcomeWindowController.m in Sources */,
 				65E3E84517AE2D06000EB29B /* ToxConversationWindowController.m in Sources */,
+				6589006617B0F9B7002E9CA9 /* ping.c in Sources */,
+				6589006917B0FA0D002E9CA9 /* util.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -673,7 +685,7 @@
 /* Begin PBXTargetDependency section */
 		65C1277417A75A2300F085EE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 65C1274E17A75A2300F085EE /* TOX */;
+			target = 65C1274E17A75A2300F085EE /* Bane */;
 			targetProxy = 65C1277317A75A2300F085EE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -782,8 +794,8 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TOX/TOX-Prefix.pch";
-				INFOPLIST_FILE = "TOX/TOX-Info.plist";
+				GCC_PREFIX_HEADER = "TOX/Bane-Prefix.pch";
+				INFOPLIST_FILE = "TOX/Bane-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -796,8 +808,8 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TOX/TOX-Prefix.pch";
-				INFOPLIST_FILE = "TOX/TOX-Info.plist";
+				GCC_PREFIX_HEADER = "TOX/Bane-Prefix.pch";
+				INFOPLIST_FILE = "TOX/Bane-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -812,8 +824,8 @@
 				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TOX/TOX-Prefix.pch";
-				INFOPLIST_FILE = "TOXTests/TOXTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "TOXTests/BaneTests-Info.plist";
+				PRODUCT_NAME = BaneTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -827,8 +839,8 @@
 				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TOX/TOX-Prefix.pch";
-				INFOPLIST_FILE = "TOXTests/TOXTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "TOXTests/BaneTests-Info.plist";
+				PRODUCT_NAME = BaneTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -867,7 +879,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		65C1274A17A75A2300F085EE /* Build configuration list for PBXProject "TOX" */ = {
+		65C1274A17A75A2300F085EE /* Build configuration list for PBXProject "Bane" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				65C1277E17A75A2300F085EE /* Debug */,
@@ -876,7 +888,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		65C1278017A75A2300F085EE /* Build configuration list for PBXNativeTarget "TOX" */ = {
+		65C1278017A75A2300F085EE /* Build configuration list for PBXNativeTarget "Bane" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				65C1278117A75A2300F085EE /* Debug */,
@@ -885,7 +897,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		65C1278317A75A2300F085EE /* Build configuration list for PBXNativeTarget "TOXTests" */ = {
+		65C1278317A75A2300F085EE /* Build configuration list for PBXNativeTarget "BaneTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				65C1278417A75A2300F085EE /* Debug */,

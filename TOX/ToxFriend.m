@@ -15,6 +15,21 @@
     return [[ToxFriend alloc] initWithFriendNumber: friend_number];
 }
 
+- (id) initWithCoder:(NSCoder*) coder {
+    self = [super init];
+    if(self) {
+        _public_key = [coder decodeObjectForKey: @"public_key"];
+        _name = [coder decodeObjectForKey: @"name"];
+        _alias = [coder decodeObjectForKey: @"alias"];
+        _status_message = [coder decodeObjectForKey: @"status_message"];
+        _status_kind = kToxUserOffline;
+        // TODO: this should probably handle the case where the add fails
+        _friend_number = [[ToxCore instance] addFriendWithoutRequest: _public_key error: nil];
+    }
+
+    return self;
+}
+
 - (id) initWithFriendNumber:(int)friend_number {
     ToxCore* core = [ToxCore instance];
     
@@ -26,6 +41,8 @@
             _public_key = client_id;
             _name = [core friendName: friend_number error: nil];
             _status_message = [core friendStatus: friend_number error: nil];
+            _status_kind = [core friendStatusKind: friend_number error: nil];
+            
             if(_name == nil || _name.length == 0) {
                 _name = NSLocalizedString(@"Unknown", @"Unknown user name");
             }
@@ -37,6 +54,19 @@
     return nil;
 }
 
+- (void)encodeWithCoder:(NSCoder *)coder {
+    [coder encodeObject: _public_key forKey: @"public_key"];
+    if(_name) {
+        [coder encodeObject: _name forKey: @"name"];
+    }
+    if(_alias) {
+        [coder encodeObject: _alias forKey: @"alias"];
+    }
+    if(_status_message) {
+        [coder encodeObject: _status_message forKey: @"status_nessage"];
+    }
+}
+
 - (void) updateStatusImage {
     [self willChangeValueForKey: @"status_image"];
     
@@ -45,6 +75,12 @@
 
 #pragma mark -
 #pragma mark Properties
+
+- (void) setStatus_kind:(NSString*)status_kind {
+    [self willChangeValueForKey: @"status_image"];
+    _status_kind = status_kind;
+    [self didChangeValueForKey: @"status_image"];
+}
 
 - (NSImage*) status_image {
     int status = [[ToxCore instance] friendStatusCode: _friend_number];

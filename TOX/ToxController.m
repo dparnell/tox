@@ -113,24 +113,26 @@ static NSDictionary* defaults_dict = nil;
     NSDictionary* dict = [notification userInfo];
     int friend_num = [[dict objectForKey: kToxFriendNumber] intValue];
     NSString* status = [dict objectForKey: kToxNewFriendStatus];
+    NSString* kind = [dict objectForKey: kToxNewFriendStatusKind];
     
     ToxFriend* friend = [self friendWithFriendNumber: friend_num];
 
     if(friend == nil) {
         friend = [ToxFriend newWithFriendNumber: friend_num];
         if(friend) {
-            friend.status_message = status;
-            
             NSIndexSet* index_set = [NSIndexSet indexSetWithIndex: [_friends count]];
             [self willChange: NSKeyValueChangeInsertion valuesAtIndexes: index_set forKey: @"friends"];
             [_friends addObject: friend];
             [self didChange: NSKeyValueChangeInsertion valuesAtIndexes: index_set forKey: @"friends"];
         }
-    } else {
-        friend.status_message = status;
     }
     
-    [friend updateStatusImage];
+    if(friend) {
+        friend.status_message = status;
+        friend.status_kind = kind;
+        [friend updateStatusImage];
+    }
+    
 }
 
 - (void) friendNickChanged:(NSNotification*)notification {
