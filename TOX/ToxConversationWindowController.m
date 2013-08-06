@@ -16,6 +16,8 @@
 
 @implementation ToxConversationWindowController {
     ToxFriend* me;
+    WebScriptObject* scripting;
+    NSMutableArray* pending_messages;
 }
 
 + (ToxConversationWindowController*) newWithFriendNumber:(int)friend_number {
@@ -62,24 +64,32 @@
 
 - (void) appendMessage:(NSString*)message from:(NSString*)from {
     NSArray* args = [NSArray arrayWithObjects: from, message, nil];
-    [[_web_view windowScriptObject] callWebScriptMethod:@"add_message" withArguments:args];
+    [scripting callWebScriptMethod:@"add_message" withArguments:args];
 }
+
 - (void) addMessage:(NSDictionary*)message {
-    NSNumber* from_number = [message objectForKey: kToxFriendNumber];
-    ToxFriend* sender;
-    
-    if(from_number) {
-        int friend_num = [from_number intValue];
-        if(friend_num == _friend_number) {
-            sender = _friend;
+    if(scripting) {
+        NSNumber* from_number = [message objectForKey: kToxFriendNumber];
+        ToxFriend* sender;
+        
+        if(from_number) {
+            int friend_num = [from_number intValue];
+            if(friend_num == _friend_number) {
+                sender = _friend;
+            } else {
+                sender = [[ToxController instance] friendWithFriendNumber: friend_num];
+            }
         } else {
-            sender = [[ToxController instance] friendWithFriendNumber: friend_num];
+            sender = me;
         }
+        
+        [self appendMessage: [message objectForKey: kToxMessageString] from: sender.name];
     } else {
-        sender = me;
+        if(pending_messages == nil) {
+            pending_messages = [NSMutableArray new];
+        }
+        [pending_messages addObject: message];
     }
-    
-    [self appendMessage: [message objectForKey: kToxMessageString] from: sender.name];
 }
 
 #pragma mark -
@@ -117,5 +127,18 @@
     return nil;
 }
 
+- (void)webView:(WebView *)sender didClearWindowObject:(WebScriptObject *)windowObject forFrame:(WebFrame *)frame {
+    scripting = windowObject;
+}
+
+- (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame {
+    if(pending_messages) {
+        for(NSDictionary* msg in pending_messages) {
+            [self addMessage: msg];
+        }
+    
+        pending_messages = nil;
+    }
+}
 
 @end
