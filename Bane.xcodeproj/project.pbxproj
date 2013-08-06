@@ -18,6 +18,7 @@
 		6589007F17B117AE002E9CA9 /* ping.c in Sources */ = {isa = PBXBuildFile; fileRef = 6589006417B0F9B7002E9CA9 /* ping.c */; };
 		6589008117B117CD002E9CA9 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 6589006717B0FA0D002E9CA9 /* util.c */; };
 		6589008217B117CD002E9CA9 /* ping.c in Sources */ = {isa = PBXBuildFile; fileRef = 6589006417B0F9B7002E9CA9 /* ping.c */; };
+		6589008417B12760002E9CA9 /* away.png in Resources */ = {isa = PBXBuildFile; fileRef = 6589008317B12760002E9CA9 /* away.png */; };
 		658D6DBE17AFCABF003F053F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 658D6DBD17AFCABF003F053F /* WebKit.framework */; };
 		658D6DC017AFCC14003F053F /* conversation.html in Resources */ = {isa = PBXBuildFile; fileRef = 658D6DBF17AFCC14003F053F /* conversation.html */; };
 		658D6DC417AFCC59003F053F /* conversation.css in Resources */ = {isa = PBXBuildFile; fileRef = 658D6DC317AFCC59003F053F /* conversation.css */; };
@@ -116,6 +117,7 @@
 		6589006517B0F9B7002E9CA9 /* ping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ping.h; path = "ProjectTox-Core/core/ping.h"; sourceTree = "<group>"; };
 		6589006717B0FA0D002E9CA9 /* util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = util.c; path = "ProjectTox-Core/core/util.c"; sourceTree = "<group>"; };
 		6589006817B0FA0D002E9CA9 /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = util.h; path = "ProjectTox-Core/core/util.h"; sourceTree = "<group>"; };
+		6589008317B12760002E9CA9 /* away.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = away.png; sourceTree = "<group>"; };
 		658D6DBD17AFCABF003F053F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		658D6DBF17AFCC14003F053F /* conversation.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = conversation.html; sourceTree = "<group>"; };
 		658D6DC117AFCC48003F053F /* conversation.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = conversation.js; sourceTree = "<group>"; };
@@ -426,6 +428,7 @@
 		65E3E83617AC9CF7000EB29B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6589008317B12760002E9CA9 /* away.png */,
 				65E3E82F17ABDE70000EB29B /* tox.icns */,
 				652551C417AE0A2100C1FC5B /* offline.png */,
 				652551C217AE09D300C1FC5B /* busy.png */,
@@ -560,6 +563,7 @@
 				658D6DC017AFCC14003F053F /* conversation.html in Resources */,
 				658D6DC517AFD0ED003F053F /* conversation.js in Resources */,
 				658D6DC417AFCC59003F053F /* conversation.css in Resources */,
+				6589008417B12760002E9CA9 /* away.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

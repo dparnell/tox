@@ -11,8 +11,6 @@
 #import "network.h"
 #import "net_crypto.h"
 
-#import "SSKeychain.h"
-
 #define PUB_KEY_BYTES 32
 
 #pragma mark -

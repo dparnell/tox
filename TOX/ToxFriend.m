@@ -86,10 +86,19 @@
 }
 
 - (NSImage*) status_image {
-    int status = [[ToxCore instance] friendStatusCode: _friend_number];
+    ToxCore* core = [ToxCore instance];
+    NSString* status = [core friendStatusKind: _friend_number error: nil];
     
-    if(status == 4) {
+    if(status == kToxUserOnline) {
         return [NSImage imageNamed: @"online"];
+    } else if(status == kToxUserBusy) {
+        return [NSImage imageNamed: @"busy"];
+    } else if(status == kToxUserAway) {
+        return [NSImage imageNamed: @"away"];
+    } else if(status == kToxUserInvalid) {
+        if([core friendStatusCode: _friend_number] == 4) {
+            return [NSImage imageNamed: @"online"];
+        }
     }
     
     return [NSImage imageNamed: @"offline"];
