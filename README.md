@@ -1,7 +1,8 @@
-tox
-===
+Bane
+====
 
-tox looks like a fun little project to have a play with and I would like to have a nice(er) gui for it.
-Who knows, this might even become one ;)
+Bane is a simple client for the Tox instant messaging network.  It should work on MacOS X 10.6 or greater
+
+Download the code and use XCode to build it.  At the moment there are no binaries available.
 
 ![Screen Shot](https://github.com/dparnell/tox/raw/master/screenshot.png)
