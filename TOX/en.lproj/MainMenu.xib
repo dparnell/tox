@@ -1105,7 +1105,7 @@
 							<string key="NSFrame">{{6, 7}, {254, 22}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="829241089"/>
+							<reference key="NSNextKeyView" ref="776870351"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSSearchFieldCell" key="NSCell" id="465767142">
@@ -1189,7 +1189,7 @@
 							<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 							<bool key="NSEditable">YES</bool>
 						</object>
-						<object class="NSButton" id="829241089">
+						<object class="NSButton" id="776870351">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">289</int>
 							<string key="NSFrame">{{264, 6}, {24, 24}}</string>
@@ -1198,13 +1198,13 @@
 							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
-							<object class="NSButtonCell" key="NSCell" id="474812912">
+							<object class="NSButtonCell" key="NSCell" id="79369035">
 								<int key="NSCellFlags">67108864</int>
 								<int key="NSCellFlags2">134217728</int>
 								<string key="NSContents"/>
 								<reference key="NSSupport" ref="45982667"/>
 								<string key="NSCellIdentifier">_NS:9</string>
-								<reference key="NSControlView" ref="829241089"/>
+								<reference key="NSControlView" ref="776870351"/>
 								<int key="NSButtonFlags">-2033958912</int>
 								<int key="NSButtonFlags2">134</int>
 								<object class="NSCustomResource" key="NSNormalImage">
@@ -1924,7 +1924,7 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">addFriend:</string>
 						<reference key="source" ref="401520872"/>
-						<reference key="destination" ref="829241089"/>
+						<reference key="destination" ref="776870351"/>
 					</object>
 					<int key="connectionID">839</int>
 				</object>
@@ -2440,7 +2440,7 @@
 							<reference ref="269650166"/>
 							<reference ref="800689443"/>
 							<reference ref="105517625"/>
-							<reference ref="829241089"/>
+							<reference ref="776870351"/>
 						</array>
 						<reference key="parent" ref="972006081"/>
 					</object>
@@ -2799,16 +2799,16 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">837</int>
-						<reference key="object" ref="829241089"/>
+						<reference key="object" ref="776870351"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="474812912"/>
+							<reference ref="79369035"/>
 						</array>
 						<reference key="parent" ref="439893737"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">838</int>
-						<reference key="object" ref="474812912"/>
-						<reference key="parent" ref="829241089"/>
+						<reference key="object" ref="79369035"/>
+						<reference key="parent" ref="776870351"/>
 					</object>
 				</array>
 			</object>
@@ -2865,6 +2865,8 @@
 				<string key="350.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="351.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="354.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<boolean value="YES" key="371.IBNSWindowAutoPositionCentersHorizontal"/>
+				<boolean value="YES" key="371.IBNSWindowAutoPositionCentersVertical"/>
 				<string key="371.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="371.IBWindowTemplateEditedContentRect">{{380, 496}, {480, 360}}</string>
 				<integer value="1" key="371.NSWindowTemplate.visibleAtLaunch"/>
@@ -2938,7 +2940,7 @@
 					<string key="NS.key.0">ToolTip</string>
 					<object class="IBToolTipAttribute" key="NS.object.0">
 						<string key="name">ToolTip</string>
-						<reference key="object" ref="829241089"/>
+						<reference key="object" ref="776870351"/>
 						<string key="toolTip">Add a new friend</string>
 					</object>
 				</object>
