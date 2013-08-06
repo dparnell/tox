@@ -1,28 +1,44 @@
-.sep {
-    height: 0.1em;
-    border-top: dotted 1px #ccc;
-}
 
 .message {
+        font-size:10pt;
+        font-family:Helvetica;
+        color:black;
+        text-shadow:0px 1px rgba(255,255,255,0.55);
+        padding:0.5em 1em;
+        display:table-row;
 }
 
 .alt {
     background-color: #eef;
 }
 
+.cell {
+        display:table-cell;
+        height:100%;
+        padding:0.5em 0;
+}
+
 .from {
-    float: left;
-    font-size: small;
-    font-weight: bold;
-    color: #000;
-    padding-right: 1em;
+        font-size:9pt;
+        font-weight:bold;
+        color:#666666;
 }
 
 .when {
-    float: right;
-    font-size: small;
-    color: #ccc;
-    padding-left: 1em;
+        padding-right:0.5em;
+        color:#637995;
+        font-weight:200;
+        font-size:9pt;
+}
+
+.ours .from, .ours .msg {
+        border-left:4px solid #5486ff;
+        padding-left:5px;
+}
+
+.theirs .from, .theirs .msg {
+        border-left:4px solid gray;
+        padding-left:5px;
 }
 
 .msg {

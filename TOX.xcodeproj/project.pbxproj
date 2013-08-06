@@ -16,7 +16,6 @@
 		658D6DC017AFCC14003F053F /* conversation.html in Resources */ = {isa = PBXBuildFile; fileRef = 658D6DBF17AFCC14003F053F /* conversation.html */; };
 		658D6DC417AFCC59003F053F /* conversation.css in Resources */ = {isa = PBXBuildFile; fileRef = 658D6DC317AFCC59003F053F /* conversation.css */; };
 		658D6DC517AFD0ED003F053F /* conversation.js in Resources */ = {isa = PBXBuildFile; fileRef = 658D6DC117AFCC48003F053F /* conversation.js */; };
-		658D6DC717AFD505003F053F /* reset.css in Resources */ = {isa = PBXBuildFile; fileRef = 658D6DC617AFD505003F053F /* reset.css */; };
 		65C1275317A75A2300F085EE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C1275217A75A2300F085EE /* Cocoa.framework */; };
 		65C1275D17A75A2300F085EE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65C1275B17A75A2300F085EE /* InfoPlist.strings */; };
 		65C1275F17A75A2300F085EE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C1275E17A75A2300F085EE /* main.m */; };
@@ -111,7 +110,6 @@
 		658D6DBF17AFCC14003F053F /* conversation.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = conversation.html; sourceTree = "<group>"; };
 		658D6DC117AFCC48003F053F /* conversation.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = conversation.js; sourceTree = "<group>"; };
 		658D6DC317AFCC59003F053F /* conversation.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = conversation.css; sourceTree = "<group>"; };
-		658D6DC617AFD505003F053F /* reset.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = reset.css; sourceTree = "<group>"; };
 		65C1274F17A75A2300F085EE /* TOX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TOX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65C1275217A75A2300F085EE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		65C1275517A75A2300F085EE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -226,7 +224,6 @@
 				658D6DBF17AFCC14003F053F /* conversation.html */,
 				658D6DC117AFCC48003F053F /* conversation.js */,
 				658D6DC317AFCC59003F053F /* conversation.css */,
-				658D6DC617AFD505003F053F /* reset.css */,
 			);
 			name = "Conversation Window";
 			sourceTree = "<group>";
@@ -547,7 +544,6 @@
 				658D6DC017AFCC14003F053F /* conversation.html in Resources */,
 				658D6DC517AFD0ED003F053F /* conversation.js in Resources */,
 				658D6DC417AFCC59003F053F /* conversation.css in Resources */,
-				658D6DC717AFD505003F053F /* reset.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

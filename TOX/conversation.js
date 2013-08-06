@@ -1,5 +1,4 @@
 var flag = false;
-var last_from = null;
 
 function leading_zeros(s) {
     s = s.toString();
@@ -16,29 +15,33 @@ function format_datetime(time) {
 
 function add_message(from, message, when) {
     when = when || new Date();
-
-    if(last_from && from != last_from) {
-        var sep = document.createElement('div');
-        sep.className = 'sep';
-        document.body.appendChild(sep);
-    }
     
     var div = document.createElement('div');
-    if(from) {
-        var from_span = document.createElement('span');
-        from_span.className = 'from';
-        from_span.appendChild(document.createTextNode(from));
-        div.appendChild(from_span);
-    }
-    var date_span = document.createElement('span');
-    date_span.className = 'when';
+    
+    var date_span = document.createElement('div');
+    date_span.className = 'when cell';
     date_span.appendChild(document.createTextNode(format_datetime(when)));
     div.appendChild(date_span);
     
-    var msg = document.createElement('span');
+    var content = document.createElement('div');
+    
+    if(from) {
+        content.className = 'cell theirs';
+    } else {
+        content.className = 'cell ours';
+    }
+    
+    var from_div = document.createElement('div');
+    from_div.className = 'from';
+    from_div.appendChild(document.createTextNode(from || 'Me'));
+    content.appendChild(from_div);
+    
+    var msg = document.createElement('div');
     msg.className = 'msg';
     msg.appendChild(document.createTextNode(message));
-    div.appendChild(msg);
+    content.appendChild(msg);
+    
+    div.appendChild(content);
     
     if(flag) {
         div.className = 'message alt';
