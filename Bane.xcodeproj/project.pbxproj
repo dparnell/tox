@@ -14,6 +14,10 @@
 		652551C517AE0A2100C1FC5B /* offline.png in Resources */ = {isa = PBXBuildFile; fileRef = 652551C417AE0A2100C1FC5B /* offline.png */; };
 		6589006617B0F9B7002E9CA9 /* ping.c in Sources */ = {isa = PBXBuildFile; fileRef = 6589006417B0F9B7002E9CA9 /* ping.c */; };
 		6589006917B0FA0D002E9CA9 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 6589006717B0FA0D002E9CA9 /* util.c */; };
+		6589007D17B117AE002E9CA9 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 6589006717B0FA0D002E9CA9 /* util.c */; };
+		6589007F17B117AE002E9CA9 /* ping.c in Sources */ = {isa = PBXBuildFile; fileRef = 6589006417B0F9B7002E9CA9 /* ping.c */; };
+		6589008117B117CD002E9CA9 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 6589006717B0FA0D002E9CA9 /* util.c */; };
+		6589008217B117CD002E9CA9 /* ping.c in Sources */ = {isa = PBXBuildFile; fileRef = 6589006417B0F9B7002E9CA9 /* ping.c */; };
 		658D6DBE17AFCABF003F053F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 658D6DBD17AFCABF003F053F /* WebKit.framework */; };
 		658D6DC017AFCC14003F053F /* conversation.html in Resources */ = {isa = PBXBuildFile; fileRef = 658D6DBF17AFCC14003F053F /* conversation.html */; };
 		658D6DC417AFCC59003F053F /* conversation.css in Resources */ = {isa = PBXBuildFile; fileRef = 658D6DC317AFCC59003F053F /* conversation.css */; };
@@ -650,6 +654,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6589007D17B117AE002E9CA9 /* util.c in Sources */,
+				6589007F17B117AE002E9CA9 /* ping.c in Sources */,
 				65E3E7F517AA802F000EB29B /* DHT.c in Sources */,
 				65E3E7F617AA802F000EB29B /* friend_requests.c in Sources */,
 				65E3E7F717AA802F000EB29B /* LAN_discovery.c in Sources */,
@@ -666,6 +672,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6589008117B117CD002E9CA9 /* util.c in Sources */,
+				6589008217B117CD002E9CA9 /* ping.c in Sources */,
 				65E3E81B17AA8202000EB29B /* DHT.c in Sources */,
 				65E3E81C17AA8202000EB29B /* friend_requests.c in Sources */,
 				65E3E81D17AA8202000EB29B /* LAN_discovery.c in Sources */,
