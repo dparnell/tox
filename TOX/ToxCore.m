@@ -201,7 +201,7 @@ static void on_statuschange(int friendnumber, uint8_t* string, uint16_t length) 
                                     
                     DHT_bootstrap(bootstrap_ip_port, (uint8_t*)[[ToxCore dataFromHexString: [path lastPathComponent]] bytes]);
                     
-                    timer = [NSTimer scheduledTimerWithTimeInterval: 1.0f/200.0f target: self selector: @selector(tick:) userInfo: nil repeats: YES];
+                    timer = [NSTimer scheduledTimerWithTimeInterval: 1.0f/20.0f target: self selector: @selector(tick:) userInfo: nil repeats: YES];
                 
                     return YES;
                     
