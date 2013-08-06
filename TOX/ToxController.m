@@ -13,7 +13,7 @@
 #import "ToxConversationWindowController.h"
 #import "SSKeychain.h"
 
-#define DEBUG_NOTIFICATIONS
+//#define DEBUG_NOTIFICATIONS
 
 static NSString* kToxService = @"Bane";
 static NSString* kToxAccount = @"Account";
