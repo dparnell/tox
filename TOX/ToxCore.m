@@ -15,21 +15,18 @@
 
 #define PUB_KEY_BYTES 32
 
-static NSString* kToxService = @"TOX";
-static NSString* kToxAccount = @"Account";
-
 #pragma mark -
 #pragma mark constants
 
 NSString* kToxErrorDomain = @"ToxError";
 
-NSString* kToxConnected = @"ToxConnected";
-NSString* kToxDisconnected = @"ToxDisconnected";
+NSString* kToxConnectedNotification = @"ToxConnected";
+NSString* kToxDisconnectedNotification = @"ToxDisconnected";
 
-NSString* kToxFriendRequest = @"ToxFriendRequest";
-NSString* kToxMessage = @"ToxMessage";
-NSString* kToxFriendNickChanged = @"ToxFriendNickChanged";
-NSString* kToxFriendStatusChanged = @"ToxFriendStatusChanged";
+NSString* kToxFriendRequestNotification = @"ToxFriendRequest";
+NSString* kToxMessageNotification = @"ToxMessage";
+NSString* kToxFriendNickChangedNotification = @"ToxFriendNickChanged";
+NSString* kToxFriendStatusChangedNotification = @"ToxFriendStatusChanged";
 
 NSString* kToxPublicKey = @"ToxPublicKey";
 NSString* kToxMessageString = @"ToxMessageString";
@@ -74,21 +71,9 @@ static ToxCore* instance = nil;
         initMessenger();
         tick_count = 0;
         _connected = NO;
-        
-        [self setupEncryption];
     }
     
     return self;
-}
-
-- (void) setupEncryption {
-    NSData* stateData = [SSKeychain passwordDataForService: kToxService account: kToxAccount];
-    if(stateData) {
-        Messenger_load((uint8_t*)[stateData bytes], (uint32_t)[stateData length]);
-    } else {
-        // there is no key, so we will use the one that is created automatically by the initMessenger function
-        [self  saveState];
-    }
 }
 
 #pragma mark -
@@ -110,7 +95,7 @@ static void on_request(uint8_t* public_key, uint8_t* string, uint16_t length) {
     NSData* data = [NSData dataWithBytes: string length: length];
     NSString* message = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName: kToxFriendRequest
+    [[NSNotificationCenter defaultCenter] postNotificationName: kToxFriendRequestNotification
                                                         object: instance
                                                       userInfo: [NSDictionary dictionaryWithObjectsAndKeys:
                                                                  key, kToxPublicKey,
@@ -123,7 +108,7 @@ static void on_message(int friendnumber, uint8_t* string, uint16_t length) {
     NSData* data = [NSData dataWithBytes: string length: length];
     NSString* message = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName: kToxMessage
+    [[NSNotificationCenter defaultCenter] postNotificationName: kToxMessageNotification
                                                         object: instance
                                                       userInfo: [NSDictionary dictionaryWithObjectsAndKeys:
                                                                  friend, kToxFriendNumber,
@@ -136,7 +121,7 @@ static void on_nickchange(int friendnumber, uint8_t* string, uint16_t length) {
     NSData* data = [NSData dataWithBytes: string length: length];
     NSString* message = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName: kToxFriendNickChanged
+    [[NSNotificationCenter defaultCenter] postNotificationName: kToxFriendNickChangedNotification
                                                         object: instance
                                                       userInfo: [NSDictionary dictionaryWithObjectsAndKeys:
                                                                  friend, kToxFriendNumber,
@@ -174,7 +159,7 @@ static void on_statuschange(int friendnumber, USERSTATUS_KIND kind, uint8_t* str
     NSString* message = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
     NSString* status_kind = status_kind_to_string(kind);
     
-    [[NSNotificationCenter defaultCenter] postNotificationName: kToxFriendStatusChanged
+    [[NSNotificationCenter defaultCenter] postNotificationName: kToxFriendStatusChangedNotification
                                                         object: instance
                                                       userInfo: [NSDictionary dictionaryWithObjectsAndKeys:
                                                                  friend, kToxFriendNumber,
@@ -195,9 +180,9 @@ static void on_statuschange(int friendnumber, USERSTATUS_KIND kind, uint8_t* str
             [self didChangeValueForKey: @"connected"];
             
             if(_connected) {
-                [[NSNotificationCenter defaultCenter] postNotificationName: kToxConnected object: self];
+                [[NSNotificationCenter defaultCenter] postNotificationName: kToxConnectedNotification object: self];
             } else {
-                [[NSNotificationCenter defaultCenter] postNotificationName: kToxDisconnected object: self];
+                [[NSNotificationCenter defaultCenter] postNotificationName: kToxDisconnectedNotification object: self];
             }
         }
     }
@@ -259,14 +244,6 @@ static void on_statuschange(int friendnumber, USERSTATUS_KIND kind, uint8_t* str
     }
     
     return NO;
-}
-
-- (void) saveState {
-    int size = Messenger_size();
-    uint8_t data[size];
-    Messenger_save(data);
-    NSData* stateData = [NSData dataWithBytes: &data length: size];
-    [SSKeychain setPasswordData: stateData forService: kToxService account: kToxAccount];    
 }
 
 #pragma mark -
@@ -452,6 +429,9 @@ static void on_statuschange(int friendnumber, USERSTATUS_KIND kind, uint8_t* str
 }
 
 - (void) setUser_status:(NSString *)user_status {
+    if(!user_status) {
+        user_status = @"";
+    }
     const char* utf = [user_status UTF8String];
     _user_status = user_status;
     m_set_userstatus(USERSTATUS_KIND_RETAIN, (uint8_t*)utf, strlen(utf)+1);
@@ -478,7 +458,12 @@ static void on_statuschange(int friendnumber, USERSTATUS_KIND kind, uint8_t* str
 }
 
 - (void) setState:(NSData *)state {
-    load_keys((uint8_t*)[state bytes]);
+    uint32_t L = (uint32_t)[state length];
+    if(L == crypto_box_PUBLICKEYBYTES + crypto_box_SECRETKEYBYTES) {
+        load_keys((uint8_t*)[state bytes]);
+    } else {
+        Messenger_load((uint8_t*)[state bytes], L);
+    }
 }
 
 #pragma mark -

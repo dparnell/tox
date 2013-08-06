@@ -34,7 +34,6 @@
 
 - (void)applicationWillTerminate:(NSNotification *)notification {
     // make sure the TOX state is saved
-    [[ToxCore instance] saveState];
 }
 
 @end

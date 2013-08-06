@@ -11,6 +11,12 @@
 #import "ToxFriendRequestWindowController.h"
 #import "ToxFriend.h"
 #import "ToxConversationWindowController.h"
+#import "SSKeychain.h"
+
+#define DEBUG_NOTIFICATIONS
+
+static NSString* kToxService = @"Bane";
+static NSString* kToxAccount = @"Account";
 
 static ToxController* instance = nil;
 
@@ -64,13 +70,31 @@ static NSDictionary* defaults_dict = nil;
     [center addObserver: self selector: @selector(gotNotification:) name: nil object: core];
 #endif
     
-    [center addObserver: self selector: @selector(connected:) name: kToxConnected object: core];
-    [center addObserver: self selector: @selector(disconnected:) name: kToxDisconnected object: core];
-    [center addObserver: self selector: @selector(gotFriendRequest:) name: kToxFriendRequest object: core];
-    [center addObserver: self selector: @selector(friendStatusChanged:) name: kToxFriendStatusChanged object: core];
-    [center addObserver: self selector: @selector(friendNickChanged:) name: kToxFriendNickChanged object: core];
-    [center addObserver: self selector: @selector(messageFromFriend:) name: kToxMessage object: core];
+    // we want to know when the app will be terminated
+    [center addObserver: self selector: @selector(applicationWillTerminate:) name: NSApplicationWillTerminateNotification object: nil];
+    
+    [center addObserver: self selector: @selector(connected:) name: kToxConnectedNotification object: core];
+    [center addObserver: self selector: @selector(disconnected:) name: kToxDisconnectedNotification object: core];
+    [center addObserver: self selector: @selector(gotFriendRequest:) name: kToxFriendRequestNotification object: core];
+    [center addObserver: self selector: @selector(friendStatusChanged:) name: kToxFriendStatusChangedNotification object: core];
+    [center addObserver: self selector: @selector(friendNickChanged:) name: kToxFriendNickChangedNotification object: core];
+    [center addObserver: self selector: @selector(messageFromFriend:) name: kToxMessageNotification object: core];
 
+    NSData* stateData = [SSKeychain passwordDataForService: kToxService account: kToxAccount];
+    if(stateData == nil) {
+        // this is an old Project-TOX base state dump
+        stateData = [SSKeychain passwordDataForService: @"TOX" account: kToxAccount];
+        core.state = stateData;
+        
+        [core enumerateFriends];
+    } else {
+        NSDictionary* dict = [NSKeyedUnarchiver unarchiveObjectWithData: stateData];
+        
+        core.state = [dict objectForKey: @"Core State"];
+        self.friends = [[dict objectForKey: @"Friends"] mutableCopy];
+        self.status = [dict objectForKey: @"Status"];
+    }
+    
     NSArray* dht_hosts = [[ToxController defaultValues] objectForKey: @"DHT Bootstrap Hosts"];
     NSString* dht_host = [dht_hosts objectAtIndex: arc4random() % dht_hosts.count];
     if(![core start: [NSURL URLWithString: dht_host] error: &error]) {
@@ -78,9 +102,7 @@ static NSDictionary* defaults_dict = nil;
                                                     modalDelegate: self
                                                    didEndSelector: @selector(alertDidEnd:returnCode:contextInfo:)
                                                       contextInfo: nil];
-    }
-    
-    [core enumerateFriends];
+    }    
 }
 
 #pragma mark -
@@ -91,6 +113,10 @@ static NSDictionary* defaults_dict = nil;
     NSLog(@"got: %@", notification);
 }
 #endif
+
+- (void)applicationWillTerminate:(NSNotification *)notification {
+    [self saveState];
+}
 
 - (void) connected:(NSNotification*) notification {
     self.connected = YES;
@@ -139,20 +165,21 @@ static NSDictionary* defaults_dict = nil;
     NSDictionary* dict = [notification userInfo];
     int friend_num = [[dict objectForKey: kToxFriendNumber] intValue];
     NSString* nick = [dict objectForKey: kToxNewFriendNick];
-    
-    ToxFriend* friend = [self friendWithFriendNumber: friend_num];
-    
-    if(friend == nil) {
-        friend = [ToxFriend newWithFriendNumber: friend_num];
-        if(friend) {
+    if(nick && [nick length]> 0) {
+        ToxFriend* friend = [self friendWithFriendNumber: friend_num];
+        
+        if(friend == nil) {
+            friend = [ToxFriend newWithFriendNumber: friend_num];
+            if(friend) {
+                friend.name = nick;
+                NSIndexSet* index_set = [NSIndexSet indexSetWithIndex: [_friends count]];
+                [self willChange: NSKeyValueChangeInsertion valuesAtIndexes: index_set forKey: @"friends"];
+                [_friends addObject: friend];
+                [self didChange: NSKeyValueChangeInsertion valuesAtIndexes: index_set forKey: @"friends"];
+            }
+        } else {
             friend.name = nick;
-            NSIndexSet* index_set = [NSIndexSet indexSetWithIndex: [_friends count]];
-            [self willChange: NSKeyValueChangeInsertion valuesAtIndexes: index_set forKey: @"friends"];
-            [_friends addObject: friend];
-            [self didChange: NSKeyValueChangeInsertion valuesAtIndexes: index_set forKey: @"friends"];
         }
-    } else {
-        friend.name = nick;
     }
 }
 
@@ -222,6 +249,17 @@ static NSDictionary* defaults_dict = nil;
     [conversations removeObjectForKey: key];
 }
 
+- (void) saveState {
+    NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:
+                          [[ToxCore instance] state], @"Core State",
+                          _friends, @"Friends",
+                          _status, @"Status",
+                          nil];
+    
+    NSData* data = [NSKeyedArchiver archivedDataWithRootObject: dict];
+    
+    [SSKeychain setPasswordData: data forService: kToxService account: kToxAccount];
+}
 
 #pragma mark -
 #pragma mark properties

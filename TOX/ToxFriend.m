@@ -18,13 +18,16 @@
 - (id) initWithCoder:(NSCoder*) coder {
     self = [super init];
     if(self) {
+        ToxCore* core = [ToxCore instance];
+        
         _public_key = [coder decodeObjectForKey: @"public_key"];
         _name = [coder decodeObjectForKey: @"name"];
         _alias = [coder decodeObjectForKey: @"alias"];
         _status_message = [coder decodeObjectForKey: @"status_message"];
-        _status_kind = kToxUserOffline;
+
         // TODO: this should probably handle the case where the add fails
-        _friend_number = [[ToxCore instance] addFriendWithoutRequest: _public_key error: nil];
+        _friend_number = [core addFriendWithoutRequest: _public_key error: nil];
+        _status_kind = [core friendStatusKind: _friend_number error: nil];
     }
 
     return self;

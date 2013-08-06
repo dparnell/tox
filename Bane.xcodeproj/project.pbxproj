@@ -262,8 +262,8 @@
 			isa = PBXGroup;
 			children = (
 				65E3E7CE17AA7D53000EB29B /* Project-TOX */,
-				65C1275817A75A2300F085EE /* TOX */,
-				65C1277517A75A2300F085EE /* TOXTests */,
+				65C1275817A75A2300F085EE /* Bane */,
+				65C1277517A75A2300F085EE /* BaseTests */,
 				65C1275117A75A2300F085EE /* Frameworks */,
 				65C1275017A75A2300F085EE /* Products */,
 				82D318FE8A804A01AFB1A67B /* Pods.xcconfig */,
@@ -304,7 +304,7 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		65C1275817A75A2300F085EE /* TOX */ = {
+		65C1275817A75A2300F085EE /* Bane */ = {
 			isa = PBXGroup;
 			children = (
 				658D6DC917AFDBA4003F053F /* Friend Request Window */,
@@ -321,6 +321,7 @@
 				65E3E83617AC9CF7000EB29B /* Resources */,
 				65C1275917A75A2300F085EE /* Supporting Files */,
 			);
+			name = Bane;
 			path = TOX;
 			sourceTree = "<group>";
 		};
@@ -336,13 +337,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		65C1277517A75A2300F085EE /* TOXTests */ = {
+		65C1277517A75A2300F085EE /* BaseTests */ = {
 			isa = PBXGroup;
 			children = (
 				65C1277B17A75A2300F085EE /* TOXTests.h */,
 				65C1277C17A75A2300F085EE /* TOXTests.m */,
 				65C1277617A75A2300F085EE /* Supporting Files */,
 			);
+			name = BaseTests;
 			path = TOXTests;
 			sourceTree = "<group>";
 		};

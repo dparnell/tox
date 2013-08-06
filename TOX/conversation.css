@@ -8,10 +8,6 @@
         display:table-row;
 }
 
-.alt {
-    background-color: #eef;
-}
-
 .cell {
         display:table-cell;
         height:100%;
@@ -39,10 +35,6 @@
 .theirs .from, .theirs .msg {
         border-left:4px solid gray;
         padding-left:5px;
-}
-
-.msg {
-    width: 10000pt;
 }
 
 body {

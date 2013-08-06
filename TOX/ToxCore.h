@@ -10,13 +10,13 @@
 
 extern NSString* kToxErrorDomain;
 
-extern NSString* kToxConnected;
-extern NSString* kToxDisconnected;
+extern NSString* kToxConnectedNotification;
+extern NSString* kToxDisconnectedNotification;
 
-extern NSString* kToxFriendRequest;
-extern NSString* kToxMessage;
-extern NSString* kToxFriendNickChanged;
-extern NSString* kToxFriendStatusChanged;
+extern NSString* kToxFriendRequestNotification;
+extern NSString* kToxMessageNotification;
+extern NSString* kToxFriendNickChangedNotification;
+extern NSString* kToxFriendStatusChangedNotification;
 
 extern NSString* kToxPublicKey;
 extern NSString* kToxMessageString;
@@ -36,7 +36,6 @@ extern NSString* kToxUserInvalid;
 + (ToxCore*) instance;
 
 - (BOOL) start:(NSURL*)url error:(NSError**)error;
-- (void) saveState;
 
 - (int) friendNumber:(NSString*)client_id error:(NSError**)error;
 - (NSString*) friendName:(int)friend_number error:(NSError**)error;

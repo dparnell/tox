@@ -76,7 +76,6 @@
     int friend_id = [core acceptFriendRequestFrom: _client_id error: &error];
     
     if(friend_id >= 0) {
-        [core saveState];
         accepted = YES;
         [self.window close];
     } else {

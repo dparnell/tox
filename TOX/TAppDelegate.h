@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "ToxController.h"
 
 @interface TAppDelegate : NSObject <NSApplicationDelegate>
 
