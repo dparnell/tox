@@ -51,6 +51,8 @@ function add_message(from, message, when) {
     
     flag = !flag;
     document.body.appendChild(div);
+    emojify.run(div);
+    
     window.setTimeout(function() {
       window.scrollTo(0,document.body.scrollHeight);
     }, 10);

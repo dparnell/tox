@@ -74,6 +74,8 @@
 		65E3E84117AE1D41000EB29B /* ToxWelcomeWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65E3E83F17AE1D41000EB29B /* ToxWelcomeWindow.xib */; };
 		65E3E84517AE2D06000EB29B /* ToxConversationWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E84317AE2D05000EB29B /* ToxConversationWindowController.m */; };
 		65E3E84617AE2D06000EB29B /* ToxConversationWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65E3E84417AE2D05000EB29B /* ToxConversationWindow.xib */; };
+		65FF091C17B2232A00FA7877 /* emojify.min.css in Resources */ = {isa = PBXBuildFile; fileRef = 65FF091A17B2232A00FA7877 /* emojify.min.css */; };
+		65FF091E17B2234D00FA7877 /* emojify.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 65FF091B17B2232A00FA7877 /* emojify.min.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,6 +185,8 @@
 		65E3E84217AE2D05000EB29B /* ToxConversationWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToxConversationWindowController.h; sourceTree = "<group>"; };
 		65E3E84317AE2D05000EB29B /* ToxConversationWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToxConversationWindowController.m; sourceTree = "<group>"; };
 		65E3E84417AE2D05000EB29B /* ToxConversationWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToxConversationWindow.xib; sourceTree = "<group>"; };
+		65FF091A17B2232A00FA7877 /* emojify.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = emojify.min.css; sourceTree = "<group>"; };
+		65FF091B17B2232A00FA7877 /* emojify.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = emojify.min.js; sourceTree = "<group>"; };
 		82D318FE8A804A01AFB1A67B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -233,6 +237,8 @@
 				65E3E84417AE2D05000EB29B /* ToxConversationWindow.xib */,
 				65E3E84217AE2D05000EB29B /* ToxConversationWindowController.h */,
 				65E3E84317AE2D05000EB29B /* ToxConversationWindowController.m */,
+				65FF091A17B2232A00FA7877 /* emojify.min.css */,
+				65FF091B17B2232A00FA7877 /* emojify.min.js */,
 				658D6DBF17AFCC14003F053F /* conversation.html */,
 				658D6DC117AFCC48003F053F /* conversation.js */,
 				658D6DC317AFCC59003F053F /* conversation.css */,
@@ -549,6 +555,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65FF091E17B2234D00FA7877 /* emojify.min.js in Resources */,
 				65C1275D17A75A2300F085EE /* InfoPlist.strings in Resources */,
 				65C1276317A75A2300F085EE /* Credits.rtf in Resources */,
 				65C1276917A75A2300F085EE /* MainMenu.xib in Resources */,
@@ -564,6 +571,7 @@
 				658D6DC517AFD0ED003F053F /* conversation.js in Resources */,
 				658D6DC417AFCC59003F053F /* conversation.css in Resources */,
 				6589008417B12760002E9CA9 /* away.png in Resources */,
+				65FF091C17B2232A00FA7877 /* emojify.min.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
