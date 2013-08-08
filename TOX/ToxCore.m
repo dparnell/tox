@@ -127,21 +127,18 @@ static void on_nickchange(int friendnumber, uint8_t* string, uint16_t length) {
                                                                  nil]];
 }
 
-static NSString* status_kind_to_string(USERSTATUS_KIND kind) {
+static NSString* status_kind_to_string(USERSTATUS kind) {
     NSString* status_kind;
     
     switch (kind) {
-        case USERSTATUS_KIND_ONLINE:
+        case USERSTATUS_NONE:
             status_kind = kToxUserOnline;
             break;
-        case USERSTATUS_KIND_AWAY:
+        case USERSTATUS_AWAY:
             status_kind = kToxUserAway;
             break;
-        case USERSTATUS_KIND_BUSY:
+        case USERSTATUS_BUSY:
             status_kind = kToxUserBusy;
-            break;
-        case USERSTATUS_KIND_OFFLINE:
-            status_kind = kToxUserOffline;
             break;
         default:
             status_kind = kToxUserInvalid;
@@ -151,11 +148,11 @@ static NSString* status_kind_to_string(USERSTATUS_KIND kind) {
     return status_kind;
 }
 
-static void on_statuschange(int friendnumber, USERSTATUS_KIND kind, uint8_t* string, uint16_t length) {
+static void on_statuschange(int friendnumber, uint8_t* string, uint16_t length) {
     NSNumber* friend = [NSNumber numberWithInt: friendnumber];
     NSData* data = [NSData dataWithBytes: string length: length];
     NSString* message = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
-    NSString* status_kind = status_kind_to_string(kind);
+    NSString* status_kind = status_kind_to_string(m_get_userstatus(friendnumber));
     
     [[NSNotificationCenter defaultCenter] postNotificationName: kToxFriendStatusChangedNotification
                                                         object: instance
@@ -216,8 +213,8 @@ static void on_statuschange(int friendnumber, USERSTATUS_KIND kind, uint8_t* str
                     m_callback_friendrequest(on_request);
                     m_callback_friendmessage(on_message);
                     m_callback_namechange(on_nickchange);
-                    m_callback_userstatus(on_statuschange);
-                                    
+                    m_callback_statusmessage(on_statuschange);
+
                     DHT_bootstrap(bootstrap_ip_port, (uint8_t*)[[ToxCore dataFromHexString: [path lastPathComponent]] bytes]);
                     
                     timer = [NSTimer scheduledTimerWithTimeInterval: 1.0f/20.0f target: self selector: @selector(tick:) userInfo: nil repeats: YES];
@@ -286,7 +283,7 @@ static void on_statuschange(int friendnumber, USERSTATUS_KIND kind, uint8_t* str
 
 - (NSString*) friendStatus:(int)friend_number error:(NSError**)error {
     char buffer[128];
-    if(m_copy_userstatus(friend_number, (uint8_t*)buffer, sizeof(buffer)) == 0) {
+    if(m_copy_statusmessage(friend_number, (uint8_t*)buffer, sizeof(buffer)) == 0) {
         return [NSString stringWithUTF8String: buffer];
     }
     
@@ -301,9 +298,9 @@ static void on_statuschange(int friendnumber, USERSTATUS_KIND kind, uint8_t* str
 }
 
 - (NSString*) friendStatusKind:(int)friend_number error:(NSError**)error {
-    USERSTATUS_KIND kind = m_get_userstatus_kind(friend_number);
+    USERSTATUS kind = m_get_userstatus(friend_number);
     
-    if(kind == USERSTATUS_KIND_INVALID) {
+    if(kind == USERSTATUS_INVALID) {
         if(error) {
             *error = error_from_string(@"Unknown friend");
         }
@@ -374,7 +371,7 @@ static void on_statuschange(int friendnumber, USERSTATUS_KIND kind, uint8_t* str
         int result = m_addfriend((uint8_t*)[data bytes], (uint8_t*)utf, strlen(utf)+1);
         if(result >= 0) {
             utf = [NSLocalizedString(@"Pending", @"Pending acceptance") UTF8String];
-            on_statuschange(result, USERSTATUS_KIND_OFFLINE, (uint8_t*)utf, strlen(utf)+1);
+            on_statuschange(result, (uint8_t*)utf, strlen(utf)+1);
             
             return YES;
         }
@@ -432,7 +429,7 @@ static void on_statuschange(int friendnumber, USERSTATUS_KIND kind, uint8_t* str
     }
     const char* utf = [user_status UTF8String];
     _user_status = user_status;
-    m_set_userstatus(USERSTATUS_KIND_RETAIN, (uint8_t*)utf, strlen(utf)+1);
+    m_set_statusmessage((uint8_t*)utf, strlen(utf)+1);
 }
 
 - (NSString*) nick {
