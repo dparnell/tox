@@ -16,6 +16,7 @@
 
 - (void) addMessage:(NSDictionary*)message;
 - (void) addAction:(NSDictionary*)message;
+- (void) messageRead:(NSNumber*)message_num;
 
 - (IBAction) sendMessage:(id)sender;
 

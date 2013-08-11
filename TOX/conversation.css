@@ -8,6 +8,14 @@
         display:table-row;
 }
 
+.unread .when {
+    color: #999;
+}
+
+.pending {
+    color: #999;
+}
+
 .action {
         font-size:10pt;
         font-family:Helvetica;

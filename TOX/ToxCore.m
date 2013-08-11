@@ -26,6 +26,7 @@ NSString* kToxMessageNotification = @"ToxMessage";
 NSString* kToxFriendNickChangedNotification = @"ToxFriendNickChanged";
 NSString* kToxFriendStatusChangedNotification = @"ToxFriendStatusChanged";
 NSString* kToxActionNotification = @"ToxAction";
+NSString* kToxMessageReadNotification = @"ToxMessageRead";
 
 NSString* kToxPublicKey = @"ToxPublicKey";
 NSString* kToxMessageString = @"ToxMessageString";
@@ -33,6 +34,7 @@ NSString* kToxFriendNumber = @"ToxFriendNumber";
 NSString* kToxNewFriendNick = @"ToxNewFriendNick";
 NSString* kToxNewFriendStatus = @"ToxNewFriendStatus";
 NSString* kToxNewFriendStatusKind = @"ToxNewFriendStatusKind";
+NSString* kToxMessageNumber = @"ToxMessageNumber";
 
 NSString* kToxUserOnline = @"Online";
 NSString* kToxUserAway = @"Away";
@@ -191,6 +193,18 @@ static void on_action(int friendnumber, uint8_t* string, uint16_t length) {
                                                                  nil]];
 }
 
+static void on_read(int friendnumber, uint32_t message_number) {
+    NSNumber* friend = [NSNumber numberWithInt: friendnumber];
+    NSNumber* message_num = [NSNumber numberWithUnsignedInteger: message_number];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName: kToxMessageReadNotification
+                                                        object: instance
+                                                      userInfo: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                                 friend, kToxFriendNumber,
+                                                                 message_num, kToxMessageNumber,
+                                                                 nil]];
+}
+
 - (void) tick:(id)dummy {
     tick_count--;
     if(tick_count < 0 || !_connected) {
@@ -243,6 +257,7 @@ static void on_action(int friendnumber, uint8_t* string, uint16_t length) {
                     m_callback_namechange(on_nickchange);
                     m_callback_statusmessage(on_statuschange);
                     m_callback_userstatus(on_userstatus);
+                    m_callback_read_receipt(on_read);
                     
                     DHT_bootstrap(bootstrap_ip_port, (uint8_t*)[[ToxCore dataFromHexString: [path lastPathComponent]] bytes]);
                     
@@ -378,16 +393,15 @@ static void on_action(int friendnumber, uint8_t* string, uint16_t length) {
     enumerate_friends();
 }
 
-- (BOOL) sendMessage:(NSString*)text toFriend:(int)friend_number error:(NSError**)error {
+- (NSUInteger) sendMessage:(NSString*)text toFriend:(int)friend_number error:(NSError**)error {
     const char* utf = [text UTF8String];
+    int result = m_sendmessage(friend_number, (uint8_t*)utf, (uint32_t)strlen(utf)+1);
     
-    if(m_sendmessage(friend_number, (uint8_t*)utf, (uint32_t)strlen(utf)+1)) {
-        return YES;
-    }
-    if(error) {
+    if(result == 0 && error) {
         *error = error_from_string(@"message send failed");
     }
-    return NO;
+        
+    return result;
 }
 
 - (BOOL) sendAction:(NSString*)text toFriend:(int)friend_number error:(NSError**)error {

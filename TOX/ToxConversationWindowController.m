@@ -62,8 +62,8 @@
 #pragma mark -
 #pragma mark methods
 
-- (void) appendMessage:(NSString*)message from:(NSString*)from {
-    NSArray* args = [NSArray arrayWithObjects: from, message, nil];
+- (void) appendMessage:(NSString*)message from:(NSString*)from messageNumber:(NSNumber*)message_num {
+    NSArray* args = [NSArray arrayWithObjects: from, message, [NSNull null], message_num, nil];
     [scripting callWebScriptMethod:@"add_message" withArguments:args];
 }
 
@@ -91,7 +91,7 @@
         if([[message objectForKey: @"Action"] boolValue]) {
             [self appendAction: [message objectForKey: kToxMessageString] from: sender.name];
         } else {
-            [self appendMessage: [message objectForKey: kToxMessageString] from: sender.name];
+            [self appendMessage: [message objectForKey: kToxMessageString] from: sender.name messageNumber: nil];
         }
     } else {
         if(pending_messages == nil) {
@@ -108,6 +108,13 @@
     [self addMessage: dict];
 }
 
+- (void) messageRead:(NSNumber*)message_num {
+    NSLog(@"message read: %@", message_num);
+    
+    NSArray* args = [NSArray arrayWithObjects: message_num, nil];
+    [scripting callWebScriptMethod:@"message_read" withArguments:args];
+}
+
 #pragma mark -
 #pragma mark Alert finished
 
@@ -122,14 +129,18 @@
         NSError* error = nil;
         
         if([_to_send hasPrefix: @"/me "]) {
-            if([[ToxCore instance] sendAction: [_to_send substringFromIndex: 4] toFriend: _friend_number error: &error]) {
-                [self appendMessage: _to_send from: @""];
+            NSString* action = [_to_send substringFromIndex: 4];
+            if([[ToxCore instance] sendAction: action toFriend: _friend_number error: &error]) {
+                [self appendAction: action from: @""];
                 
                 self.to_send = nil;
             }
         } else {
-            if([[ToxCore instance] sendMessage: _to_send toFriend: _friend_number error: &error]) {
-                [self appendMessage: _to_send from: @""];
+            NSUInteger msg_num = [[ToxCore instance] sendMessage: _to_send toFriend: _friend_number error: &error];
+            if(msg_num) {
+                NSLog(@"Sent message %ld", msg_num);
+                
+                [self appendMessage: _to_send from: @"" messageNumber: [NSNumber numberWithUnsignedInteger: msg_num]];
                 
                 self.to_send = nil;
             }
@@ -150,8 +161,12 @@
 - (NSArray *)webView:(WebView *)sender contextMenuItemsForElement:(NSDictionary *)element
     defaultMenuItems:(NSArray *)defaultMenuItems
 {
-    // disable right-click context menu
-    return nil;
+    if([defaultMenuItems count] == 1) {
+        // disable right-click context menu when it only has "Reload" in it
+        return nil;
+    }
+    
+    return defaultMenuItems;
 }
 
 - (void)webView:(WebView *)sender didClearWindowObject:(WebScriptObject *)windowObject forFrame:(WebFrame *)frame {

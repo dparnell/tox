@@ -20,7 +20,7 @@ function add_row(from, message, when, is_action) {
     
     var date_span = document.createElement('div');
     date_span.className = 'when cell';
-    date_span.appendChild(document.createTextNode(format_datetime(when)));
+    date_span.appendChild(document.createTextNode('Sent ' + format_datetime(when)));
     div.appendChild(date_span);
     
     var content = document.createElement('div');
@@ -39,6 +39,13 @@ function add_row(from, message, when, is_action) {
     var msg = document.createElement('div');
     msg.className = 'msg';
     msg.appendChild(document.createTextNode(message));
+    if(!from) {
+        var pending = document.createElement('span');
+        pending.className = 'pending';
+        pending.appendChild(document.createTextNode(' Pending...'));
+        msg.appendChild(pending);
+    }
+    
     content.appendChild(msg);
     
     div.appendChild(content);
@@ -50,11 +57,12 @@ function add_row(from, message, when, is_action) {
             div.className = 'action';
         }
     } else {
+        var klass = (from ? 'unread ' : '') + 'message';
         if(flag) {
-            div.className = 'message alt';
-        } else {
-            div.className = 'message';
+            klass = klass + ' alt';
         }
+        
+        div.className = klass;
     }
     
     flag = !flag;
@@ -64,12 +72,29 @@ function add_row(from, message, when, is_action) {
     window.setTimeout(function() {
       window.scrollTo(0,document.body.scrollHeight);
     }, 10);
+    
+    return div;
 }
 
-function add_message(from, message, when) {
-    add_row(from, message, when, false);
+function add_message(from, message, when, msg_num) {
+    var div = add_row(from, message, when, false);
+
+    div.id = 'msg-' + msg_num;
 }
 
 function add_action(from, action, when) {
     add_row(from, message, when, true);
+}
+
+function message_read(num) {
+    var div = document.getElementById('msg-' + num);
+    if(div) {
+        var pending = div.querySelector('.pending');
+        if(pending) {
+            var msg = pending.parentNode;
+            msg.removeChild(pending);
+        }
+        
+        div.className = div.className.replace('unread ', '');        
+    }
 }

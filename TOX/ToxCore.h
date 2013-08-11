@@ -18,6 +18,7 @@ extern NSString* kToxMessageNotification;
 extern NSString* kToxFriendNickChangedNotification;
 extern NSString* kToxFriendStatusChangedNotification;
 extern NSString* kToxActionNotification;
+extern NSString* kToxMessageReadNotification;
 
 extern NSString* kToxPublicKey;
 extern NSString* kToxMessageString;
@@ -25,6 +26,7 @@ extern NSString* kToxFriendNumber;
 extern NSString* kToxNewFriendNick;
 extern NSString* kToxNewFriendStatus;
 extern NSString* kToxNewFriendStatusKind;
+extern NSString* kToxMessageNumber;
 
 extern NSString* kToxUserOnline;
 extern NSString* kToxUserAway;
@@ -43,7 +45,7 @@ extern NSString* kToxUserInvalid;
 - (NSString*) clientIdForFriend:(int)friend_number error:(NSError**)error;
 - (NSString*) friendStatus:(int)friend_number error:(NSError**)error;
 - (NSString*) friendStatusKind:(int)friend_number error:(NSError**)error;
-- (BOOL) sendMessage:(NSString*)text toFriend:(int)friend_number error:(NSError**)error;
+- (NSUInteger) sendMessage:(NSString*)text toFriend:(int)friend_number error:(NSError**)error;
 - (BOOL) sendAction:(NSString*)text toFriend:(int)friend_number error:(NSError**)error;
 - (int) friendStatusCode:(int)friend_number;
 - (BOOL) sendFriendRequestTo:(NSString*)client_id message:(NSString*)message error:(NSError**)error;
