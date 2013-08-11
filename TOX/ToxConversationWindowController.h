@@ -15,6 +15,7 @@
 + (ToxConversationWindowController*) newWithFriendNumber:(int)friend_number;
 
 - (void) addMessage:(NSDictionary*)message;
+- (void) addAction:(NSDictionary*)message;
 
 - (IBAction) sendMessage:(id)sender;
 

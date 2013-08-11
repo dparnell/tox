@@ -25,6 +25,7 @@ NSString* kToxFriendRequestNotification = @"ToxFriendRequest";
 NSString* kToxMessageNotification = @"ToxMessage";
 NSString* kToxFriendNickChangedNotification = @"ToxFriendNickChanged";
 NSString* kToxFriendStatusChangedNotification = @"ToxFriendStatusChanged";
+NSString* kToxActionNotification = @"ToxAction";
 
 NSString* kToxPublicKey = @"ToxPublicKey";
 NSString* kToxMessageString = @"ToxMessageString";
@@ -127,6 +128,20 @@ static void on_nickchange(int friendnumber, uint8_t* string, uint16_t length) {
                                                                  nil]];
 }
 
+static void on_userstatus(int friendnumber, USERSTATUS kind) {
+    NSNumber* friend = [NSNumber numberWithInt: friendnumber];
+    NSString* status_kind = status_kind_to_string(kind);
+    NSString* message = [instance friendStatus: friendnumber error: nil];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName: kToxFriendStatusChangedNotification
+                                                        object: instance
+                                                      userInfo: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                                 friend, kToxFriendNumber,
+                                                                 message, kToxNewFriendStatus,
+                                                                 status_kind, kToxNewFriendStatusKind,
+                                                                 nil]];
+}
+
 static NSString* status_kind_to_string(USERSTATUS kind) {
     NSString* status_kind;
     
@@ -160,6 +175,19 @@ static void on_statuschange(int friendnumber, uint8_t* string, uint16_t length) 
                                                                  friend, kToxFriendNumber,
                                                                  message, kToxNewFriendStatus,
                                                                  status_kind, kToxNewFriendStatusKind,
+                                                                 nil]];
+}
+
+static void on_action(int friendnumber, uint8_t* string, uint16_t length) {
+    NSNumber* friend = [NSNumber numberWithInt: friendnumber];
+    NSData* data = [NSData dataWithBytes: string length: length];
+    NSString* message = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName: kToxActionNotification
+                                                        object: instance
+                                                      userInfo: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                                 friend, kToxFriendNumber,
+                                                                 message, kToxMessageString,
                                                                  nil]];
 }
 
@@ -214,7 +242,8 @@ static void on_statuschange(int friendnumber, uint8_t* string, uint16_t length) 
                     m_callback_friendmessage(on_message);
                     m_callback_namechange(on_nickchange);
                     m_callback_statusmessage(on_statuschange);
-
+                    m_callback_userstatus(on_userstatus);
+                    
                     DHT_bootstrap(bootstrap_ip_port, (uint8_t*)[[ToxCore dataFromHexString: [path lastPathComponent]] bytes]);
                     
                     timer = [NSTimer scheduledTimerWithTimeInterval: 1.0f/20.0f target: self selector: @selector(tick:) userInfo: nil repeats: YES];
@@ -357,6 +386,18 @@ static void on_statuschange(int friendnumber, uint8_t* string, uint16_t length) 
     }
     if(error) {
         *error = error_from_string(@"message send failed");
+    }
+    return NO;
+}
+
+- (BOOL) sendAction:(NSString*)text toFriend:(int)friend_number error:(NSError**)error {
+    const char* utf = [text UTF8String];
+    
+    if(m_sendaction(friend_number, (uint8_t*)utf, (uint32_t)strlen(utf)+1)) {
+        return YES;
+    }
+    if(error) {
+        *error = error_from_string(@"action send failed");
     }
     return NO;
 }

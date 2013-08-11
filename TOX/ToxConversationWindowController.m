@@ -67,6 +67,11 @@
     [scripting callWebScriptMethod:@"add_message" withArguments:args];
 }
 
+- (void) appendAction:(NSString*)message from:(NSString*)from {
+    NSArray* args = [NSArray arrayWithObjects: from, message, nil];
+    [scripting callWebScriptMethod:@"add_action" withArguments:args];
+}
+
 - (void) addMessage:(NSDictionary*)message {
     if(scripting) {
         NSNumber* from_number = [message objectForKey: kToxFriendNumber];
@@ -83,13 +88,24 @@
             sender = me;
         }
         
-        [self appendMessage: [message objectForKey: kToxMessageString] from: sender.name];
+        if([[message objectForKey: @"Action"] boolValue]) {
+            [self appendAction: [message objectForKey: kToxMessageString] from: sender.name];
+        } else {
+            [self appendMessage: [message objectForKey: kToxMessageString] from: sender.name];
+        }
     } else {
         if(pending_messages == nil) {
             pending_messages = [NSMutableArray new];
         }
         [pending_messages addObject: message];
     }
+}
+
+- (void) addAction:(NSDictionary*)message {
+    NSMutableDictionary* dict = [message mutableCopy];
+    [dict setObject: [NSNumber numberWithBool: YES] forKey: @"Action"];
+    
+    [self addMessage: dict];
 }
 
 #pragma mark -
@@ -104,15 +120,26 @@
 - (IBAction) sendMessage:(id)sender {
     if(_to_send && _to_send.length > 0) {
         NSError* error = nil;
-        if([[ToxCore instance] sendMessage: _to_send toFriend: _friend_number error: &error]) {
-            [self appendMessage: _to_send from: @""];
-            
-            self.to_send = nil;
+        
+        if([_to_send hasPrefix: @"/me "]) {
+            if([[ToxCore instance] sendAction: [_to_send substringFromIndex: 4] toFriend: _friend_number error: &error]) {
+                [self appendMessage: _to_send from: @""];
+                
+                self.to_send = nil;
+            }
         } else {
+            if([[ToxCore instance] sendMessage: _to_send toFriend: _friend_number error: &error]) {
+                [self appendMessage: _to_send from: @""];
+                
+                self.to_send = nil;
+            }
+        }
+            
+        if(error) {
             [[NSAlert alertWithError: error] beginSheetModalForWindow: self.window
-                                                        modalDelegate: self
-                                                       didEndSelector: @selector(alertDidEnd:returnCode:contextInfo:)
-                                                          contextInfo: nil];
+                                                            modalDelegate: self
+                                                           didEndSelector: @selector(alertDidEnd:returnCode:contextInfo:)
+                                                              contextInfo: nil];
         }
     }
 }

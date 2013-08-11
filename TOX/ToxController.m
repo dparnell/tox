@@ -79,6 +79,7 @@ static NSDictionary* defaults_dict = nil;
     [center addObserver: self selector: @selector(friendStatusChanged:) name: kToxFriendStatusChangedNotification object: core];
     [center addObserver: self selector: @selector(friendNickChanged:) name: kToxFriendNickChangedNotification object: core];
     [center addObserver: self selector: @selector(messageFromFriend:) name: kToxMessageNotification object: core];
+    [center addObserver: self selector: @selector(actionFromFriend:) name: kToxActionNotification object: core];
 
     NSData* stateData = [SSKeychain passwordDataForService: kToxService account: kToxAccount];
     if(stateData == nil) {
@@ -209,6 +210,31 @@ static NSDictionary* defaults_dict = nil;
     }
     
     [conversation addMessage: dict];
+}
+
+- (void) actionFromFriend:(NSNotification*)notification {
+    NSDictionary* dict = [notification userInfo];
+    NSNumber* friend_number = [dict objectForKey: kToxFriendNumber];
+    int friend_num = [friend_number intValue];
+    ToxFriend* friend = [self friendWithFriendNumber: friend_num];
+    
+    if(friend == nil) {
+        friend = [ToxFriend newWithFriendNumber: friend_num];
+        if(friend) {
+            NSIndexSet* index_set = [NSIndexSet indexSetWithIndex: [_friends count]];
+            [self willChange: NSKeyValueChangeInsertion valuesAtIndexes: index_set forKey: @"friends"];
+            [_friends addObject: friend];
+            [self didChange: NSKeyValueChangeInsertion valuesAtIndexes: index_set forKey: @"friends"];
+        }
+    }
+    
+    ToxConversationWindowController* conversation = [conversations objectForKey: friend_number];
+    if(conversation == nil) {
+        conversation = [ToxConversationWindowController newWithFriendNumber: friend_num];
+        [conversations setObject: conversation forKey: friend_number];
+    }
+    
+    [conversation addAction: dict];
 }
 
 #pragma mark -

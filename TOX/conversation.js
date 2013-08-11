@@ -13,7 +13,7 @@ function format_datetime(time) {
     return leading_zeros(time.getHours()) + ':' + leading_zeros(time.getMinutes());
 }
 
-function add_message(from, message, when) {
+function add_row(from, message, when, is_action) {
     when = when || new Date();
     
     var div = document.createElement('div');
@@ -43,10 +43,18 @@ function add_message(from, message, when) {
     
     div.appendChild(content);
     
-    if(flag) {
-        div.className = 'message alt';
+    if(is_action) {
+        if(flag) {
+            div.className = 'action alt';
+        } else {
+            div.className = 'action';
+        }
     } else {
-        div.className = 'message';
+        if(flag) {
+            div.className = 'message alt';
+        } else {
+            div.className = 'message';
+        }
     }
     
     flag = !flag;
@@ -56,4 +64,12 @@ function add_message(from, message, when) {
     window.setTimeout(function() {
       window.scrollTo(0,document.body.scrollHeight);
     }, 10);
+}
+
+function add_message(from, message, when) {
+    add_row(from, message, when, false);
+}
+
+function add_action(from, action, when) {
+    add_row(from, message, when, true);
 }
