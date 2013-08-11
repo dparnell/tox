@@ -109,8 +109,6 @@
 }
 
 - (void) messageRead:(NSNumber*)message_num {
-    NSLog(@"message read: %@", message_num);
-    
     NSArray* args = [NSArray arrayWithObjects: message_num, nil];
     [scripting callWebScriptMethod:@"message_read" withArguments:args];
 }
@@ -138,8 +136,6 @@
         } else {
             NSUInteger msg_num = [[ToxCore instance] sendMessage: _to_send toFriend: _friend_number error: &error];
             if(msg_num) {
-                NSLog(@"Sent message %ld", msg_num);
-                
                 [self appendMessage: _to_send from: @"" messageNumber: [NSNumber numberWithUnsignedInteger: msg_num]];
                 
                 self.to_send = nil;

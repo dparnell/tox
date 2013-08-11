@@ -39,7 +39,7 @@ function add_row(from, message, when, is_action) {
     var msg = document.createElement('div');
     msg.className = 'msg';
     msg.appendChild(document.createTextNode(message));
-    if(!from) {
+    if(!from && !is_action) {
         var pending = document.createElement('span');
         pending.className = 'pending';
         pending.appendChild(document.createTextNode(' Pending...'));
@@ -83,7 +83,7 @@ function add_message(from, message, when, msg_num) {
 }
 
 function add_action(from, action, when) {
-    add_row(from, message, when, true);
+    add_row(from, action, when, true);
 }
 
 function message_read(num) {
