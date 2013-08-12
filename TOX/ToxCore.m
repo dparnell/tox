@@ -35,6 +35,7 @@ NSString* kToxNewFriendNick = @"ToxNewFriendNick";
 NSString* kToxNewFriendStatus = @"ToxNewFriendStatus";
 NSString* kToxNewFriendStatusKind = @"ToxNewFriendStatusKind";
 NSString* kToxMessageNumber = @"ToxMessageNumber";
+NSString* kToxFriendConnectionStatus = @"ToxFriendConnectionStatus";
 
 NSString* kToxUserOnline = @"Online";
 NSString* kToxUserAway = @"Away";
@@ -205,6 +206,22 @@ static void on_read(int friendnumber, uint32_t message_number) {
                                                                  nil]];
 }
 
+static void on_connectionstatus(int friendnumber, uint8_t status) {
+    NSNumber* friend = [NSNumber numberWithInt: friendnumber];
+    NSNumber* con_stat = [NSNumber numberWithUnsignedChar: status];
+    NSString* message = [instance friendStatus: friendnumber error: nil];
+    NSString* status_kind = status_kind_to_string(m_get_userstatus(friendnumber));
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName: kToxFriendStatusChangedNotification
+                                                        object: instance
+                                                      userInfo: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                                 friend, kToxFriendNumber,
+                                                                 message, kToxNewFriendStatus,
+                                                                 status_kind, kToxNewFriendStatusKind,
+                                                                 con_stat, kToxFriendConnectionStatus,
+                                                                 nil]];
+}
+
 - (void) tick:(id)dummy {
     tick_count--;
     if(tick_count < 0 || !_connected) {
@@ -258,6 +275,7 @@ static void on_read(int friendnumber, uint32_t message_number) {
                     m_callback_statusmessage(on_statuschange);
                     m_callback_userstatus(on_userstatus);
                     m_callback_read_receipt(on_read);
+                    m_callback_connectionstatus(on_connectionstatus);
                     
                     DHT_bootstrap(bootstrap_ip_port, (uint8_t*)[[ToxCore dataFromHexString: [path lastPathComponent]] bytes]);
                     
