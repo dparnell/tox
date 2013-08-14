@@ -50,6 +50,7 @@ NSString* kToxUserInvalid = @"Invalid";
 static ToxCore* instance = nil;
 
 @implementation ToxCore {
+    Messenger* messenger;
     BOOL _connected;
     
     NSInteger tick_count;
@@ -73,9 +74,15 @@ static ToxCore* instance = nil;
         initMessenger();
         tick_count = 0;
         _connected = NO;
+        messenger = initMessenger();
     }
     
     return self;
+}
+
+- (void)dealloc
+{
+    cleanupMessenger(messenger);
 }
 
 #pragma mark -
@@ -90,59 +97,6 @@ static NSString* hex_string_from_public_key(uint8_t* public_key) {
     
     return [NSString stringWithUTF8String: tmp];
     
-}
-
-static void on_request(uint8_t* public_key, uint8_t* string, uint16_t length) {
-    NSString* key = hex_string_from_public_key(public_key);
-    NSData* data = [NSData dataWithBytes: string length: length];
-    NSString* message = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName: kToxFriendRequestNotification
-                                                        object: instance
-                                                      userInfo: [NSDictionary dictionaryWithObjectsAndKeys:
-                                                                 key, kToxPublicKey,
-                                                                 message, kToxMessageString,
-                                                                 nil]];
-}
-
-static void on_message(int friendnumber, uint8_t* string, uint16_t length) {
-    NSNumber* friend = [NSNumber numberWithInt: friendnumber];
-    NSData* data = [NSData dataWithBytes: string length: length];
-    NSString* message = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName: kToxMessageNotification
-                                                        object: instance
-                                                      userInfo: [NSDictionary dictionaryWithObjectsAndKeys:
-                                                                 friend, kToxFriendNumber,
-                                                                 message, kToxMessageString,
-                                                                 nil]];
-}
-
-static void on_nickchange(int friendnumber, uint8_t* string, uint16_t length) {
-    NSNumber* friend = [NSNumber numberWithInt: friendnumber];
-    NSData* data = [NSData dataWithBytes: string length: length];
-    NSString* message = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName: kToxFriendNickChangedNotification
-                                                        object: instance
-                                                      userInfo: [NSDictionary dictionaryWithObjectsAndKeys:
-                                                                 friend, kToxFriendNumber,
-                                                                 message, kToxNewFriendNick,
-                                                                 nil]];
-}
-
-static void on_userstatus(int friendnumber, USERSTATUS kind) {
-    NSNumber* friend = [NSNumber numberWithInt: friendnumber];
-    NSString* status_kind = status_kind_to_string(kind);
-    NSString* message = [instance friendStatus: friendnumber error: nil];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName: kToxFriendStatusChangedNotification
-                                                        object: instance
-                                                      userInfo: [NSDictionary dictionaryWithObjectsAndKeys:
-                                                                 friend, kToxFriendNumber,
-                                                                 message, kToxNewFriendStatus,
-                                                                 status_kind, kToxNewFriendStatusKind,
-                                                                 nil]];
 }
 
 static NSString* status_kind_to_string(USERSTATUS kind) {
@@ -162,15 +116,56 @@ static NSString* status_kind_to_string(USERSTATUS kind) {
             status_kind = kToxUserInvalid;
             break;
     }
-
+    
     return status_kind;
 }
 
-static void on_statuschange(int friendnumber, uint8_t* string, uint16_t length) {
+#pragma mark -
+#pragma mark Tox messenger callbacks
+
+static void on_request(uint8_t* public_key, uint8_t* string, uint16_t length, void* user_data) {
+    NSString* key = hex_string_from_public_key(public_key);
+    NSData* data = [NSData dataWithBytes: string length: length];
+    NSString* message = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName: kToxFriendRequestNotification
+                                                        object: instance
+                                                      userInfo: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                                 key, kToxPublicKey,
+                                                                 message, kToxMessageString,
+                                                                 nil]];
+}
+
+static void on_message(Messenger* m, int friendnumber, uint8_t* string, uint16_t length, void* user_data) {
     NSNumber* friend = [NSNumber numberWithInt: friendnumber];
     NSData* data = [NSData dataWithBytes: string length: length];
     NSString* message = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
-    NSString* status_kind = status_kind_to_string(m_get_userstatus(friendnumber));
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName: kToxMessageNotification
+                                                        object: instance
+                                                      userInfo: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                                 friend, kToxFriendNumber,
+                                                                 message, kToxMessageString,
+                                                                 nil]];
+}
+
+static void on_nickchange(Messenger* m, int friendnumber, uint8_t* string, uint16_t length, void* user_data) {
+    NSNumber* friend = [NSNumber numberWithInt: friendnumber];
+    NSData* data = [NSData dataWithBytes: string length: length];
+    NSString* message = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName: kToxFriendNickChangedNotification
+                                                        object: instance
+                                                      userInfo: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                                 friend, kToxFriendNumber,
+                                                                 message, kToxNewFriendNick,
+                                                                 nil]];
+}
+
+static void on_userstatus(Messenger* m, int friendnumber, USERSTATUS kind, void* user_data) {
+    NSNumber* friend = [NSNumber numberWithInt: friendnumber];
+    NSString* status_kind = status_kind_to_string(kind);
+    NSString* message = [instance friendStatus: friendnumber error: nil];
     
     [[NSNotificationCenter defaultCenter] postNotificationName: kToxFriendStatusChangedNotification
                                                         object: instance
@@ -181,7 +176,22 @@ static void on_statuschange(int friendnumber, uint8_t* string, uint16_t length) 
                                                                  nil]];
 }
 
-static void on_action(int friendnumber, uint8_t* string, uint16_t length) {
+static void on_statuschange(Messenger* m, int friendnumber, uint8_t* string, uint16_t length, void* user_data) {
+    NSNumber* friend = [NSNumber numberWithInt: friendnumber];
+    NSData* data = [NSData dataWithBytes: string length: length];
+    NSString* message = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
+    NSString* status_kind = status_kind_to_string(m_get_userstatus(m, friendnumber));
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName: kToxFriendStatusChangedNotification
+                                                        object: instance
+                                                      userInfo: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                                 friend, kToxFriendNumber,
+                                                                 message, kToxNewFriendStatus,
+                                                                 status_kind, kToxNewFriendStatusKind,
+                                                                 nil]];
+}
+
+static void on_action(Messenger* m, int friendnumber, uint8_t* string, uint16_t length, void* user_data) {
     NSNumber* friend = [NSNumber numberWithInt: friendnumber];
     NSData* data = [NSData dataWithBytes: string length: length];
     NSString* message = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
@@ -194,7 +204,7 @@ static void on_action(int friendnumber, uint8_t* string, uint16_t length) {
                                                                  nil]];
 }
 
-static void on_read(int friendnumber, uint32_t message_number) {
+static void on_read(Messenger* m, int friendnumber, uint32_t message_number, void* user_data) {
     NSNumber* friend = [NSNumber numberWithInt: friendnumber];
     NSNumber* message_num = [NSNumber numberWithUnsignedInteger: message_number];
     
@@ -206,11 +216,11 @@ static void on_read(int friendnumber, uint32_t message_number) {
                                                                  nil]];
 }
 
-static void on_connectionstatus(int friendnumber, uint8_t status) {
+static void on_connectionstatus(Messenger* m, int friendnumber, uint8_t status, void* user_data) {
     NSNumber* friend = [NSNumber numberWithInt: friendnumber];
     NSNumber* con_stat = [NSNumber numberWithUnsignedChar: status];
     NSString* message = [instance friendStatus: friendnumber error: nil];
-    NSString* status_kind = status_kind_to_string(m_get_userstatus(friendnumber));
+    NSString* status_kind = status_kind_to_string(m_get_userstatus(m, friendnumber));
     
     [[NSNotificationCenter defaultCenter] postNotificationName: kToxFriendStatusChangedNotification
                                                         object: instance
@@ -241,7 +251,7 @@ static void on_connectionstatus(int friendnumber, uint8_t status) {
         }
     }
     
-    doMessenger();
+    doMessenger(messenger);
 }
 
 - (BOOL) start:(NSURL*)url error:(NSError**)error{
@@ -269,13 +279,13 @@ static void on_connectionstatus(int friendnumber, uint8_t status) {
                 if (resolved_address != 0) {
                     bootstrap_ip_port.ip.i = resolved_address;
                                     
-                    m_callback_friendrequest(on_request);
-                    m_callback_friendmessage(on_message);
-                    m_callback_namechange(on_nickchange);
-                    m_callback_statusmessage(on_statuschange);
-                    m_callback_userstatus(on_userstatus);
-                    m_callback_read_receipt(on_read);
-                    m_callback_connectionstatus(on_connectionstatus);
+                    m_callback_friendrequest(messenger, on_request, (__bridge void *)(self));
+                    m_callback_friendmessage(messenger, on_message, (__bridge void *)(self));
+                    m_callback_namechange(messenger, on_nickchange, (__bridge void *)(self));
+                    m_callback_statusmessage(messenger, on_statuschange, (__bridge void *)(self));
+                    m_callback_userstatus(messenger, on_userstatus, (__bridge void *)(self));
+                    m_callback_read_receipt(messenger, on_read,(__bridge void *)(self));
+                    m_callback_connectionstatus(messenger, on_connectionstatus, (__bridge void *)(self));
                     
                     DHT_bootstrap(bootstrap_ip_port, (uint8_t*)[[ToxCore dataFromHexString: [path lastPathComponent]] bytes]);
                     
@@ -309,7 +319,7 @@ static void on_connectionstatus(int friendnumber, uint8_t status) {
 - (NSString*) clientIdForFriend:(int)friend_number error:(NSError**)error {
     uint8_t public_key[PUB_KEY_BYTES];
     
-    if(getclient_id(friend_number, public_key) == 0) {
+    if(getclient_id(messenger, friend_number, public_key) == 0) {
         return hex_string_from_public_key(public_key);
     }
     
@@ -321,13 +331,13 @@ static void on_connectionstatus(int friendnumber, uint8_t status) {
 
 - (NSString*) friendName:(int)friend_number error:(NSError**)error {
     char buffer[MAX_NAME_LENGTH+1];
-    if(getname(friend_number, (uint8_t*)buffer) == 0) {
+    if(getname(messenger, friend_number, (uint8_t*)buffer) == 0) {
         NSString* result = [NSString stringWithUTF8String: buffer];
         
         if(result.length == 0) {
             uint8_t public_key[PUB_KEY_BYTES];
             
-            if(getclient_id(friend_number, public_key) == 0) {
+            if(getclient_id(messenger, friend_number, public_key) == 0) {
                 result = hex_string_from_public_key(public_key);
             }
         }
@@ -345,7 +355,7 @@ static void on_connectionstatus(int friendnumber, uint8_t status) {
 
 - (NSString*) friendStatus:(int)friend_number error:(NSError**)error {
     char buffer[128];
-    if(m_copy_statusmessage(friend_number, (uint8_t*)buffer, sizeof(buffer)) == 0) {
+    if(m_copy_statusmessage(messenger, friend_number, (uint8_t*)buffer, sizeof(buffer)) == 0) {
         return [NSString stringWithUTF8String: buffer];
     }
     
@@ -356,11 +366,11 @@ static void on_connectionstatus(int friendnumber, uint8_t status) {
 }
 
 - (int) friendStatusCode:(int)friend_number {
-    return m_friendstatus(friend_number);
+    return m_friendstatus(messenger, friend_number);
 }
 
 - (NSString*) friendStatusKind:(int)friend_number error:(NSError**)error {
-    USERSTATUS kind = m_get_userstatus(friend_number);
+    USERSTATUS kind = m_get_userstatus(messenger, friend_number);
     
     if(kind == USERSTATUS_INVALID) {
         if(error) {
@@ -376,7 +386,7 @@ static void on_connectionstatus(int friendnumber, uint8_t status) {
     
     NSData* data = [ToxCore dataFromHexString: client_id];
     if(data) {
-        int friend_num = getfriend_id((uint8_t*)[data bytes]);
+        int friend_num = getfriend_id(messenger, (uint8_t*)[data bytes]);
         if(friend_num >= 0) {
             return friend_num;
         }
@@ -396,7 +406,7 @@ static void on_connectionstatus(int friendnumber, uint8_t status) {
     
     NSData* data = [ToxCore dataFromHexString: client_id];
     if(data) {        
-        return m_addfriend_norequest((uint8_t*)[data bytes]);
+        return m_addfriend_norequest(messenger, (uint8_t*)[data bytes]);
     } else {
         errorString = @"Invalid client_id";
     }
@@ -408,12 +418,12 @@ static void on_connectionstatus(int friendnumber, uint8_t status) {
 }
 
 - (void) enumerateFriends {
-    enumerate_friends();
+    // do nothing
 }
 
 - (NSUInteger) sendMessage:(NSString*)text toFriend:(int)friend_number error:(NSError**)error {
     const char* utf = [text UTF8String];
-    int result = m_sendmessage(friend_number, (uint8_t*)utf, (uint32_t)strlen(utf)+1);
+    int result = m_sendmessage(messenger, friend_number, (uint8_t*)utf, (uint32_t)strlen(utf)+1);
     
     if(result == 0 && error) {
         *error = error_from_string(@"message send failed");
@@ -425,7 +435,7 @@ static void on_connectionstatus(int friendnumber, uint8_t status) {
 - (BOOL) sendAction:(NSString*)text toFriend:(int)friend_number error:(NSError**)error {
     const char* utf = [text UTF8String];
     
-    if(m_sendaction(friend_number, (uint8_t*)utf, (uint32_t)strlen(utf)+1)) {
+    if(m_sendaction(messenger, friend_number, (uint8_t*)utf, (uint32_t)strlen(utf)+1)) {
         return YES;
     }
     if(error) {
@@ -441,10 +451,10 @@ static void on_connectionstatus(int friendnumber, uint8_t status) {
     if(data) {
         const char* utf = [message UTF8String];
         
-        int result = m_addfriend((uint8_t*)[data bytes], (uint8_t*)utf, strlen(utf)+1);
+        int result = m_addfriend(messenger, (uint8_t*)[data bytes], (uint8_t*)utf, strlen(utf)+1);
         if(result >= 0) {
             utf = [NSLocalizedString(@"Pending", @"Pending acceptance") UTF8String];
-            on_statuschange(result, (uint8_t*)utf, strlen(utf)+1);
+            on_statuschange(messenger, result, (uint8_t*)utf, strlen(utf)+1, (__bridge void *)(self));
             
             return YES;
         }
@@ -466,7 +476,7 @@ static void on_connectionstatus(int friendnumber, uint8_t status) {
     
     NSData* data = [ToxCore dataFromHexString: client_id];
     if(data) {
-        int friend_num = m_addfriend_norequest((uint8_t*)[data bytes]);
+        int friend_num = m_addfriend_norequest(messenger, (uint8_t*)[data bytes]);
         if(friend_num >= 0) {
             return friend_num;
         }
@@ -502,19 +512,19 @@ static void on_connectionstatus(int friendnumber, uint8_t status) {
     }
     const char* utf = [user_status UTF8String];
     _user_status = user_status;
-    m_set_statusmessage((uint8_t*)utf, strlen(utf)+1);
+    m_set_statusmessage(messenger, (uint8_t*)utf, strlen(utf)+1);
 }
 
 - (NSString*) nick {
     uint8_t buffer[MAX_NAME_LENGTH+1];
-    int length = getself_name(buffer);
+    int length = getself_name(messenger, buffer, sizeof(buffer));
     NSData* data = [NSData dataWithBytes:buffer length: length];
     return [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
 }
 
 - (void) setNick:(NSString *)nick {
     const char* utf = [nick UTF8String];
-    setname((uint8_t*)utf, strlen(utf)+1);
+    setname(messenger, (uint8_t*)utf, strlen(utf)+1);
 }
 
 - (NSData*) state {
@@ -530,7 +540,7 @@ static void on_connectionstatus(int friendnumber, uint8_t status) {
     if(L == crypto_box_PUBLICKEYBYTES + crypto_box_SECRETKEYBYTES) {
         load_keys((uint8_t*)[state bytes]);
     } else {
-        Messenger_load((uint8_t*)[state bytes], L);
+        Messenger_load(messenger, (uint8_t*)[state bytes], L);
     }
 }
 

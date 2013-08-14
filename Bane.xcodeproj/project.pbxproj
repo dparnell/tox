@@ -20,6 +20,9 @@
 		6589008217B117CD002E9CA9 /* ping.c in Sources */ = {isa = PBXBuildFile; fileRef = 6589006417B0F9B7002E9CA9 /* ping.c */; };
 		6589008417B12760002E9CA9 /* away.png in Resources */ = {isa = PBXBuildFile; fileRef = 6589008317B12760002E9CA9 /* away.png */; };
 		658AD23017B79C5C00B98B98 /* configdir.c in Sources */ = {isa = PBXBuildFile; fileRef = 658AD22E17B79C5C00B98B98 /* configdir.c */; };
+		658AD23417BB0CA000B98B98 /* timer.c in Sources */ = {isa = PBXBuildFile; fileRef = 658AD23217BB0CA000B98B98 /* timer.c */; };
+		658AD23517BB0CA000B98B98 /* timer.c in Sources */ = {isa = PBXBuildFile; fileRef = 658AD23217BB0CA000B98B98 /* timer.c */; };
+		658AD23617BB0CA000B98B98 /* timer.c in Sources */ = {isa = PBXBuildFile; fileRef = 658AD23217BB0CA000B98B98 /* timer.c */; };
 		658D6DBE17AFCABF003F053F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 658D6DBD17AFCABF003F053F /* WebKit.framework */; };
 		658D6DC017AFCC14003F053F /* conversation.html in Resources */ = {isa = PBXBuildFile; fileRef = 658D6DBF17AFCC14003F053F /* conversation.html */; };
 		658D6DC417AFCC59003F053F /* conversation.css in Resources */ = {isa = PBXBuildFile; fileRef = 658D6DC317AFCC59003F053F /* conversation.css */; };
@@ -123,6 +126,9 @@
 		6589008317B12760002E9CA9 /* away.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = away.png; sourceTree = "<group>"; };
 		658AD22E17B79C5C00B98B98 /* configdir.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = configdir.c; path = "ProjectTox-Core/testing/toxic/configdir.c"; sourceTree = SOURCE_ROOT; };
 		658AD22F17B79C5C00B98B98 /* configdir.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = configdir.h; path = "ProjectTox-Core/testing/toxic/configdir.h"; sourceTree = SOURCE_ROOT; };
+		658AD23117BB0CA000B98B98 /* packets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = packets.h; path = "ProjectTox-Core/core/packets.h"; sourceTree = "<group>"; };
+		658AD23217BB0CA000B98B98 /* timer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = timer.c; path = "ProjectTox-Core/core/timer.c"; sourceTree = "<group>"; };
+		658AD23317BB0CA000B98B98 /* timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = timer.h; path = "ProjectTox-Core/core/timer.h"; sourceTree = "<group>"; };
 		658D6DBD17AFCABF003F053F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		658D6DBF17AFCC14003F053F /* conversation.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = conversation.html; sourceTree = "<group>"; };
 		658D6DC117AFCC48003F053F /* conversation.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = conversation.js; sourceTree = "<group>"; };
@@ -382,6 +388,9 @@
 		65E3E7CF17AA7D5D000EB29B /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				658AD23117BB0CA000B98B98 /* packets.h */,
+				658AD23217BB0CA000B98B98 /* timer.c */,
+				658AD23317BB0CA000B98B98 /* timer.h */,
 				6589006717B0FA0D002E9CA9 /* util.c */,
 				6589006817B0FA0D002E9CA9 /* util.h */,
 				6589006417B0F9B7002E9CA9 /* ping.c */,
@@ -658,6 +667,7 @@
 				65E3E84517AE2D06000EB29B /* ToxConversationWindowController.m in Sources */,
 				6589006617B0F9B7002E9CA9 /* ping.c in Sources */,
 				6589006917B0FA0D002E9CA9 /* util.c in Sources */,
+				658AD23417BB0CA000B98B98 /* timer.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -684,6 +694,7 @@
 				65E3E7FB17AA802F000EB29B /* network.c in Sources */,
 				65E3E7F417AA8018000EB29B /* nTox.c in Sources */,
 				65E3E80017AA80DE000EB29B /* misc_tools.c in Sources */,
+				658AD23517BB0CA000B98B98 /* timer.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -705,6 +716,7 @@
 				65E3E81717AA81CE000EB29B /* main.c in Sources */,
 				65E3E81817AA81CE000EB29B /* prompt.c in Sources */,
 				658AD23017B79C5C00B98B98 /* configdir.c in Sources */,
+				658AD23617BB0CA000B98B98 /* timer.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
