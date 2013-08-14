@@ -53,8 +53,6 @@ extern NSString* kToxUserInvalid;
 
 - (int) acceptFriendRequestFrom:(NSString*)client_id error:(NSError**)error;
 
-- (void) enumerateFriends;
-
 + (NSData*) dataFromHexString:(NSString*)string;
 
 @property (readonly) NSString* public_key;

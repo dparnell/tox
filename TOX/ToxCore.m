@@ -417,10 +417,6 @@ static void on_connectionstatus(Messenger* m, int friendnumber, uint8_t status, 
     return -1;
 }
 
-- (void) enumerateFriends {
-    // do nothing
-}
-
 - (NSUInteger) sendMessage:(NSString*)text toFriend:(int)friend_number error:(NSError**)error {
     const char* utf = [text UTF8String];
     int result = m_sendmessage(messenger, friend_number, (uint8_t*)utf, (uint32_t)strlen(utf)+1);

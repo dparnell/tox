@@ -88,8 +88,6 @@ static NSDictionary* defaults_dict = nil;
         if(stateData) {
             // this is an old Project-TOX base state dump
             core.state = stateData;
-        
-            [core enumerateFriends];
         }
     } else {
         NSDictionary* dict = [NSKeyedUnarchiver unarchiveObjectWithData: stateData];
