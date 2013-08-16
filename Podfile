@@ -1,5 +1,6 @@
 platform :osx
 
-pod 'libsodium', '~> 0.4'
+pod 'libsodium', :podspec => './Podspecs/'
 pod 'SSKeychain', '~> 0.1.4'
+
 

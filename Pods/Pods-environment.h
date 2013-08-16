@@ -16,5 +16,5 @@
 #define COCOAPODS_POD_AVAILABLE_libsodium
 #define COCOAPODS_VERSION_MAJOR_libsodium 0
 #define COCOAPODS_VERSION_MINOR_libsodium 4
-#define COCOAPODS_VERSION_PATCH_libsodium 0
+#define COCOAPODS_VERSION_PATCH_libsodium 2
 

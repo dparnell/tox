@@ -17,10 +17,11 @@
 
 #include "randombytes.h"
 #include "randombytes_sysrandom.h"
+#include "utils.h"
 
 #ifdef _WIN32
-# include <Windows.h>
-# include <Wincrypt.h>
+# include <windows.h>
+# include <wincrypt.h>
 #endif
 
 typedef struct SysRandom_ {
@@ -32,8 +33,8 @@ typedef struct SysRandom_ {
 } SysRandom;
 
 static SysRandom stream = {
-    .random_data_source_fd = -1,
-    .initialized = 0
+    _SODIUM_C99(.random_data_source_fd =) -1,
+    _SODIUM_C99(.initialized =) 0
 };
 
 #ifndef _WIN32
@@ -147,7 +148,6 @@ randombytes_sysrandom(void)
 {
     uint32_t r;
 
-    randombytes_sysrandom_stir_if_needed();
     randombytes_sysrandom_buf(&r, sizeof r);
 
     return r;
@@ -202,10 +202,10 @@ randombytes_sysrandom_implementation_name(void)
 }
 
 struct randombytes_implementation randombytes_sysrandom_implementation = {
-    .implementation_name = randombytes_sysrandom_implementation_name,
-    .random = randombytes_sysrandom,
-    .stir = randombytes_sysrandom_stir,
-    .uniform = randombytes_sysrandom_uniform,
-    .buf = randombytes_sysrandom_buf,
-    .close = randombytes_sysrandom_close
+    _SODIUM_C99(.implementation_name =) randombytes_sysrandom_implementation_name,
+    _SODIUM_C99(.random =) randombytes_sysrandom,
+    _SODIUM_C99(.stir =) randombytes_sysrandom_stir,
+    _SODIUM_C99(.uniform =) randombytes_sysrandom_uniform,
+    _SODIUM_C99(.buf =) randombytes_sysrandom_buf,
+    _SODIUM_C99(.close =) randombytes_sysrandom_close
 };
