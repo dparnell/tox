@@ -18,12 +18,14 @@ THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH RE
   s.author   = { "Frank Dennis" => "j@pureftpd.org" }
   s.source   = { :git => 'https://github.com/mochtu/libsodium-ios.git', :tag => '0.4.2' }
   
-  s.ios.deployment_target = '4.0'
   s.osx.deployment_target = '10.6'
 
   s.header_mappings_dir = 'src/libsodium/include'
   
-  s.source_files = 'src/libsodium/**/*.{c,h,data}'
+  s.source_files = 'src/libsodium/**/*.{c,h,data,S}'
   s.exclude_files =  '**/*try.*'
 
-end
+  defs = %w{ STDC_HEADERS HAVE_SYS_TYPES_H HAVE_SYS_STAT_H HAVE_STDLIB_H HAVE_STRING_H HAVE_MEMORY_H HAVE_STRINGS_H HAVE_INTTYPES_H HAVE_STDINT_H HAVE_UNISTD_H __EXTENSIONS__ _ALL_SOURCE _GNU_SOURCE _POSIX_PTHREAD_SEMANTICS _TANDEM_SOURCE HAVE_DLFCN_H HAVE_EMMINTRIN_H HAVE_TMMINTRIN_H HAVE_FENV_H NATIVE_LITTLE_ENDIAN HAVE_AMD64_ASM HAVE_TI_MODE HAVE_CPUID SODIUM_HAVE_TI_MODE }
+
+  s.xcconfig = { "GCC_PREPROCESSOR_DEFINITIONS" => "$(inherited) #{defs.join('=1 ')}=1" }
+  end

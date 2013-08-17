@@ -11,7 +11,7 @@ EXTERNAL SOURCES:
     :podspec: ./Podspecs/
 
 SPEC CHECKSUMS:
-  libsodium: 2f276aca264f031d7a817259d887e445f9dd61a6
+  libsodium: 1f94c3c85f29a0937cb1e9c175a7ed0c9b2a458f
   SSKeychain: bae692a4354f48691ca3463a121dc8060f781a7d
 
 COCOAPODS: 0.22.3
