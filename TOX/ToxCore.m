@@ -11,8 +11,6 @@
 #import "network.h"
 #import "net_crypto.h"
 
-#define PUB_KEY_BYTES 32
-
 #pragma mark -
 #pragma mark constants
 
@@ -89,8 +87,8 @@ static ToxCore* instance = nil;
 #pragma mark main code
 
 static NSString* hex_string_from_public_key(uint8_t* public_key) {
-    char tmp[PUB_KEY_BYTES * 2 + 1];
-    for(int i = 0; i < PUB_KEY_BYTES; i++)
+    char tmp[FRIEND_ADDRESS_SIZE * 2 + 1];
+    for(int i = 0; i < FRIEND_ADDRESS_SIZE; i++)
     {
         sprintf(&tmp[i*2], "%02X", public_key[i]);
     }
@@ -317,7 +315,7 @@ static void on_connectionstatus(Messenger* m, int friendnumber, uint8_t status, 
 #pragma mark Communication methods
 
 - (NSString*) clientIdForFriend:(int)friend_number error:(NSError**)error {
-    uint8_t public_key[PUB_KEY_BYTES];
+    uint8_t public_key[FRIEND_ADDRESS_SIZE];
     
     if(getclient_id(messenger, friend_number, public_key) == 0) {
         return hex_string_from_public_key(public_key);
@@ -335,7 +333,7 @@ static void on_connectionstatus(Messenger* m, int friendnumber, uint8_t status, 
         NSString* result = [NSString stringWithUTF8String: buffer];
         
         if(result.length == 0) {
-            uint8_t public_key[PUB_KEY_BYTES];
+            uint8_t public_key[FRIEND_ADDRESS_SIZE];
             
             if(getclient_id(messenger, friend_number, public_key) == 0) {
                 result = hex_string_from_public_key(public_key);
@@ -443,21 +441,57 @@ static void on_connectionstatus(Messenger* m, int friendnumber, uint8_t status, 
 - (BOOL) sendFriendRequestTo:(NSString*)client_id message:(NSString*)message error:(NSError**)error {
     NSString* errorString;
     
-    NSData* data = [ToxCore dataFromHexString: client_id];
-    if(data) {
-        const char* utf = [message UTF8String];
-        
-        int result = m_addfriend(messenger, (uint8_t*)[data bytes], (uint8_t*)utf, strlen(utf)+1);
-        if(result >= 0) {
-            utf = [NSLocalizedString(@"Pending", @"Pending acceptance") UTF8String];
-            on_statuschange(messenger, result, (uint8_t*)utf, strlen(utf)+1, (__bridge void *)(self));
+    if([client_id length] == FRIEND_ADDRESS_SIZE * 2) {
+        NSData* data = [ToxCore dataFromHexString: client_id];
+        if(data) {
+            const char* utf = [message UTF8String];
             
-            return YES;
+            int result = m_addfriend(messenger, (uint8_t*)[data bytes], (uint8_t*)utf, strlen(utf)+1);
+            if(result >= 0) {
+                utf = [NSLocalizedString(@"Pending", @"Pending acceptance") UTF8String];
+                on_statuschange(messenger, result, (uint8_t*)utf, strlen(utf)+1, (__bridge void *)(self));
+                
+                return YES;
+            }
+            
+            switch(result) {
+                case FAERR_TOOLONG:
+                    errorString = @"Message is too long";
+                    break;
+                    
+                case FAERR_NOMESSAGE:
+                    errorString = @"Please add a message to your request";
+                    break;
+                    
+                case FAERR_OWNKEY:
+                    errorString = @"That appears to be your own ID";
+                    break;
+                    
+                case FAERR_ALREADYSENT:
+                    errorString = @"Friend request already sent";
+                    break;
+                    
+                case FAERR_UNKNOWN:
+                    errorString = @"Undefined error when adding friend";
+                    break;
+                    
+                case FAERR_BADCHECKSUM:
+                    errorString = @"Bad checksum in address";
+                    break;
+                    
+                case FAERR_SETNEWNOSPAM:
+                    errorString = @"Nospam was different";
+                    break;
+                    
+                default:
+                    errorString = @"Could not add new friend";
+                    break;
+            }
+        } else {
+            errorString = @"Invalid friend length";
         }
-        
-        errorString = @"Could not add new friend";
     } else {
-        errorString = @"Invalid client_id";
+        errorString = @"Wrong friend id length";
     }
     
     if(error) {
@@ -493,10 +527,12 @@ static void on_connectionstatus(Messenger* m, int friendnumber, uint8_t status, 
 #pragma mark properties
 
 - (NSString*) public_key {
-    char tmp[PUB_KEY_BYTES * 2 + 1];
-    for(int i = 0; i < PUB_KEY_BYTES; i++)
+    uint8_t address[FRIEND_ADDRESS_SIZE];
+    getaddress(messenger, address);    
+    char tmp[FRIEND_ADDRESS_SIZE * 2 + 1];
+    for(int i = 0; i < FRIEND_ADDRESS_SIZE; i++)
     {
-        sprintf(&tmp[i*2], "%02X",self_public_key[i]);
+        sprintf(&tmp[i*2], "%02X",address[i]);
     }
     
     return [NSString stringWithUTF8String: tmp];

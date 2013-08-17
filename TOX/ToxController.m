@@ -100,10 +100,7 @@ static NSDictionary* defaults_dict = nil;
     NSArray* dht_hosts = [[ToxController defaultValues] objectForKey: @"DHT Bootstrap Hosts"];
     NSString* dht_host = [dht_hosts objectAtIndex: arc4random() % dht_hosts.count];
     if(![core start: [NSURL URLWithString: dht_host] error: &error]) {
-        [[NSAlert alertWithError: error] beginSheetModalForWindow: self.window
-                                                    modalDelegate: self
-                                                   didEndSelector: @selector(alertDidEnd:returnCode:contextInfo:)
-                                                      contextInfo: nil];
+        [self showAlertForError: error];
     }    
 }
 
@@ -262,7 +259,14 @@ static NSDictionary* defaults_dict = nil;
 
 
 #pragma mark -
-#pragma mark Alert finished
+#pragma mark Alert stuff
+
+- (void) showAlertForError:(NSError*) error {
+    [[NSAlert alertWithError: error] beginSheetModalForWindow: self.window
+                                                modalDelegate: self
+                                               didEndSelector: @selector(alertDidEnd:returnCode:contextInfo:)
+                                                  contextInfo: nil];
+}
 
 - (void)alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
     [[alert window] orderOut: nil];
@@ -360,10 +364,11 @@ static NSDictionary* defaults_dict = nil;
 }
 
 - (IBAction) performAddFriend:(id)sender {
+    NSError* error = nil;
     [NSApp endSheet: _add_panel];
     
-    if([_add_public_key length] == 64) {
-        [[ToxCore instance] sendFriendRequestTo: _add_public_key message: _add_message error: nil];
+    if(![[ToxCore instance] sendFriendRequestTo: _add_public_key message: _add_message error: &error]) {
+        [self showAlertForError: error];
     }
 }
 
