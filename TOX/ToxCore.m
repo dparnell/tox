@@ -235,7 +235,7 @@ static void on_connectionstatus(Messenger* m, int friendnumber, uint8_t status, 
     if(tick_count < 0 || !_connected) {
         tick_count = 200;
         
-        BOOL is_connected = DHT_isconnected();
+        BOOL is_connected = DHT_isconnected(messenger->dht);
         if(is_connected != _connected) {
             [self willChangeValueForKey: @"connected"];
             _connected = is_connected;
@@ -285,7 +285,7 @@ static void on_connectionstatus(Messenger* m, int friendnumber, uint8_t status, 
                     m_callback_read_receipt(messenger, on_read,(__bridge void *)(self));
                     m_callback_connectionstatus(messenger, on_connectionstatus, (__bridge void *)(self));
                     
-                    DHT_bootstrap(bootstrap_ip_port, (uint8_t*)[[ToxCore dataFromHexString: [path lastPathComponent]] bytes]);
+                    DHT_bootstrap(messenger->dht, bootstrap_ip_port, (uint8_t*)[[ToxCore dataFromHexString: [path lastPathComponent]] bytes]);
                     
                     timer = [NSTimer scheduledTimerWithTimeInterval: 1.0f/20.0f target: self selector: @selector(tick:) userInfo: nil repeats: YES];
                 
@@ -562,7 +562,7 @@ static void on_connectionstatus(Messenger* m, int friendnumber, uint8_t status, 
 - (NSData*) state {
     uint8_t buffer[crypto_box_PUBLICKEYBYTES + crypto_box_SECRETKEYBYTES];
     
-    save_keys(buffer);
+    save_keys(messenger->net_crypto, buffer);
     
     return [NSData dataWithBytes: buffer length: sizeof(buffer)];
 }
@@ -570,7 +570,7 @@ static void on_connectionstatus(Messenger* m, int friendnumber, uint8_t status, 
 - (void) setState:(NSData *)state {
     uint32_t L = (uint32_t)[state length];
     if(L == crypto_box_PUBLICKEYBYTES + crypto_box_SECRETKEYBYTES) {
-        load_keys((uint8_t*)[state bytes]);
+        load_keys(messenger->net_crypto, (uint8_t*)[state bytes]);
     } else {
         Messenger_load(messenger, (uint8_t*)[state bytes], L);
     }
