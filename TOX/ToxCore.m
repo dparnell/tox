@@ -25,6 +25,7 @@ NSString* kToxFriendNickChangedNotification = @"ToxFriendNickChanged";
 NSString* kToxFriendStatusChangedNotification = @"ToxFriendStatusChanged";
 NSString* kToxActionNotification = @"ToxAction";
 NSString* kToxMessageReadNotification = @"ToxMessageRead";
+NSString* kToxFriendRemovedNotification = @"ToxFriendRemoved";
 
 NSString* kToxPublicKey = @"ToxPublicKey";
 NSString* kToxMessageString = @"ToxMessageString";
@@ -523,6 +524,21 @@ static void on_connectionstatus(Messenger* m, int friendnumber, uint8_t status, 
     return -1;
 }
 
+- (BOOL) removeFriend:(int)friend_number error:(NSError**)error {
+    if(m_delfriend(messenger, friend_number) == 0) {
+        [[NSNotificationCenter defaultCenter] postNotificationName: kToxFriendRemovedNotification
+                                                            object: instance
+                                                          userInfo: [NSDictionary dictionaryWithObject: [NSNumber numberWithInt: friend_number] forKey: kToxFriendNumber]];
+        return YES;
+    }
+    
+    if(error) {
+        *error = error_from_string(@"Could not remove friend");
+    }
+    
+    return NO;
+}
+
 #pragma mark -
 #pragma mark properties
 
@@ -580,7 +596,9 @@ static void on_connectionstatus(Messenger* m, int friendnumber, uint8_t status, 
 #pragma mark Utility methods
 
 static NSError* error_from_string(NSString* errorString) {
-    return [NSError errorWithDomain: kToxErrorDomain code: 0 userInfo: [NSDictionary dictionaryWithObject: errorString forKey: NSLocalizedDescriptionKey]];
+    NSString* s = NSLocalizedString(errorString, errorString);
+    
+    return [NSError errorWithDomain: kToxErrorDomain code: 0 userInfo: [NSDictionary dictionaryWithObject: s forKey: NSLocalizedDescriptionKey]];
 }
 
 + (NSData*) dataFromHexString:(NSString*)string {

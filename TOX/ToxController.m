@@ -81,6 +81,7 @@ static NSDictionary* defaults_dict = nil;
     [center addObserver: self selector: @selector(messageFromFriend:) name: kToxMessageNotification object: core];
     [center addObserver: self selector: @selector(actionFromFriend:) name: kToxActionNotification object: core];
     [center addObserver: self selector: @selector(messageRead:) name: kToxMessageReadNotification object: core];
+    [center addObserver: self selector: @selector(friendRemoved:) name: kToxFriendRemovedNotification object: core];
 
     NSData* stateData = [SSKeychain passwordDataForService: kToxService account: kToxAccount];
     if(stateData == nil) {
@@ -257,6 +258,17 @@ static NSDictionary* defaults_dict = nil;
     [conversation messageRead: [dict objectForKey: kToxMessageNumber]];
 }
 
+- (void) friendRemoved:(NSNotification*)notification {
+    NSDictionary* dict = [notification userInfo];
+    NSNumber* friend_number = [dict objectForKey: kToxFriendNumber];
+    int friend_num = [friend_number intValue];
+    NSUInteger index = [self indexOfFriendWithNumber: friend_num];
+    
+    NSIndexSet* is = [NSIndexSet indexSetWithIndex: index];
+    [self willChange: NSKeyValueChangeRemoval valuesAtIndexes: is forKey: @"friends"];
+    [_friends removeObjectAtIndex: index];
+    [self didChange: NSKeyValueChangeRemoval valuesAtIndexes: is forKey: @"friends"];
+}
 
 #pragma mark -
 #pragma mark Alert stuff
@@ -283,14 +295,17 @@ static NSDictionary* defaults_dict = nil;
 #pragma mark -
 #pragma mark Methods
 
-- (ToxFriend*) friendWithFriendNumber:(int)friend_number {
-    NSUInteger index = [_friends indexOfObjectPassingTest:^BOOL(ToxFriend* obj, NSUInteger idx, BOOL *stop) {
+- (NSUInteger) indexOfFriendWithNumber:(int) friend_number {
+    return [_friends indexOfObjectPassingTest:^BOOL(ToxFriend* obj, NSUInteger idx, BOOL *stop) {
         if(obj.friend_number == friend_number) {
             return YES;
         }
         
         return NO;
     }];
+}
+- (ToxFriend*) friendWithFriendNumber:(int)friend_number {
+    NSUInteger index = [self indexOfFriendWithNumber: friend_number];
     
     if(index == NSNotFound) {
         return nil;
