@@ -16,16 +16,13 @@
 		6589006917B0FA0D002E9CA9 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 6589006717B0FA0D002E9CA9 /* util.c */; };
 		6589007D17B117AE002E9CA9 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 6589006717B0FA0D002E9CA9 /* util.c */; };
 		6589007F17B117AE002E9CA9 /* ping.c in Sources */ = {isa = PBXBuildFile; fileRef = 6589006417B0F9B7002E9CA9 /* ping.c */; };
-		6589008117B117CD002E9CA9 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 6589006717B0FA0D002E9CA9 /* util.c */; };
-		6589008217B117CD002E9CA9 /* ping.c in Sources */ = {isa = PBXBuildFile; fileRef = 6589006417B0F9B7002E9CA9 /* ping.c */; };
 		6589008417B12760002E9CA9 /* away.png in Resources */ = {isa = PBXBuildFile; fileRef = 6589008317B12760002E9CA9 /* away.png */; };
-		658AD23017B79C5C00B98B98 /* configdir.c in Sources */ = {isa = PBXBuildFile; fileRef = 658AD22E17B79C5C00B98B98 /* configdir.c */; };
-		658AD23D17BEFEAE00B98B98 /* dhtstatus.c in Sources */ = {isa = PBXBuildFile; fileRef = 658AD23817BEFEAD00B98B98 /* dhtstatus.c */; };
-		658AD23E17BEFEAE00B98B98 /* windows.c in Sources */ = {isa = PBXBuildFile; fileRef = 658AD23C17BEFEAE00B98B98 /* windows.c */; };
 		658D6DBE17AFCABF003F053F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 658D6DBD17AFCABF003F053F /* WebKit.framework */; };
 		658D6DC017AFCC14003F053F /* conversation.html in Resources */ = {isa = PBXBuildFile; fileRef = 658D6DBF17AFCC14003F053F /* conversation.html */; };
 		658D6DC417AFCC59003F053F /* conversation.css in Resources */ = {isa = PBXBuildFile; fileRef = 658D6DC317AFCC59003F053F /* conversation.css */; };
 		658D6DC517AFD0ED003F053F /* conversation.js in Resources */ = {isa = PBXBuildFile; fileRef = 658D6DC117AFCC48003F053F /* conversation.js */; };
+		659D841C17C8268600FCC7A8 /* tox.c in Sources */ = {isa = PBXBuildFile; fileRef = 659D841A17C8268600FCC7A8 /* tox.c */; };
+		659D841D17C8268600FCC7A8 /* tox.c in Sources */ = {isa = PBXBuildFile; fileRef = 659D841A17C8268600FCC7A8 /* tox.c */; };
 		65C1275317A75A2300F085EE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C1275217A75A2300F085EE /* Cocoa.framework */; };
 		65C1275D17A75A2300F085EE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65C1275B17A75A2300F085EE /* InfoPlist.strings */; };
 		65C1275F17A75A2300F085EE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C1275E17A75A2300F085EE /* main.m */; };
@@ -54,19 +51,6 @@
 		65E3E7FC17AA8039000EB29B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19AEB1446C6744D3B3722C66 /* libPods.a */; };
 		65E3E80017AA80DE000EB29B /* misc_tools.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7FE17AA80DE000EB29B /* misc_tools.c */; };
 		65E3E80217AA8135000EB29B /* libncurses.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 65E3E80117AA8135000EB29B /* libncurses.dylib */; };
-		65E3E81517AA81CE000EB29B /* chat.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E81017AA81CE000EB29B /* chat.c */; };
-		65E3E81617AA81CE000EB29B /* friendlist.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E81117AA81CE000EB29B /* friendlist.c */; };
-		65E3E81717AA81CE000EB29B /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E81217AA81CE000EB29B /* main.c */; };
-		65E3E81817AA81CE000EB29B /* prompt.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E81317AA81CE000EB29B /* prompt.c */; };
-		65E3E81917AA81EA000EB29B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19AEB1446C6744D3B3722C66 /* libPods.a */; };
-		65E3E81A17AA81F1000EB29B /* libncurses.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 65E3E80117AA8135000EB29B /* libncurses.dylib */; };
-		65E3E81B17AA8202000EB29B /* DHT.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7D017AA7D70000EB29B /* DHT.c */; };
-		65E3E81C17AA8202000EB29B /* friend_requests.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7D217AA7D70000EB29B /* friend_requests.c */; };
-		65E3E81D17AA8202000EB29B /* LAN_discovery.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7D417AA7D70000EB29B /* LAN_discovery.c */; };
-		65E3E81E17AA8202000EB29B /* Lossless_UDP.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7D617AA7D70000EB29B /* Lossless_UDP.c */; };
-		65E3E81F17AA8202000EB29B /* Messenger.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7D817AA7D70000EB29B /* Messenger.c */; };
-		65E3E82017AA8202000EB29B /* net_crypto.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7DA17AA7D70000EB29B /* net_crypto.c */; };
-		65E3E82117AA8202000EB29B /* network.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7DC17AA7D70000EB29B /* network.c */; };
 		65E3E82817ABC99F000EB29B /* ToxCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E82717ABC99F000EB29B /* ToxCore.m */; };
 		65E3E83017ABDE70000EB29B /* tox.icns in Resources */ = {isa = PBXBuildFile; fileRef = 65E3E82F17ABDE70000EB29B /* tox.icns */; };
 		65E3E83417AC9CEB000EB29B /* ToxFriendRequestWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E83217AC9CEB000EB29B /* ToxFriendRequestWindowController.m */; };
@@ -101,15 +85,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
-		65E3E80517AA81AD000EB29B /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -123,19 +98,13 @@
 		6589006717B0FA0D002E9CA9 /* util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = util.c; path = "ProjectTox-Core/core/util.c"; sourceTree = "<group>"; };
 		6589006817B0FA0D002E9CA9 /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = util.h; path = "ProjectTox-Core/core/util.h"; sourceTree = "<group>"; };
 		6589008317B12760002E9CA9 /* away.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = away.png; sourceTree = "<group>"; };
-		658AD22E17B79C5C00B98B98 /* configdir.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = configdir.c; path = "ProjectTox-Core/testing/toxic/configdir.c"; sourceTree = SOURCE_ROOT; };
-		658AD22F17B79C5C00B98B98 /* configdir.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = configdir.h; path = "ProjectTox-Core/testing/toxic/configdir.h"; sourceTree = SOURCE_ROOT; };
 		658AD23117BB0CA000B98B98 /* packets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = packets.h; path = "ProjectTox-Core/core/packets.h"; sourceTree = "<group>"; };
-		658AD23717BEFEAD00B98B98 /* chat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = chat.h; path = "ProjectTox-Core/testing/toxic/chat.h"; sourceTree = SOURCE_ROOT; };
-		658AD23817BEFEAD00B98B98 /* dhtstatus.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = dhtstatus.c; path = "ProjectTox-Core/testing/toxic/dhtstatus.c"; sourceTree = SOURCE_ROOT; };
-		658AD23917BEFEAD00B98B98 /* dhtstatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dhtstatus.h; path = "ProjectTox-Core/testing/toxic/dhtstatus.h"; sourceTree = SOURCE_ROOT; };
-		658AD23A17BEFEAD00B98B98 /* friendlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = friendlist.h; path = "ProjectTox-Core/testing/toxic/friendlist.h"; sourceTree = SOURCE_ROOT; };
-		658AD23B17BEFEAE00B98B98 /* prompt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = prompt.h; path = "ProjectTox-Core/testing/toxic/prompt.h"; sourceTree = SOURCE_ROOT; };
-		658AD23C17BEFEAE00B98B98 /* windows.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = windows.c; path = "ProjectTox-Core/testing/toxic/windows.c"; sourceTree = SOURCE_ROOT; };
 		658D6DBD17AFCABF003F053F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		658D6DBF17AFCC14003F053F /* conversation.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = conversation.html; sourceTree = "<group>"; };
 		658D6DC117AFCC48003F053F /* conversation.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = conversation.js; sourceTree = "<group>"; };
 		658D6DC317AFCC59003F053F /* conversation.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = conversation.css; sourceTree = "<group>"; };
+		659D841A17C8268600FCC7A8 /* tox.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = tox.c; path = "ProjectTox-Core/core/tox.c"; sourceTree = "<group>"; };
+		659D841B17C8268600FCC7A8 /* tox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tox.h; path = "ProjectTox-Core/core/tox.h"; sourceTree = "<group>"; };
 		65C1274F17A75A2300F085EE /* Bane.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bane.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65C1275217A75A2300F085EE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		65C1275517A75A2300F085EE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -175,12 +144,6 @@
 		65E3E7FE17AA80DE000EB29B /* misc_tools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = misc_tools.c; path = "ProjectTox-Core/testing/misc_tools.c"; sourceTree = "<group>"; };
 		65E3E7FF17AA80DE000EB29B /* misc_tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = misc_tools.h; path = "ProjectTox-Core/testing/misc_tools.h"; sourceTree = "<group>"; };
 		65E3E80117AA8135000EB29B /* libncurses.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libncurses.dylib; path = usr/lib/libncurses.dylib; sourceTree = SDKROOT; };
-		65E3E80717AA81AD000EB29B /* toxic */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = toxic; sourceTree = BUILT_PRODUCTS_DIR; };
-		65E3E81017AA81CE000EB29B /* chat.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = chat.c; path = "ProjectTox-Core/testing/toxic/chat.c"; sourceTree = SOURCE_ROOT; };
-		65E3E81117AA81CE000EB29B /* friendlist.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = friendlist.c; path = "ProjectTox-Core/testing/toxic/friendlist.c"; sourceTree = SOURCE_ROOT; };
-		65E3E81217AA81CE000EB29B /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = main.c; path = "ProjectTox-Core/testing/toxic/main.c"; sourceTree = SOURCE_ROOT; };
-		65E3E81317AA81CE000EB29B /* prompt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = prompt.c; path = "ProjectTox-Core/testing/toxic/prompt.c"; sourceTree = SOURCE_ROOT; };
-		65E3E81417AA81CE000EB29B /* windows.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = windows.h; path = "ProjectTox-Core/testing/toxic/windows.h"; sourceTree = SOURCE_ROOT; };
 		65E3E82617ABC99F000EB29B /* ToxCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToxCore.h; sourceTree = "<group>"; };
 		65E3E82717ABC99F000EB29B /* ToxCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToxCore.m; sourceTree = "<group>"; };
 		65E3E82F17ABDE70000EB29B /* tox.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = tox.icns; sourceTree = "<group>"; };
@@ -228,15 +191,6 @@
 			files = (
 				65E3E80217AA8135000EB29B /* libncurses.dylib in Frameworks */,
 				65E3E7FC17AA8039000EB29B /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		65E3E80417AA81AD000EB29B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				65E3E81A17AA81F1000EB29B /* libncurses.dylib in Frameworks */,
-				65E3E81917AA81EA000EB29B /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,7 +250,6 @@
 				65C1274F17A75A2300F085EE /* Bane.app */,
 				65C1276F17A75A2300F085EE /* BaneTests.octest */,
 				65E3E7E917AA7FEB000EB29B /* nTox */,
-				65E3E80717AA81AD000EB29B /* toxic */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -381,7 +334,6 @@
 			isa = PBXGroup;
 			children = (
 				65E3E7FD17AA80C9000EB29B /* tools */,
-				65E3E80817AA81AD000EB29B /* toxic */,
 				65E3E7EA17AA7FEB000EB29B /* nTox */,
 				65E3E7CF17AA7D5D000EB29B /* Core */,
 			);
@@ -391,6 +343,8 @@
 		65E3E7CF17AA7D5D000EB29B /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				659D841A17C8268600FCC7A8 /* tox.c */,
+				659D841B17C8268600FCC7A8 /* tox.h */,
 				658AD23117BB0CA000B98B98 /* packets.h */,
 				6589006717B0FA0D002E9CA9 /* util.c */,
 				6589006817B0FA0D002E9CA9 /* util.h */,
@@ -430,26 +384,6 @@
 				65E3E7FF17AA80DE000EB29B /* misc_tools.h */,
 			);
 			name = tools;
-			sourceTree = "<group>";
-		};
-		65E3E80817AA81AD000EB29B /* toxic */ = {
-			isa = PBXGroup;
-			children = (
-				658AD23717BEFEAD00B98B98 /* chat.h */,
-				658AD23817BEFEAD00B98B98 /* dhtstatus.c */,
-				658AD23917BEFEAD00B98B98 /* dhtstatus.h */,
-				658AD23A17BEFEAD00B98B98 /* friendlist.h */,
-				658AD23B17BEFEAE00B98B98 /* prompt.h */,
-				658AD23C17BEFEAE00B98B98 /* windows.c */,
-				658AD22E17B79C5C00B98B98 /* configdir.c */,
-				658AD22F17B79C5C00B98B98 /* configdir.h */,
-				65E3E81017AA81CE000EB29B /* chat.c */,
-				65E3E81117AA81CE000EB29B /* friendlist.c */,
-				65E3E81217AA81CE000EB29B /* main.c */,
-				65E3E81317AA81CE000EB29B /* prompt.c */,
-				65E3E81417AA81CE000EB29B /* windows.h */,
-			);
-			path = toxic;
 			sourceTree = "<group>";
 		};
 		65E3E83617AC9CF7000EB29B /* Resources */ = {
@@ -524,23 +458,6 @@
 			productReference = 65E3E7E917AA7FEB000EB29B /* nTox */;
 			productType = "com.apple.product-type.tool";
 		};
-		65E3E80617AA81AD000EB29B /* toxic */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 65E3E80D17AA81AD000EB29B /* Build configuration list for PBXNativeTarget "toxic" */;
-			buildPhases = (
-				65E3E80317AA81AD000EB29B /* Sources */,
-				65E3E80417AA81AD000EB29B /* Frameworks */,
-				65E3E80517AA81AD000EB29B /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = toxic;
-			productName = toxic;
-			productReference = 65E3E80717AA81AD000EB29B /* toxic */;
-			productType = "com.apple.product-type.tool";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -566,7 +483,6 @@
 				65C1274E17A75A2300F085EE /* Bane */,
 				65C1276E17A75A2300F085EE /* BaneTests */,
 				65E3E7E817AA7FEB000EB29B /* nTox */,
-				65E3E80617AA81AD000EB29B /* toxic */,
 			);
 		};
 /* End PBXProject section */
@@ -674,6 +590,7 @@
 				65E3E84517AE2D06000EB29B /* ToxConversationWindowController.m in Sources */,
 				6589006617B0F9B7002E9CA9 /* ping.c in Sources */,
 				6589006917B0FA0D002E9CA9 /* util.c in Sources */,
+				659D841C17C8268600FCC7A8 /* tox.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,29 +617,7 @@
 				65E3E7FB17AA802F000EB29B /* network.c in Sources */,
 				65E3E7F417AA8018000EB29B /* nTox.c in Sources */,
 				65E3E80017AA80DE000EB29B /* misc_tools.c in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		65E3E80317AA81AD000EB29B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6589008117B117CD002E9CA9 /* util.c in Sources */,
-				6589008217B117CD002E9CA9 /* ping.c in Sources */,
-				65E3E81B17AA8202000EB29B /* DHT.c in Sources */,
-				65E3E81C17AA8202000EB29B /* friend_requests.c in Sources */,
-				65E3E81D17AA8202000EB29B /* LAN_discovery.c in Sources */,
-				65E3E81E17AA8202000EB29B /* Lossless_UDP.c in Sources */,
-				65E3E81F17AA8202000EB29B /* Messenger.c in Sources */,
-				65E3E82017AA8202000EB29B /* net_crypto.c in Sources */,
-				65E3E82117AA8202000EB29B /* network.c in Sources */,
-				65E3E81517AA81CE000EB29B /* chat.c in Sources */,
-				65E3E81617AA81CE000EB29B /* friendlist.c in Sources */,
-				65E3E81717AA81CE000EB29B /* main.c in Sources */,
-				65E3E81817AA81CE000EB29B /* prompt.c in Sources */,
-				658AD23017B79C5C00B98B98 /* configdir.c in Sources */,
-				658AD23D17BEFEAE00B98B98 /* dhtstatus.c in Sources */,
-				658AD23E17BEFEAE00B98B98 /* windows.c in Sources */,
+				659D841D17C8268600FCC7A8 /* tox.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -907,21 +802,6 @@
 			};
 			name = Release;
 		};
-		65E3E80E17AA81AD000EB29B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		65E3E80F17AA81AD000EB29B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -957,15 +837,6 @@
 			buildConfigurations = (
 				65E3E7EF17AA7FEC000EB29B /* Debug */,
 				65E3E7F017AA7FEC000EB29B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		65E3E80D17AA81AD000EB29B /* Build configuration list for PBXNativeTarget "toxic" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				65E3E80E17AA81AD000EB29B /* Debug */,
-				65E3E80F17AA81AD000EB29B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
