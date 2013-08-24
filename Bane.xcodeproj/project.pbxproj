@@ -12,17 +12,31 @@
 		652551C117AE098F00C1FC5B /* online.png in Resources */ = {isa = PBXBuildFile; fileRef = 652551C017AE098F00C1FC5B /* online.png */; };
 		652551C317AE09D300C1FC5B /* busy.png in Resources */ = {isa = PBXBuildFile; fileRef = 652551C217AE09D300C1FC5B /* busy.png */; };
 		652551C517AE0A2100C1FC5B /* offline.png in Resources */ = {isa = PBXBuildFile; fileRef = 652551C417AE0A2100C1FC5B /* offline.png */; };
-		6589006617B0F9B7002E9CA9 /* ping.c in Sources */ = {isa = PBXBuildFile; fileRef = 6589006417B0F9B7002E9CA9 /* ping.c */; };
-		6589006917B0FA0D002E9CA9 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 6589006717B0FA0D002E9CA9 /* util.c */; };
-		6589007D17B117AE002E9CA9 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 6589006717B0FA0D002E9CA9 /* util.c */; };
-		6589007F17B117AE002E9CA9 /* ping.c in Sources */ = {isa = PBXBuildFile; fileRef = 6589006417B0F9B7002E9CA9 /* ping.c */; };
+		654FE9AC17C96F3300E649B3 /* DHT.c in Sources */ = {isa = PBXBuildFile; fileRef = 654FE99717C96F3300E649B3 /* DHT.c */; };
+		654FE9AD17C96F3300E649B3 /* DHT.c in Sources */ = {isa = PBXBuildFile; fileRef = 654FE99717C96F3300E649B3 /* DHT.c */; };
+		654FE9AE17C96F3300E649B3 /* friend_requests.c in Sources */ = {isa = PBXBuildFile; fileRef = 654FE99917C96F3300E649B3 /* friend_requests.c */; };
+		654FE9AF17C96F3300E649B3 /* friend_requests.c in Sources */ = {isa = PBXBuildFile; fileRef = 654FE99917C96F3300E649B3 /* friend_requests.c */; };
+		654FE9B017C96F3300E649B3 /* LAN_discovery.c in Sources */ = {isa = PBXBuildFile; fileRef = 654FE99B17C96F3300E649B3 /* LAN_discovery.c */; };
+		654FE9B117C96F3300E649B3 /* LAN_discovery.c in Sources */ = {isa = PBXBuildFile; fileRef = 654FE99B17C96F3300E649B3 /* LAN_discovery.c */; };
+		654FE9B217C96F3300E649B3 /* Lossless_UDP.c in Sources */ = {isa = PBXBuildFile; fileRef = 654FE99D17C96F3300E649B3 /* Lossless_UDP.c */; };
+		654FE9B317C96F3300E649B3 /* Lossless_UDP.c in Sources */ = {isa = PBXBuildFile; fileRef = 654FE99D17C96F3300E649B3 /* Lossless_UDP.c */; };
+		654FE9B417C96F3300E649B3 /* Messenger.c in Sources */ = {isa = PBXBuildFile; fileRef = 654FE99F17C96F3300E649B3 /* Messenger.c */; };
+		654FE9B517C96F3300E649B3 /* Messenger.c in Sources */ = {isa = PBXBuildFile; fileRef = 654FE99F17C96F3300E649B3 /* Messenger.c */; };
+		654FE9B617C96F3300E649B3 /* net_crypto.c in Sources */ = {isa = PBXBuildFile; fileRef = 654FE9A117C96F3300E649B3 /* net_crypto.c */; };
+		654FE9B717C96F3300E649B3 /* net_crypto.c in Sources */ = {isa = PBXBuildFile; fileRef = 654FE9A117C96F3300E649B3 /* net_crypto.c */; };
+		654FE9B817C96F3300E649B3 /* network.c in Sources */ = {isa = PBXBuildFile; fileRef = 654FE9A317C96F3300E649B3 /* network.c */; };
+		654FE9B917C96F3300E649B3 /* network.c in Sources */ = {isa = PBXBuildFile; fileRef = 654FE9A317C96F3300E649B3 /* network.c */; };
+		654FE9BA17C96F3300E649B3 /* ping.c in Sources */ = {isa = PBXBuildFile; fileRef = 654FE9A617C96F3300E649B3 /* ping.c */; };
+		654FE9BB17C96F3300E649B3 /* ping.c in Sources */ = {isa = PBXBuildFile; fileRef = 654FE9A617C96F3300E649B3 /* ping.c */; };
+		654FE9BC17C96F3300E649B3 /* tox.c in Sources */ = {isa = PBXBuildFile; fileRef = 654FE9A817C96F3300E649B3 /* tox.c */; };
+		654FE9BD17C96F3300E649B3 /* tox.c in Sources */ = {isa = PBXBuildFile; fileRef = 654FE9A817C96F3300E649B3 /* tox.c */; };
+		654FE9BE17C96F3300E649B3 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 654FE9AA17C96F3300E649B3 /* util.c */; };
+		654FE9BF17C96F3300E649B3 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 654FE9AA17C96F3300E649B3 /* util.c */; };
 		6589008417B12760002E9CA9 /* away.png in Resources */ = {isa = PBXBuildFile; fileRef = 6589008317B12760002E9CA9 /* away.png */; };
 		658D6DBE17AFCABF003F053F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 658D6DBD17AFCABF003F053F /* WebKit.framework */; };
 		658D6DC017AFCC14003F053F /* conversation.html in Resources */ = {isa = PBXBuildFile; fileRef = 658D6DBF17AFCC14003F053F /* conversation.html */; };
 		658D6DC417AFCC59003F053F /* conversation.css in Resources */ = {isa = PBXBuildFile; fileRef = 658D6DC317AFCC59003F053F /* conversation.css */; };
 		658D6DC517AFD0ED003F053F /* conversation.js in Resources */ = {isa = PBXBuildFile; fileRef = 658D6DC117AFCC48003F053F /* conversation.js */; };
-		659D841C17C8268600FCC7A8 /* tox.c in Sources */ = {isa = PBXBuildFile; fileRef = 659D841A17C8268600FCC7A8 /* tox.c */; };
-		659D841D17C8268600FCC7A8 /* tox.c in Sources */ = {isa = PBXBuildFile; fileRef = 659D841A17C8268600FCC7A8 /* tox.c */; };
 		65C1275317A75A2300F085EE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C1275217A75A2300F085EE /* Cocoa.framework */; };
 		65C1275D17A75A2300F085EE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65C1275B17A75A2300F085EE /* InfoPlist.strings */; };
 		65C1275F17A75A2300F085EE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C1275E17A75A2300F085EE /* main.m */; };
@@ -33,21 +47,7 @@
 		65C1277217A75A2300F085EE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C1275217A75A2300F085EE /* Cocoa.framework */; };
 		65C1277A17A75A2300F085EE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65C1277817A75A2300F085EE /* InfoPlist.strings */; };
 		65C1277D17A75A2300F085EE /* TOXTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C1277C17A75A2300F085EE /* TOXTests.m */; };
-		65E3E7DE17AA7D70000EB29B /* DHT.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7D017AA7D70000EB29B /* DHT.c */; };
-		65E3E7DF17AA7D70000EB29B /* friend_requests.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7D217AA7D70000EB29B /* friend_requests.c */; };
-		65E3E7E017AA7D70000EB29B /* LAN_discovery.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7D417AA7D70000EB29B /* LAN_discovery.c */; };
-		65E3E7E117AA7D70000EB29B /* Lossless_UDP.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7D617AA7D70000EB29B /* Lossless_UDP.c */; };
-		65E3E7E217AA7D70000EB29B /* Messenger.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7D817AA7D70000EB29B /* Messenger.c */; };
-		65E3E7E317AA7D70000EB29B /* net_crypto.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7DA17AA7D70000EB29B /* net_crypto.c */; };
-		65E3E7E417AA7D70000EB29B /* network.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7DC17AA7D70000EB29B /* network.c */; };
 		65E3E7F417AA8018000EB29B /* nTox.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7F217AA8018000EB29B /* nTox.c */; };
-		65E3E7F517AA802F000EB29B /* DHT.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7D017AA7D70000EB29B /* DHT.c */; };
-		65E3E7F617AA802F000EB29B /* friend_requests.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7D217AA7D70000EB29B /* friend_requests.c */; };
-		65E3E7F717AA802F000EB29B /* LAN_discovery.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7D417AA7D70000EB29B /* LAN_discovery.c */; };
-		65E3E7F817AA802F000EB29B /* Lossless_UDP.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7D617AA7D70000EB29B /* Lossless_UDP.c */; };
-		65E3E7F917AA802F000EB29B /* Messenger.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7D817AA7D70000EB29B /* Messenger.c */; };
-		65E3E7FA17AA802F000EB29B /* net_crypto.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7DA17AA7D70000EB29B /* net_crypto.c */; };
-		65E3E7FB17AA802F000EB29B /* network.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7DC17AA7D70000EB29B /* network.c */; };
 		65E3E7FC17AA8039000EB29B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19AEB1446C6744D3B3722C66 /* libPods.a */; };
 		65E3E80017AA80DE000EB29B /* misc_tools.c in Sources */ = {isa = PBXBuildFile; fileRef = 65E3E7FE17AA80DE000EB29B /* misc_tools.c */; };
 		65E3E80217AA8135000EB29B /* libncurses.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 65E3E80117AA8135000EB29B /* libncurses.dylib */; };
@@ -93,18 +93,32 @@
 		652551C017AE098F00C1FC5B /* online.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = online.png; sourceTree = "<group>"; };
 		652551C217AE09D300C1FC5B /* busy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = busy.png; sourceTree = "<group>"; };
 		652551C417AE0A2100C1FC5B /* offline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = offline.png; sourceTree = "<group>"; };
-		6589006417B0F9B7002E9CA9 /* ping.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ping.c; path = "ProjectTox-Core/core/ping.c"; sourceTree = "<group>"; };
-		6589006517B0F9B7002E9CA9 /* ping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ping.h; path = "ProjectTox-Core/core/ping.h"; sourceTree = "<group>"; };
-		6589006717B0FA0D002E9CA9 /* util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = util.c; path = "ProjectTox-Core/core/util.c"; sourceTree = "<group>"; };
-		6589006817B0FA0D002E9CA9 /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = util.h; path = "ProjectTox-Core/core/util.h"; sourceTree = "<group>"; };
+		654FE99717C96F3300E649B3 /* DHT.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = DHT.c; path = "ProjectTox-Core/toxcore/DHT.c"; sourceTree = "<group>"; };
+		654FE99817C96F3300E649B3 /* DHT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DHT.h; path = "ProjectTox-Core/toxcore/DHT.h"; sourceTree = "<group>"; };
+		654FE99917C96F3300E649B3 /* friend_requests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = friend_requests.c; path = "ProjectTox-Core/toxcore/friend_requests.c"; sourceTree = "<group>"; };
+		654FE99A17C96F3300E649B3 /* friend_requests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = friend_requests.h; path = "ProjectTox-Core/toxcore/friend_requests.h"; sourceTree = "<group>"; };
+		654FE99B17C96F3300E649B3 /* LAN_discovery.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = LAN_discovery.c; path = "ProjectTox-Core/toxcore/LAN_discovery.c"; sourceTree = "<group>"; };
+		654FE99C17C96F3300E649B3 /* LAN_discovery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LAN_discovery.h; path = "ProjectTox-Core/toxcore/LAN_discovery.h"; sourceTree = "<group>"; };
+		654FE99D17C96F3300E649B3 /* Lossless_UDP.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Lossless_UDP.c; path = "ProjectTox-Core/toxcore/Lossless_UDP.c"; sourceTree = "<group>"; };
+		654FE99E17C96F3300E649B3 /* Lossless_UDP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Lossless_UDP.h; path = "ProjectTox-Core/toxcore/Lossless_UDP.h"; sourceTree = "<group>"; };
+		654FE99F17C96F3300E649B3 /* Messenger.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Messenger.c; path = "ProjectTox-Core/toxcore/Messenger.c"; sourceTree = "<group>"; };
+		654FE9A017C96F3300E649B3 /* Messenger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Messenger.h; path = "ProjectTox-Core/toxcore/Messenger.h"; sourceTree = "<group>"; };
+		654FE9A117C96F3300E649B3 /* net_crypto.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = net_crypto.c; path = "ProjectTox-Core/toxcore/net_crypto.c"; sourceTree = "<group>"; };
+		654FE9A217C96F3300E649B3 /* net_crypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = net_crypto.h; path = "ProjectTox-Core/toxcore/net_crypto.h"; sourceTree = "<group>"; };
+		654FE9A317C96F3300E649B3 /* network.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = network.c; path = "ProjectTox-Core/toxcore/network.c"; sourceTree = "<group>"; };
+		654FE9A417C96F3300E649B3 /* network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = network.h; path = "ProjectTox-Core/toxcore/network.h"; sourceTree = "<group>"; };
+		654FE9A517C96F3300E649B3 /* packets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = packets.h; path = "ProjectTox-Core/toxcore/packets.h"; sourceTree = "<group>"; };
+		654FE9A617C96F3300E649B3 /* ping.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ping.c; path = "ProjectTox-Core/toxcore/ping.c"; sourceTree = "<group>"; };
+		654FE9A717C96F3300E649B3 /* ping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ping.h; path = "ProjectTox-Core/toxcore/ping.h"; sourceTree = "<group>"; };
+		654FE9A817C96F3300E649B3 /* tox.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = tox.c; path = "ProjectTox-Core/toxcore/tox.c"; sourceTree = "<group>"; };
+		654FE9A917C96F3300E649B3 /* tox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tox.h; path = "ProjectTox-Core/toxcore/tox.h"; sourceTree = "<group>"; };
+		654FE9AA17C96F3300E649B3 /* util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = util.c; path = "ProjectTox-Core/toxcore/util.c"; sourceTree = "<group>"; };
+		654FE9AB17C96F3300E649B3 /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = util.h; path = "ProjectTox-Core/toxcore/util.h"; sourceTree = "<group>"; };
 		6589008317B12760002E9CA9 /* away.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = away.png; sourceTree = "<group>"; };
-		658AD23117BB0CA000B98B98 /* packets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = packets.h; path = "ProjectTox-Core/core/packets.h"; sourceTree = "<group>"; };
 		658D6DBD17AFCABF003F053F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		658D6DBF17AFCC14003F053F /* conversation.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = conversation.html; sourceTree = "<group>"; };
 		658D6DC117AFCC48003F053F /* conversation.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = conversation.js; sourceTree = "<group>"; };
 		658D6DC317AFCC59003F053F /* conversation.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = conversation.css; sourceTree = "<group>"; };
-		659D841A17C8268600FCC7A8 /* tox.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = tox.c; path = "ProjectTox-Core/core/tox.c"; sourceTree = "<group>"; };
-		659D841B17C8268600FCC7A8 /* tox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tox.h; path = "ProjectTox-Core/core/tox.h"; sourceTree = "<group>"; };
 		65C1274F17A75A2300F085EE /* Bane.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bane.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65C1275217A75A2300F085EE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		65C1275517A75A2300F085EE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -124,20 +138,6 @@
 		65C1277917A75A2300F085EE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		65C1277B17A75A2300F085EE /* TOXTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOXTests.h; sourceTree = "<group>"; };
 		65C1277C17A75A2300F085EE /* TOXTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOXTests.m; sourceTree = "<group>"; };
-		65E3E7D017AA7D70000EB29B /* DHT.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = DHT.c; path = "ProjectTox-Core/core/DHT.c"; sourceTree = "<group>"; };
-		65E3E7D117AA7D70000EB29B /* DHT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DHT.h; path = "ProjectTox-Core/core/DHT.h"; sourceTree = "<group>"; };
-		65E3E7D217AA7D70000EB29B /* friend_requests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = friend_requests.c; path = "ProjectTox-Core/core/friend_requests.c"; sourceTree = "<group>"; };
-		65E3E7D317AA7D70000EB29B /* friend_requests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = friend_requests.h; path = "ProjectTox-Core/core/friend_requests.h"; sourceTree = "<group>"; };
-		65E3E7D417AA7D70000EB29B /* LAN_discovery.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = LAN_discovery.c; path = "ProjectTox-Core/core/LAN_discovery.c"; sourceTree = "<group>"; };
-		65E3E7D517AA7D70000EB29B /* LAN_discovery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LAN_discovery.h; path = "ProjectTox-Core/core/LAN_discovery.h"; sourceTree = "<group>"; };
-		65E3E7D617AA7D70000EB29B /* Lossless_UDP.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Lossless_UDP.c; path = "ProjectTox-Core/core/Lossless_UDP.c"; sourceTree = "<group>"; };
-		65E3E7D717AA7D70000EB29B /* Lossless_UDP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Lossless_UDP.h; path = "ProjectTox-Core/core/Lossless_UDP.h"; sourceTree = "<group>"; };
-		65E3E7D817AA7D70000EB29B /* Messenger.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Messenger.c; path = "ProjectTox-Core/core/Messenger.c"; sourceTree = "<group>"; };
-		65E3E7D917AA7D70000EB29B /* Messenger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Messenger.h; path = "ProjectTox-Core/core/Messenger.h"; sourceTree = "<group>"; };
-		65E3E7DA17AA7D70000EB29B /* net_crypto.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = net_crypto.c; path = "ProjectTox-Core/core/net_crypto.c"; sourceTree = "<group>"; };
-		65E3E7DB17AA7D70000EB29B /* net_crypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = net_crypto.h; path = "ProjectTox-Core/core/net_crypto.h"; sourceTree = "<group>"; };
-		65E3E7DC17AA7D70000EB29B /* network.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = network.c; path = "ProjectTox-Core/core/network.c"; sourceTree = "<group>"; };
-		65E3E7DD17AA7D70000EB29B /* network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = network.h; path = "ProjectTox-Core/core/network.h"; sourceTree = "<group>"; };
 		65E3E7E917AA7FEB000EB29B /* nTox */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = nTox; sourceTree = BUILT_PRODUCTS_DIR; };
 		65E3E7F217AA8018000EB29B /* nTox.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = nTox.c; path = "ProjectTox-Core/testing/nTox.c"; sourceTree = SOURCE_ROOT; };
 		65E3E7F317AA8018000EB29B /* nTox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nTox.h; path = "ProjectTox-Core/testing/nTox.h"; sourceTree = SOURCE_ROOT; };
@@ -343,27 +343,27 @@
 		65E3E7CF17AA7D5D000EB29B /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				659D841A17C8268600FCC7A8 /* tox.c */,
-				659D841B17C8268600FCC7A8 /* tox.h */,
-				658AD23117BB0CA000B98B98 /* packets.h */,
-				6589006717B0FA0D002E9CA9 /* util.c */,
-				6589006817B0FA0D002E9CA9 /* util.h */,
-				6589006417B0F9B7002E9CA9 /* ping.c */,
-				6589006517B0F9B7002E9CA9 /* ping.h */,
-				65E3E7D017AA7D70000EB29B /* DHT.c */,
-				65E3E7D117AA7D70000EB29B /* DHT.h */,
-				65E3E7D217AA7D70000EB29B /* friend_requests.c */,
-				65E3E7D317AA7D70000EB29B /* friend_requests.h */,
-				65E3E7D417AA7D70000EB29B /* LAN_discovery.c */,
-				65E3E7D517AA7D70000EB29B /* LAN_discovery.h */,
-				65E3E7D617AA7D70000EB29B /* Lossless_UDP.c */,
-				65E3E7D717AA7D70000EB29B /* Lossless_UDP.h */,
-				65E3E7D817AA7D70000EB29B /* Messenger.c */,
-				65E3E7D917AA7D70000EB29B /* Messenger.h */,
-				65E3E7DA17AA7D70000EB29B /* net_crypto.c */,
-				65E3E7DB17AA7D70000EB29B /* net_crypto.h */,
-				65E3E7DC17AA7D70000EB29B /* network.c */,
-				65E3E7DD17AA7D70000EB29B /* network.h */,
+				654FE99717C96F3300E649B3 /* DHT.c */,
+				654FE99817C96F3300E649B3 /* DHT.h */,
+				654FE99917C96F3300E649B3 /* friend_requests.c */,
+				654FE99A17C96F3300E649B3 /* friend_requests.h */,
+				654FE99B17C96F3300E649B3 /* LAN_discovery.c */,
+				654FE99C17C96F3300E649B3 /* LAN_discovery.h */,
+				654FE99D17C96F3300E649B3 /* Lossless_UDP.c */,
+				654FE99E17C96F3300E649B3 /* Lossless_UDP.h */,
+				654FE99F17C96F3300E649B3 /* Messenger.c */,
+				654FE9A017C96F3300E649B3 /* Messenger.h */,
+				654FE9A117C96F3300E649B3 /* net_crypto.c */,
+				654FE9A217C96F3300E649B3 /* net_crypto.h */,
+				654FE9A317C96F3300E649B3 /* network.c */,
+				654FE9A417C96F3300E649B3 /* network.h */,
+				654FE9A517C96F3300E649B3 /* packets.h */,
+				654FE9A617C96F3300E649B3 /* ping.c */,
+				654FE9A717C96F3300E649B3 /* ping.h */,
+				654FE9A817C96F3300E649B3 /* tox.c */,
+				654FE9A917C96F3300E649B3 /* tox.h */,
+				654FE9AA17C96F3300E649B3 /* util.c */,
+				654FE9AB17C96F3300E649B3 /* util.h */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -575,22 +575,22 @@
 			files = (
 				65C1275F17A75A2300F085EE /* main.m in Sources */,
 				65C1276617A75A2300F085EE /* TAppDelegate.m in Sources */,
-				65E3E7DE17AA7D70000EB29B /* DHT.c in Sources */,
-				65E3E7DF17AA7D70000EB29B /* friend_requests.c in Sources */,
-				65E3E7E017AA7D70000EB29B /* LAN_discovery.c in Sources */,
-				65E3E7E117AA7D70000EB29B /* Lossless_UDP.c in Sources */,
-				65E3E7E217AA7D70000EB29B /* Messenger.c in Sources */,
-				65E3E7E317AA7D70000EB29B /* net_crypto.c in Sources */,
-				65E3E7E417AA7D70000EB29B /* network.c in Sources */,
 				65E3E82817ABC99F000EB29B /* ToxCore.m in Sources */,
 				65E3E83417AC9CEB000EB29B /* ToxFriendRequestWindowController.m in Sources */,
 				65E3E83917ADC29C000EB29B /* ToxController.m in Sources */,
 				65E3E83C17ADCD68000EB29B /* ToxFriend.m in Sources */,
 				65E3E84017AE1D41000EB29B /* ToxWelcomeWindowController.m in Sources */,
 				65E3E84517AE2D06000EB29B /* ToxConversationWindowController.m in Sources */,
-				6589006617B0F9B7002E9CA9 /* ping.c in Sources */,
-				6589006917B0FA0D002E9CA9 /* util.c in Sources */,
-				659D841C17C8268600FCC7A8 /* tox.c in Sources */,
+				654FE9AC17C96F3300E649B3 /* DHT.c in Sources */,
+				654FE9AE17C96F3300E649B3 /* friend_requests.c in Sources */,
+				654FE9B017C96F3300E649B3 /* LAN_discovery.c in Sources */,
+				654FE9B217C96F3300E649B3 /* Lossless_UDP.c in Sources */,
+				654FE9B417C96F3300E649B3 /* Messenger.c in Sources */,
+				654FE9B617C96F3300E649B3 /* net_crypto.c in Sources */,
+				654FE9B817C96F3300E649B3 /* network.c in Sources */,
+				654FE9BA17C96F3300E649B3 /* ping.c in Sources */,
+				654FE9BC17C96F3300E649B3 /* tox.c in Sources */,
+				654FE9BE17C96F3300E649B3 /* util.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,18 +606,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6589007D17B117AE002E9CA9 /* util.c in Sources */,
-				6589007F17B117AE002E9CA9 /* ping.c in Sources */,
-				65E3E7F517AA802F000EB29B /* DHT.c in Sources */,
-				65E3E7F617AA802F000EB29B /* friend_requests.c in Sources */,
-				65E3E7F717AA802F000EB29B /* LAN_discovery.c in Sources */,
-				65E3E7F817AA802F000EB29B /* Lossless_UDP.c in Sources */,
-				65E3E7F917AA802F000EB29B /* Messenger.c in Sources */,
-				65E3E7FA17AA802F000EB29B /* net_crypto.c in Sources */,
-				65E3E7FB17AA802F000EB29B /* network.c in Sources */,
 				65E3E7F417AA8018000EB29B /* nTox.c in Sources */,
 				65E3E80017AA80DE000EB29B /* misc_tools.c in Sources */,
-				659D841D17C8268600FCC7A8 /* tox.c in Sources */,
+				654FE9AD17C96F3300E649B3 /* DHT.c in Sources */,
+				654FE9AF17C96F3300E649B3 /* friend_requests.c in Sources */,
+				654FE9B117C96F3300E649B3 /* LAN_discovery.c in Sources */,
+				654FE9B317C96F3300E649B3 /* Lossless_UDP.c in Sources */,
+				654FE9B517C96F3300E649B3 /* Messenger.c in Sources */,
+				654FE9B717C96F3300E649B3 /* net_crypto.c in Sources */,
+				654FE9B917C96F3300E649B3 /* network.c in Sources */,
+				654FE9BB17C96F3300E649B3 /* ping.c in Sources */,
+				654FE9BD17C96F3300E649B3 /* tox.c in Sources */,
+				654FE9BF17C96F3300E649B3 /* util.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
