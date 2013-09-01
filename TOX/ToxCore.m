@@ -307,7 +307,7 @@ uint32_t resolve_addr(const char *address)
                 bootstrap_ip_port.port = htons([port intValue]);
                 int resolved_address = resolve_addr([host UTF8String]);
                 if (resolved_address != 0) {
-                    bootstrap_ip_port.ip.i = resolved_address;
+                    bootstrap_ip_port.ip.uint32 = resolved_address;
                                     
                     m_callback_friendrequest(messenger, on_request, (__bridge void *)(self));
                     m_callback_friendmessage(messenger, on_message, (__bridge void *)(self));
